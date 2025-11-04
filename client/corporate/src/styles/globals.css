@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Taşma önleyici kurallar */
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Mobil cihazlarda 100vw sorunu için */
+* {
+    box-sizing: border-box;
+}
+
+/* Taşan içerik için genel kural */
+.container,
+.max-w-7xl,
+.max-w-5xl,
+.max-w-sm {
+    max-width: 100%;
+}
+
+/* Sidebar animasyonu için smooth overflow */
+@media (max-width: 768px) {
+    body {
+        position: relative;
+    }
+}
+
+/* Mobile menu sub-links fade-in animasyonu */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.2s ease-out;
+}
+
+/* Scrollbar gizleme */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}

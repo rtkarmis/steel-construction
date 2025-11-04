@@ -1,0 +1,35 @@
+export const tr = {
+  navigation: {
+    home: "Anasayfa",
+    about: "Hakkımızda",
+    services: "Hizmetlerimiz",
+    projects: "Projelerimiz",
+    references: "Referanslarımız",
+    media: "Medya",
+    blog: "Blog",
+    contact: "İletişim",
+    quote: "Teklif Al",
+    faq: "SSS",
+    privacyPolicy: "Gizlilik Politikası",
+    cookiePolicy: "Çerez Politikası",
+    kvkk: "KVKK Aydınlatma Metni",
+    sitemap: "Site Haritası",
+  },
+  header: {
+    companyName: "Güvenoğlu Çelik & Metal",
+    tagline: "Çelik Yapı Çözümlerinde Uzman",
+    getQuote: "Teklif Al",
+    callNow: "Hemen Ara",
+  },
+  footer: {
+    quickAccess: "Hızlı Erişim",
+    informationCenter: "Bilgi Merkezi",
+    policies: "Politikalar",
+    contact: "İletişim",
+    allRightsReserved: "Tüm hakları saklıdır.",
+    socialMedia: "Sosyal Medya",
+    followUs: "Bizi Takip Edin",
+    companyDescription:
+      "25+ yıllık deneyimle çelik konstrüksiyon alanında güvenilir çözümler sunuyoruz.",
+  },
+} as const;

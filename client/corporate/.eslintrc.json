@@ -1,0 +1,11 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "plugins": ["import"],
+  "rules": {
+    "import/prefer-default-export": "error",
+    "import/no-default-export": "off",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error"
+  }
+}
