@@ -3,7 +3,8 @@
 import Logo from "@/components/ui/Logo";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { headerMenuLinks } from "@/data/menu";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { siteConfig } from "@/lib/seo";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -73,9 +74,9 @@ const MobileHeader = ({ isScrolled = false }: { isScrolled?: boolean }) => {
       </div>{" "}
       {/* Menu Panel - Açılır menü */}
       {isMenuOpen && (
-        <div className="w-full bg-surface border-t border-gray-200 shadow-lg fixed left-0 right-0 z-40 transition-colors duration-300 top-[6.5rem] h-[calc(100vh-6.5rem)]">
+        <div className="w-full bg-surface border-t border-gray-200 shadow-lg fixed left-0 right-0 z-40 transition-colors duration-300 top-[6.5rem] h-[calc(100vh-6.5rem)] flex flex-col">
           {/* Topbar h-10 + header h-16 = 6.5rem */}
-          <div className="p-6 space-y-4">
+          <div className="px-6 py-3 space-y-1 flex-1 overflow-y-auto">
             {headerMenuLinks.map((link) => {
               const hasSubLinks = link.subLinks && link.subLinks.length > 0;
               const isActive =
@@ -144,6 +145,18 @@ const MobileHeader = ({ isScrolled = false }: { isScrolled?: boolean }) => {
                 </div>
               );
             })}
+          </div>
+
+          {/* Teklif Al Butonu - Sabit Alt Kısım */}
+          <div className="px-6 py-4 border-t border-gray-200 bg-surface">
+            <Link
+              href={`tel:${siteConfig.phone}`}
+              onClick={closeMenu}
+              className="flex items-center justify-center gap-3 w-full bg-primary text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <Phone size={20} />
+              {t("navigation.quote")}
+            </Link>
           </div>
         </div>
       )}

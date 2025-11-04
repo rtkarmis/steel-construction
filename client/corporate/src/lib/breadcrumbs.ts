@@ -1,4 +1,8 @@
-import { headerMenuLinks, policyMenuLinks } from "@/data/menu";
+import {
+  footerMenuInformationLinks,
+  headerMenuLinks,
+  policyMenuLinks,
+} from "@/data/menu";
 import { BreadcrumbItem } from "@/types/common";
 
 /**
@@ -18,6 +22,15 @@ export const getBreadcrumbs = (path: string): BreadcrumbItem[] => {
   const headerPage = headerMenuLinks.find((link) => link.slug === path);
   if (headerPage) {
     breadcrumbs.push({ label: headerPage.label, slug: path });
+    return breadcrumbs;
+  }
+
+  // Find the page in footer information menu (for SSS, etc.)
+  const footerInfoPage = footerMenuInformationLinks.find(
+    (link) => link.slug === path
+  );
+  if (footerInfoPage) {
+    breadcrumbs.push({ label: footerInfoPage.label, slug: path });
     return breadcrumbs;
   }
 

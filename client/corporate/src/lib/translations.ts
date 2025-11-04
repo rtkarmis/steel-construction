@@ -23,6 +23,8 @@ import { tr as serviceDetailTr } from "@/locales/pages/serviceDetail/tr";
 // Policy pages
 import { en as cookiePolicyEn } from "@/locales/pages/cookiePolicy/en";
 import { tr as cookiePolicyTr } from "@/locales/pages/cookiePolicy/tr";
+import { en as faqEn } from "@/locales/pages/faq/en";
+import { tr as faqTr } from "@/locales/pages/faq/tr";
 import { en as kvkkEn } from "@/locales/pages/kvkk/en";
 import { tr as kvkkTr } from "@/locales/pages/kvkk/tr";
 import { en as privacyPolicyEn } from "@/locales/pages/privacyPolicy/en";
@@ -38,6 +40,7 @@ export const translations = {
       about: aboutTr,
       blog: blogsTr,
       contact: contactTr,
+      faq: faqTr,
       service: servicesTr,
       serviceDetail: serviceDetailTr,
       project: projectsTr,
@@ -55,6 +58,7 @@ export const translations = {
       about: aboutEn,
       blog: blogsEn,
       contact: contactEn,
+      faq: faqEn,
       service: servicesEn,
       serviceDetail: serviceDetailEn,
       project: projectsEn,
