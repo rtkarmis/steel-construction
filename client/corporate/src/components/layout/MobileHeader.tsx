@@ -74,9 +74,25 @@ const MobileHeader = ({ isScrolled = false }: { isScrolled?: boolean }) => {
       </div>{" "}
       {/* Menu Panel - Açılır menü */}
       {isMenuOpen && (
-        <div className="w-full bg-surface border-t border-gray-200 shadow-lg fixed left-0 right-0 z-40 transition-colors duration-300 top-[6.5rem] h-[calc(100vh-6.5rem)] flex flex-col">
-          {/* Topbar h-10 + header h-16 = 6.5rem */}
-          <div className="px-6 py-3 space-y-1 flex-1 overflow-y-auto">
+        <div className="w-full bg-surface shadow-lg fixed left-0 right-0 z-40 transition-colors duration-300 top-0 h-screen flex flex-col">
+          {/* Header spacer to account for the fixed header */}
+          <div className="py-9 relative flex items-center">
+            {/* Logo in sidebar header - centered like in main header */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <Logo />
+            </div>
+
+            {/* Close button positioned in the top-right corner */}
+            <button
+              onClick={closeMenu}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
+              aria-label="Menüyü Kapat"
+            >
+              <X size={24} className="text-primary" />
+            </button>
+          </div>
+
+          <div className="px-6 pb-3 space-y-1 flex-1 overflow-hidden">
             {headerMenuLinks.map((link) => {
               const hasSubLinks = link.subLinks && link.subLinks.length > 0;
               const isActive =
