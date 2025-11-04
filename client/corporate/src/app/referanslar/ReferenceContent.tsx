@@ -50,7 +50,7 @@ export default function ReferencesContent() {
       {/* 🔹 HERO SECTION */}
       <section className="relative h-[50vh] flex items-center justify-center text-center text-white overflow-hidden">
         <Image
-          src="/images/references/hero-reference.webp"
+          src="/images/reference/hero-reference.webp"
           alt={getPage("references", "hero.title")}
           fill
           priority

@@ -22,7 +22,9 @@ export interface PageMetadataItem {
 export interface FooterData {
   company: {
     name: string;
+    nameEn?: string;
     description: string;
+    descriptionEn?: string;
     socialLinks: {
       instagram?: string;
       facebook?: string;
@@ -36,6 +38,7 @@ export interface FooterData {
   };
   contact: {
     address: string;
+    addressEn?: string;
     phone: string;
     email: string;
     mapUrl: string;

@@ -24,7 +24,7 @@ const SchemaFooter = dynamic(() => import("@/components/seo/SchemaFooter"), {
 
 export default function Footer() {
   const { company, navigation, contact, legal } = footerData;
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <>
@@ -33,10 +33,14 @@ export default function Footer() {
           {/* 🟣 Hakkında */}
           <section>
             <h3 className="text-lg font-semibold text-primary mb-3">
-              {company.name}
+              {language === "tr"
+                ? company.name
+                : company.nameEn || company.name}
             </h3>
             <p className="text-sm text-text leading-relaxed mb-4">
-              {company.description}
+              {language === "tr"
+                ? company.description
+                : company.descriptionEn || company.description}
             </p>
             <div className="flex items-center gap-4 mt-4">
               {company.socialLinks.instagram && (
@@ -137,7 +141,11 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-text mb-4">
               <li className="flex items-start gap-2">
                 <MapPin className="text-text/60 mt-[3px]" size={14} />
-                <span>{contact.address}</span>
+                <span>
+                  {language === "tr"
+                    ? contact.address
+                    : contact.addressEn || contact.address}
+                </span>
               </li>
               <li>
                 <Phone className="inline-block text-text/60 mr-2" size={14} />

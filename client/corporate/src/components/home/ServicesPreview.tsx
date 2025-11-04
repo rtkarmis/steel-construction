@@ -23,18 +23,20 @@ const ServicesPreview = ({ fadeUp, staggerContainer }: ServicePreviewProps) => {
   const services = getHomePageServices(3);
 
   return (
-    <m.section variants={fadeUp} className="py-20 bg-background">
+    <m.section variants={fadeUp} className="py-16 lg:py-24 bg-background">
       <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary">
-          {getPage("home", "services.title")}
-        </h2>
-        <p className="mt-3 text-text/70 max-w-3xl mx-auto">
-          {getPage("home", "services.subtitle")}
-        </p>
+        <div className="max-w-3xl mx-auto mb-12 lg:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
+            {getPage("home", "services.title")}
+          </h2>
+          <p className="text-text/70 text-lg lg:text-xl leading-relaxed">
+            {getPage("home", "services.subtitle")}
+          </p>
+        </div>
 
         <m.div
           variants={staggerContainer}
-          className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {services.map((s) => {
             const Icon = Icons[
@@ -45,42 +47,51 @@ const ServicesPreview = ({ fadeUp, staggerContainer }: ServicePreviewProps) => {
               <m.div
                 key={s.key}
                 variants={fadeUp}
-                className="group bg-surface rounded-2xl p-8 text-left shadow-sm hover:shadow-md border border-border/60 transition-all duration-300 hover:-translate-y-1"
+                className="group bg-surface rounded-2xl p-6 lg:p-8 text-left shadow-sm hover:shadow-lg border border-border/60 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
               >
                 {/* Icon Container */}
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-secondary/10 mb-4">
-                  {Icon && <Icon className="w-6 h-6 text-secondary" />}
+                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-secondary/10 mb-6 group-hover:bg-secondary/20 transition-colors">
+                  {Icon && <Icon className="w-7 h-7 text-secondary" />}
                 </div>
 
-                {/* Title & Description */}
-                <h3 className="text-lg font-semibold text-primary group-hover:text-secondary transition-colors">
-                  {getPage("service", `services.items.${s.key}.name`) ||
-                    s.translations[language].name}
-                </h3>
-                <p className="mt-2 text-sm text-text/70">
-                  {getPage("service", `services.items.${s.key}.description`) ||
-                    s.translations[language].description}
-                </p>
+                {/* Content Container - flex-grow için */}
+                <div className="flex-grow">
+                  {/* Title & Description */}
+                  <h3 className="text-xl font-semibold text-primary group-hover:text-secondary transition-colors mb-3">
+                    {getPage("service", `services.items.${s.key}.name`) ||
+                      s.translations[language].name}
+                  </h3>
+                  <p className="text-text/70 leading-relaxed text-sm lg:text-base">
+                    {getPage(
+                      "service",
+                      `services.items.${s.key}.description`
+                    ) || s.translations[language].description}
+                  </p>
+                </div>
 
-                {/* Link */}
-                <Link
-                  href={s.slug}
-                  className="inline-block mt-4 text-secondary font-medium hover:underline"
-                >
-                  {getPage("service", "services.detailButton")} →
-                </Link>
+                {/* Link - alt kısımda sabit */}
+                <div className="mt-6 pt-4 border-t border-border/30">
+                  <Link
+                    href={s.slug}
+                    className="inline-flex items-center gap-2 text-secondary font-medium hover:text-secondary/80 transition-colors group-hover:gap-3"
+                  >
+                    {getPage("service", "services.detailButton")}
+                    <Icons.ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </m.div>
             );
           })}
         </m.div>
 
         {/* View All Button */}
-        <div className="mt-10">
+        <div className="mt-12 lg:mt-16">
           <Link
             href="/hizmetler"
-            className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium"
+            className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl hover:bg-primary/90 transition-all duration-300 font-medium text-lg hover:gap-4 shadow-lg hover:shadow-xl"
           >
             {getPage("home", "services.viewAllButton")}
+            <Icons.ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </div>

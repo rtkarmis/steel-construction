@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   siteUrl: "https://guvenoglucelik.com",
   siteName: "Güvenoğlu Çelik & Metal",
+  siteNameEn: "Güvenoğlu Steel & Metal",
   legalName: "Güvenoğlu Çelik & Metal",
   defaultTitle: "Güvenoğlu Çelik & Metal | Çelik Yapı İnşaat",
   defaultDescription:
@@ -16,7 +17,9 @@ export const siteConfig = {
   phone: "+905523154619",
   phoneDisplay: "+90 (552) 315 46 19",
   vatOffice: "Bolu",
-  address: "Karacaağaç Mevkii, D100 Üzeri no:2, 14100 Bolu Merkez/Bolu",
+  address: "Karacaağaç Mevkii, D100 Üzeri No:2, 14100 Bolu Merkez/Bolu",
+  addressEn:
+    "Karacaagac District, D100 Highway, No. 2, 14100 Bolu Central/Bolu",
   streetAddress: "Karacaağaç Mevkii, D100 Üzeri no:2",
   addressLocality: "Bolu",
   postalCode: "14100",

@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/seo";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactContent() {
-  const { getPage, getNavigation } = useLanguage();
+  const { getPage, getNavigation, language } = useLanguage();
 
   const schemaBreadcrumbs = [
     { label: "Ana Sayfa", href: "/" },
@@ -106,7 +106,11 @@ export default function ContactContent() {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#1E3A8A] mt-1" />
-                <p>{getPage("contact", "info.address")}</p>
+                <p>
+                  {language === "tr"
+                    ? siteConfig.address
+                    : siteConfig.addressEn}
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-[#1E3A8A] mt-1" />
