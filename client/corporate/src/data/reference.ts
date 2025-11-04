@@ -14,7 +14,7 @@ export const references: Reference[] = [
         description: "Our trusted partner in industrial construction projects.",
       },
     },
-    logo: "/images/references/bolu-cimento.webp",
+    logo: "/images/reference/bolu-cimento.webp",
     website: "https://bolucimento.com.tr",
   },
   {
@@ -32,7 +32,7 @@ export const references: Reference[] = [
           "Our partner in technological infrastructure and automation systems.",
       },
     },
-    logo: "/images/references/eflatun.webp",
+    logo: "/images/reference/eflatun.webp",
     website: "https://eflatunteknoloji.com",
   },
   {
@@ -48,7 +48,7 @@ export const references: Reference[] = [
         description: "Our production partner for steel construction solutions.",
       },
     },
-    logo: "/images/references/erciyas.webp",
+    logo: "/images/reference/erciyas.webp",
     website: "https://erciyasholding.com.tr",
   },
 ];

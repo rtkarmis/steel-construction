@@ -110,7 +110,7 @@ export default function ServiceDetailContent({
       {/* Hero */}
       <div className="relative h-[40vh] flex items-center justify-center overflow-hidden">
         <Image
-          src={`/images/services/${service.key}/hero.webp`}
+          src={`/images/service/${service.key}/hero.webp`}
           alt={getServiceName()}
           fill
           priority
@@ -149,7 +149,7 @@ export default function ServiceDetailContent({
 
         <div className="relative h-[300px] md:h-[380px] rounded-2xl overflow-hidden shadow-md">
           <Image
-            src={`/images/services/${service.key}/detail.webp`}
+            src={`/images/service/${service.key}/detail.webp`}
             alt={getServiceName()}
             fill
             className="object-cover"
