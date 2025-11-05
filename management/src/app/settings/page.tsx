@@ -1,11 +1,19 @@
-import { UserIcon, BuildingOfficeIcon, BellIcon, ShieldCheckIcon, CogIcon } from '@heroicons/react/24/outline';
+import {
+  UserIcon,
+  BuildingOfficeIcon,
+  BellIcon,
+  ShieldCheckIcon,
+  CogIcon,
+} from "@heroicons/react/24/outline";
 
 export default function SettingsPage() {
   return (
     <div>
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
-          <h1 className="text-2xl font-semibold leading-6 text-gray-900">Ayarlar</h1>
+          <h1 className="text-2xl font-semibold leading-6 text-gray-900">
+            Ayarlar
+          </h1>
           <p className="mt-2 text-sm text-gray-700">
             Sistem ayarlarınızı ve hesap bilgilerinizi yönetin.
           </p>
@@ -37,23 +45,37 @@ export default function SettingsPage() {
             </div>
             <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
               <div>
-                <label className="block text-sm font-medium text-gray-700">Şirket Adı</label>
-                <p className="mt-1 text-sm text-gray-900">Güvenoğlu Çelik & Metal</p>
+                <label className="block text-sm font-medium text-gray-700">
+                  Şirket Adı
+                </label>
+                <p className="mt-1 text-sm text-gray-900">
+                  Güvenoğlu Çelik & Metal
+                </p>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">Vergi Numarası</label>
+                <label className="block text-sm font-medium text-gray-700">
+                  Vergi Numarası
+                </label>
                 <p className="mt-1 text-sm text-gray-900">1234567890</p>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">Telefon</label>
+                <label className="block text-sm font-medium text-gray-700">
+                  Telefon
+                </label>
                 <p className="mt-1 text-sm text-gray-900">+90 212 555 0100</p>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">E-posta</label>
-                <p className="mt-1 text-sm text-gray-900">info@guvenoglucelik.com</p>
+                <label className="block text-sm font-medium text-gray-700">
+                  E-posta
+                </label>
+                <p className="mt-1 text-sm text-gray-900">
+                  info@guvenoglucelik.com
+                </p>
               </div>
               <div className="sm:col-span-2">
-                <label className="block text-sm font-medium text-gray-700">Adres</label>
+                <label className="block text-sm font-medium text-gray-700">
+                  Adres
+                </label>
                 <p className="mt-1 text-sm text-gray-900">
                   Organize Sanayi Bölgesi, 1. Cadde No: 123, Gebze/Kocaeli
                 </p>
@@ -89,19 +111,34 @@ export default function SettingsPage() {
                 <table className="min-w-full divide-y divide-gray-300">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      <th
+                        scope="col"
+                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      >
                         Kullanıcı
                       </th>
-                      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                      <th
+                        scope="col"
+                        className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      >
                         E-posta
                       </th>
-                      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                      <th
+                        scope="col"
+                        className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      >
                         Rol
                       </th>
-                      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                      <th
+                        scope="col"
+                        className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      >
                         Durum
                       </th>
-                      <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                      <th
+                        scope="col"
+                        className="relative py-3.5 pl-3 pr-4 sm:pr-6"
+                      >
                         <span className="sr-only">İşlemler</span>
                       </th>
                     </tr>
@@ -111,7 +148,9 @@ export default function SettingsPage() {
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                         Admin Kullanıcı
                       </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">admin@guvenoglucelik.com</td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                        admin@guvenoglucelik.com
+                      </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                         <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
                           Yönetici
@@ -123,7 +162,9 @@ export default function SettingsPage() {
                         </span>
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                        <button className="text-indigo-600 hover:text-indigo-900">Düzenle</button>
+                        <button className="text-indigo-600 hover:text-indigo-900">
+                          Düzenle
+                        </button>
                       </td>
                     </tr>
                   </tbody>
@@ -146,8 +187,12 @@ export default function SettingsPage() {
             <div className="mt-6 space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="text-sm font-medium text-gray-900">Yeni teklif talepleri</h4>
-                  <p className="text-sm text-gray-500">Yeni teklif talebi geldiğinde bildirim al</p>
+                  <h4 className="text-sm font-medium text-gray-900">
+                    Yeni teklif talepleri
+                  </h4>
+                  <p className="text-sm text-gray-500">
+                    Yeni teklif talebi geldiğinde bildirim al
+                  </p>
                 </div>
                 <button
                   type="button"
@@ -163,8 +208,12 @@ export default function SettingsPage() {
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="text-sm font-medium text-gray-900">Proje güncellemeleri</h4>
-                  <p className="text-sm text-gray-500">Proje durumu değiştiğinde bildirim al</p>
+                  <h4 className="text-sm font-medium text-gray-900">
+                    Proje güncellemeleri
+                  </h4>
+                  <p className="text-sm text-gray-500">
+                    Proje durumu değiştiğinde bildirim al
+                  </p>
                 </div>
                 <button
                   type="button"
@@ -180,8 +229,12 @@ export default function SettingsPage() {
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="text-sm font-medium text-gray-900">Haftalık raporlar</h4>
-                  <p className="text-sm text-gray-500">Her hafta özet rapor gönder</p>
+                  <h4 className="text-sm font-medium text-gray-900">
+                    Haftalık raporlar
+                  </h4>
+                  <p className="text-sm text-gray-500">
+                    Her hafta özet rapor gönder
+                  </p>
                 </div>
                 <button
                   type="button"
@@ -212,8 +265,12 @@ export default function SettingsPage() {
             <div className="mt-6 space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="text-sm font-medium text-gray-900">Şifreyi Değiştir</h4>
-                  <p className="text-sm text-gray-500">Mevcut şifrenizi güncelleyin</p>
+                  <h4 className="text-sm font-medium text-gray-900">
+                    Şifreyi Değiştir
+                  </h4>
+                  <p className="text-sm text-gray-500">
+                    Mevcut şifrenizi güncelleyin
+                  </p>
                 </div>
                 <button
                   type="button"
@@ -224,8 +281,12 @@ export default function SettingsPage() {
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="text-sm font-medium text-gray-900">İki Faktörlü Doğrulama</h4>
-                  <p className="text-sm text-gray-500">Hesabınız için ek güvenlik katmanı</p>
+                  <h4 className="text-sm font-medium text-gray-900">
+                    İki Faktörlü Doğrulama
+                  </h4>
+                  <p className="text-sm text-gray-500">
+                    Hesabınız için ek güvenlik katmanı
+                  </p>
                 </div>
                 <button
                   type="button"
@@ -236,8 +297,12 @@ export default function SettingsPage() {
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="text-sm font-medium text-gray-900">Oturum Geçmişi</h4>
-                  <p className="text-sm text-gray-500">Son giriş yapılan cihazları görüntüle</p>
+                  <h4 className="text-sm font-medium text-gray-900">
+                    Oturum Geçmişi
+                  </h4>
+                  <p className="text-sm text-gray-500">
+                    Son giriş yapılan cihazları görüntüle
+                  </p>
                 </div>
                 <button
                   type="button"
@@ -262,7 +327,10 @@ export default function SettingsPage() {
             </p>
             <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
               <div>
-                <label htmlFor="language" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="language"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Dil
                 </label>
                 <select
@@ -276,7 +344,10 @@ export default function SettingsPage() {
                 </select>
               </div>
               <div>
-                <label htmlFor="timezone" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="timezone"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Saat Dilimi
                 </label>
                 <select
@@ -291,7 +362,10 @@ export default function SettingsPage() {
                 </select>
               </div>
               <div>
-                <label htmlFor="currency" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="currency"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Para Birimi
                 </label>
                 <select
@@ -306,7 +380,10 @@ export default function SettingsPage() {
                 </select>
               </div>
               <div>
-                <label htmlFor="dateFormat" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="dateFormat"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Tarih Formatı
                 </label>
                 <select

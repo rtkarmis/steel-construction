@@ -1,60 +1,65 @@
-import { PlusIcon, PhoneIcon, EnvelopeIcon, BuildingOfficeIcon } from '@heroicons/react/24/outline';
+import {
+  PlusIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  BuildingOfficeIcon,
+} from "@heroicons/react/24/outline";
 
 const customers = [
   {
     id: 1,
-    name: 'ABC Sanayi A.Ş.',
-    contactPerson: 'Mehmet Yılmaz',
-    email: 'mehmet@abcsanayi.com',
-    phone: '+90 212 555 0101',
-    address: 'Organize Sanayi Bölgesi, İstanbul',
+    name: "ABC Sanayi A.Ş.",
+    contactPerson: "Mehmet Yılmaz",
+    email: "mehmet@abcsanayi.com",
+    phone: "+90 212 555 0101",
+    address: "Organize Sanayi Bölgesi, İstanbul",
     projectCount: 3,
-    totalValue: '8.500.000 ₺',
-    lastProject: 'Endüstriyel Fabrika Çelik Konstrüksiyon',
-    status: 'Aktif'
+    totalValue: "8.500.000 ₺",
+    lastProject: "Endüstriyel Fabrika Çelik Konstrüksiyon",
+    status: "Aktif",
   },
   {
     id: 2,
-    name: 'XYZ Lojistik Ltd.',
-    contactPerson: 'Ayşe Kara',
-    email: 'ayse@xyzlojistik.com',
-    phone: '+90 312 555 0202',
-    address: 'Lojistik Merkezi, Ankara',
+    name: "XYZ Lojistik Ltd.",
+    contactPerson: "Ayşe Kara",
+    email: "ayse@xyzlojistik.com",
+    phone: "+90 312 555 0202",
+    address: "Lojistik Merkezi, Ankara",
     projectCount: 2,
-    totalValue: '3.200.000 ₺',
-    lastProject: 'Lojistik Depo Binası',
-    status: 'Aktif'
+    totalValue: "3.200.000 ₺",
+    lastProject: "Lojistik Depo Binası",
+    status: "Aktif",
   },
   {
     id: 3,
-    name: 'DEF Havacılık',
-    contactPerson: 'Ali Demir',
-    email: 'ali@defhavacilik.com',
-    phone: '+90 232 555 0303',
-    address: 'Havaalanı Bölgesi, İzmir',
+    name: "DEF Havacılık",
+    contactPerson: "Ali Demir",
+    email: "ali@defhavacilik.com",
+    phone: "+90 232 555 0303",
+    address: "Havaalanı Bölgesi, İzmir",
     projectCount: 1,
-    totalValue: '4.200.000 ₺',
-    lastProject: 'Havacılık Hangarı',
-    status: 'Potansiyel'
+    totalValue: "4.200.000 ₺",
+    lastProject: "Havacılık Hangarı",
+    status: "Potansiyel",
   },
   {
     id: 4,
-    name: 'GHI İnşaat',
-    contactPerson: 'Fatma Öz',
-    email: 'fatma@ghiinsaat.com',
-    phone: '+90 216 555 0404',
-    address: 'İş Merkezi, İstanbul',
+    name: "GHI İnşaat",
+    contactPerson: "Fatma Öz",
+    email: "fatma@ghiinsaat.com",
+    phone: "+90 216 555 0404",
+    address: "İş Merkezi, İstanbul",
     projectCount: 0,
-    totalValue: '0 ₺',
-    lastProject: '-',
-    status: 'Pasif'
+    totalValue: "0 ₺",
+    lastProject: "-",
+    status: "Pasif",
   },
 ];
 
 const statusColors = {
-  'Aktif': 'bg-green-100 text-green-800',
-  'Potansiyel': 'bg-yellow-100 text-yellow-800',
-  'Pasif': 'bg-gray-100 text-gray-800',
+  Aktif: "bg-green-100 text-green-800",
+  Potansiyel: "bg-yellow-100 text-yellow-800",
+  Pasif: "bg-gray-100 text-gray-800",
 };
 
 export default function CustomersPage() {
@@ -62,7 +67,9 @@ export default function CustomersPage() {
     <div>
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
-          <h1 className="text-2xl font-semibold leading-6 text-gray-900">Müşteriler</h1>
+          <h1 className="text-2xl font-semibold leading-6 text-gray-900">
+            Müşteriler
+          </h1>
           <p className="mt-2 text-sm text-gray-700">
             Müşteri bilgilerinizi yönetin ve iletişim detaylarını takip edin.
           </p>
@@ -81,25 +88,42 @@ export default function CustomersPage() {
       {/* Stats */}
       <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-          <dt className="truncate text-sm font-medium text-gray-500">Toplam Müşteri</dt>
-          <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{customers.length}</dd>
-        </div>
-        <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-          <dt className="truncate text-sm font-medium text-gray-500">Aktif Müşteri</dt>
+          <dt className="truncate text-sm font-medium text-gray-500">
+            Toplam Müşteri
+          </dt>
           <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
-            {customers.filter(c => c.status === 'Aktif').length}
+            {customers.length}
           </dd>
         </div>
         <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-          <dt className="truncate text-sm font-medium text-gray-500">Potansiyel Müşteri</dt>
+          <dt className="truncate text-sm font-medium text-gray-500">
+            Aktif Müşteri
+          </dt>
           <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
-            {customers.filter(c => c.status === 'Potansiyel').length}
+            {customers.filter((c) => c.status === "Aktif").length}
           </dd>
         </div>
         <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-          <dt className="truncate text-sm font-medium text-gray-500">Toplam Değer</dt>
+          <dt className="truncate text-sm font-medium text-gray-500">
+            Potansiyel Müşteri
+          </dt>
           <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
-            {(customers.reduce((sum, c) => sum + parseFloat(c.totalValue.replace(/[^\d]/g, '')), 0) / 1000000).toFixed(1)}M ₺
+            {customers.filter((c) => c.status === "Potansiyel").length}
+          </dd>
+        </div>
+        <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+          <dt className="truncate text-sm font-medium text-gray-500">
+            Toplam Değer
+          </dt>
+          <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
+            {(
+              customers.reduce(
+                (sum, c) =>
+                  sum + parseFloat(c.totalValue.replace(/[^\d]/g, "")),
+                0
+              ) / 1000000
+            ).toFixed(1)}
+            M ₺
           </dd>
         </div>
       </div>
@@ -112,22 +136,40 @@ export default function CustomersPage() {
               <table className="min-w-full divide-y divide-gray-300">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                    <th
+                      scope="col"
+                      className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                    >
                       Müşteri
                     </th>
-                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                    >
                       İletişim
                     </th>
-                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                    >
                       Projeler
                     </th>
-                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                    >
                       Toplam Değer
                     </th>
-                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                    >
                       Durum
                     </th>
-                    <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                    <th
+                      scope="col"
+                      className="relative py-3.5 pl-3 pr-4 sm:pr-6"
+                    >
                       <span className="sr-only">İşlemler</span>
                     </th>
                   </tr>
@@ -143,8 +185,12 @@ export default function CustomersPage() {
                             </div>
                           </div>
                           <div className="ml-4">
-                            <div className="text-sm font-medium text-gray-900">{customer.name}</div>
-                            <div className="text-sm text-gray-500">{customer.contactPerson}</div>
+                            <div className="text-sm font-medium text-gray-900">
+                              {customer.name}
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              {customer.contactPerson}
+                            </div>
                           </div>
                         </div>
                       </td>
@@ -162,15 +208,25 @@ export default function CustomersPage() {
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                         <div>
-                          <div className="text-sm font-medium text-gray-900">{customer.projectCount} proje</div>
-                          <div className="text-sm text-gray-500">{customer.lastProject}</div>
+                          <div className="text-sm font-medium text-gray-900">
+                            {customer.projectCount} proje
+                          </div>
+                          <div className="text-sm text-gray-500">
+                            {customer.lastProject}
+                          </div>
                         </div>
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                         {customer.totalValue}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        <span className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${statusColors[customer.status as keyof typeof statusColors]}`}>
+                        <span
+                          className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${
+                            statusColors[
+                              customer.status as keyof typeof statusColors
+                            ]
+                          }`}
+                        >
                           {customer.status}
                         </span>
                       </td>

@@ -1,49 +1,55 @@
-import { PlusIcon, EyeIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
+import {
+  PlusIcon,
+  EyeIcon,
+  PencilIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
 
 const projects = [
   {
     id: 1,
-    name: 'Endüstriyel Fabrika Çelik Konstrüksiyon',
-    client: 'ABC Sanayi A.Ş.',
-    category: 'Endüstriyel',
-    status: 'Tamamlandı',
-    startDate: '2024-01-15',
-    endDate: '2024-06-30',
-    budget: '2.500.000 ₺',
-    description: 'Modern çelik konstrüksiyon fabrika binası tasarımı ve uygulaması',
-    location: 'İstanbul, Türkiye'
+    name: "Endüstriyel Fabrika Çelik Konstrüksiyon",
+    client: "ABC Sanayi A.Ş.",
+    category: "Endüstriyel",
+    status: "Tamamlandı",
+    startDate: "2024-01-15",
+    endDate: "2024-06-30",
+    budget: "2.500.000 ₺",
+    description:
+      "Modern çelik konstrüksiyon fabrika binası tasarımı ve uygulaması",
+    location: "İstanbul, Türkiye",
   },
   {
     id: 2,
-    name: 'Lojistik Depo Binası',
-    client: 'XYZ Lojistik Ltd.',
-    category: 'Lojistik',
-    status: 'Devam Ediyor',
-    startDate: '2024-03-10',
-    endDate: '2024-12-15',
-    budget: '1.800.000 ₺',
-    description: 'Geniş kapasiteli lojistik depo çelik konstrüksiyonu',
-    location: 'Ankara, Türkiye'
+    name: "Lojistik Depo Binası",
+    client: "XYZ Lojistik Ltd.",
+    category: "Lojistik",
+    status: "Devam Ediyor",
+    startDate: "2024-03-10",
+    endDate: "2024-12-15",
+    budget: "1.800.000 ₺",
+    description: "Geniş kapasiteli lojistik depo çelik konstrüksiyonu",
+    location: "Ankara, Türkiye",
   },
   {
     id: 3,
-    name: 'Havacılık Hangarı',
-    client: 'DEF Havacılık',
-    category: 'Havacılık',
-    status: 'Planlama',
-    startDate: '2024-05-01',
-    endDate: '2025-02-28',
-    budget: '4.200.000 ₺',
-    description: 'Büyük kapasiteli uçak hangarı çelik yapısı',
-    location: 'İzmir, Türkiye'
+    name: "Havacılık Hangarı",
+    client: "DEF Havacılık",
+    category: "Havacılık",
+    status: "Planlama",
+    startDate: "2024-05-01",
+    endDate: "2025-02-28",
+    budget: "4.200.000 ₺",
+    description: "Büyük kapasiteli uçak hangarı çelik yapısı",
+    location: "İzmir, Türkiye",
   },
 ];
 
 const statusColors = {
-  'Tamamlandı': 'bg-green-100 text-green-800',
-  'Devam Ediyor': 'bg-blue-100 text-blue-800',
-  'Planlama': 'bg-yellow-100 text-yellow-800',
-  'Beklemede': 'bg-red-100 text-red-800',
+  Tamamlandı: "bg-green-100 text-green-800",
+  "Devam Ediyor": "bg-blue-100 text-blue-800",
+  Planlama: "bg-yellow-100 text-yellow-800",
+  Beklemede: "bg-red-100 text-red-800",
 };
 
 export default function ProjectsPage() {
@@ -51,7 +57,9 @@ export default function ProjectsPage() {
     <div>
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
-          <h1 className="text-2xl font-semibold leading-6 text-gray-900">Projeler</h1>
+          <h1 className="text-2xl font-semibold leading-6 text-gray-900">
+            Projeler
+          </h1>
           <p className="mt-2 text-sm text-gray-700">
             Şirket projelerinizi yönetin, düzenleyin ve takip edin.
           </p>
@@ -70,7 +78,10 @@ export default function ProjectsPage() {
       {/* Projects Grid */}
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
-          <div key={project.id} className="overflow-hidden rounded-lg bg-white shadow">
+          <div
+            key={project.id}
+            className="overflow-hidden rounded-lg bg-white shadow"
+          >
             <div className="p-6">
               <div className="flex items-center justify-between">
                 <div className="flex-1 min-w-0">
@@ -79,16 +90,20 @@ export default function ProjectsPage() {
                   </h3>
                   <p className="text-sm text-gray-500">{project.client}</p>
                 </div>
-                <span className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${statusColors[project.status as keyof typeof statusColors]}`}>
+                <span
+                  className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${
+                    statusColors[project.status as keyof typeof statusColors]
+                  }`}
+                >
                   {project.status}
                 </span>
               </div>
-              
+
               <div className="mt-4">
                 <p className="text-sm text-gray-600 line-clamp-2">
                   {project.description}
                 </p>
-                
+
                 <div className="mt-4 space-y-2">
                   <div className="flex items-center text-xs text-gray-500">
                     <span className="font-medium">Kategori:</span>
@@ -104,11 +119,14 @@ export default function ProjectsPage() {
                   </div>
                   <div className="flex items-center text-xs text-gray-500">
                     <span className="font-medium">Tarih:</span>
-                    <span className="ml-1">{new Date(project.startDate).toLocaleDateString('tr-TR')} - {new Date(project.endDate).toLocaleDateString('tr-TR')}</span>
+                    <span className="ml-1">
+                      {new Date(project.startDate).toLocaleDateString("tr-TR")}{" "}
+                      - {new Date(project.endDate).toLocaleDateString("tr-TR")}
+                    </span>
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-6 flex space-x-3">
                 <button
                   type="button"
@@ -154,8 +172,12 @@ export default function ProjectsPage() {
               d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
             />
           </svg>
-          <h3 className="mt-2 text-sm font-semibold text-gray-900">Proje yok</h3>
-          <p className="mt-1 text-sm text-gray-500">İlk projenizi oluşturarak başlayın.</p>
+          <h3 className="mt-2 text-sm font-semibold text-gray-900">
+            Proje yok
+          </h3>
+          <p className="mt-1 text-sm text-gray-500">
+            İlk projenizi oluşturarak başlayın.
+          </p>
           <div className="mt-6">
             <button
               type="button"
