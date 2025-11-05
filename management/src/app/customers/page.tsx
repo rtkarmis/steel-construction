@@ -1,11 +1,30 @@
+'use client';
+
+import { useState } from 'react';
 import {
   PlusIcon,
   PhoneIcon,
   EnvelopeIcon,
   BuildingOfficeIcon,
 } from "@heroicons/react/24/outline";
+import Modal from '@/components/ui/Modal';
+import CustomerForm from '@/components/customers/CustomerForm';
+import CustomerDetail from '@/components/customers/CustomerDetail';
 
-const customers = [
+interface Customer {
+  id: number;
+  name: string;
+  contactPerson: string;
+  email: string;
+  phone: string;
+  address: string;
+  projectCount: number;
+  totalValue: string;
+  lastProject: string;
+  status: string;
+}
+
+const initialCustomers: Customer[] = [
   {
     id: 1,
     name: "ABC Sanayi A.Ş.",
@@ -63,6 +82,76 @@ const statusColors = {
 };
 
 export default function CustomersPage() {
+  const [customers, setCustomers] = useState<Customer[]>(initialCustomers);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+  const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleCreateCustomer = async (customerData: Customer) => {
+    setIsLoading(true);
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      const newCustomer: Customer = {
+        ...customerData,
+        id: Math.max(...customers.map(c => c.id), 0) + 1
+      };
+      
+      setCustomers(prev => [...prev, newCustomer]);
+      setIsCreateModalOpen(false);
+    } catch (error) {
+      console.error('Error creating customer:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleEditCustomer = async (customerData: Customer) => {
+    setIsLoading(true);
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setCustomers(prev => prev.map(c => c.id === customerData.id ? customerData : c));
+      setIsEditModalOpen(false);
+      setSelectedCustomer(null);
+    } catch (error) {
+      console.error('Error updating customer:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleDeleteCustomer = async (customerId: number) => {
+    if (window.confirm('Bu müşteriyi silmek istediğinizden emin misiniz?')) {
+      try {
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        setCustomers(prev => prev.filter(c => c.id !== customerId));
+        setIsDetailModalOpen(false);
+        setSelectedCustomer(null);
+      } catch (error) {
+        console.error('Error deleting customer:', error);
+      }
+    }
+  };
+
+  const openCreateModal = () => {
+    setSelectedCustomer(null);
+    setIsCreateModalOpen(true);
+  };
+
+  const openEditModal = (customer: Customer) => {
+    setSelectedCustomer(customer);
+    setIsEditModalOpen(true);
+  };
+
+  const openDetailModal = (customer: Customer) => {
+    setSelectedCustomer(customer);
+    setIsDetailModalOpen(true);
+  };
+
   return (
     <div>
       <div className="sm:flex sm:items-center">
@@ -77,6 +166,7 @@ export default function CustomersPage() {
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
           <button
             type="button"
+            onClick={openCreateModal}
             className="flex items-center gap-x-2 rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             <PlusIcon className="h-4 w-4" />
@@ -231,10 +321,22 @@ export default function CustomersPage() {
                         </span>
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                        <button className="text-indigo-600 hover:text-indigo-900 mr-4">
+                        <button 
+                          onClick={() => openDetailModal(customer)}
+                          className="text-indigo-600 hover:text-indigo-900 mr-4"
+                        >
+                          Görüntüle
+                        </button>
+                        <button 
+                          onClick={() => openEditModal(customer)}
+                          className="text-indigo-600 hover:text-indigo-900 mr-4"
+                        >
                           Düzenle
                         </button>
-                        <button className="text-red-600 hover:text-red-900">
+                        <button 
+                          onClick={() => handleDeleteCustomer(customer.id)}
+                          className="text-red-600 hover:text-red-900"
+                        >
                           Sil
                         </button>
                       </td>
@@ -246,6 +348,56 @@ export default function CustomersPage() {
           </div>
         </div>
       </div>
+
+      {/* Create Customer Modal */}
+      <Modal
+        open={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
+        title="Yeni Müşteri Oluştur"
+        size="lg"
+      >
+        <CustomerForm
+          onSubmit={handleCreateCustomer}
+          onCancel={() => setIsCreateModalOpen(false)}
+          isLoading={isLoading}
+        />
+      </Modal>
+
+      {/* Edit Customer Modal */}
+      <Modal
+        open={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        title="Müşteriyi Düzenle"
+        size="lg"
+      >
+        {selectedCustomer && (
+          <CustomerForm
+            customer={selectedCustomer}
+            onSubmit={handleEditCustomer}
+            onCancel={() => setIsEditModalOpen(false)}
+            isLoading={isLoading}
+          />
+        )}
+      </Modal>
+
+      {/* Customer Detail Modal */}
+      <Modal
+        open={isDetailModalOpen}
+        onClose={() => setIsDetailModalOpen(false)}
+        title="Müşteri Detayları"
+        size="xl"
+      >
+        {selectedCustomer && (
+          <CustomerDetail
+            customer={selectedCustomer}
+            onEdit={() => {
+              setIsDetailModalOpen(false);
+              setIsEditModalOpen(true);
+            }}
+            onDelete={() => handleDeleteCustomer(selectedCustomer.id)}
+          />
+        )}
+      </Modal>
     </div>
   );
 }

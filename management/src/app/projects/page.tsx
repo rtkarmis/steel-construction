@@ -1,11 +1,30 @@
+'use client';
+
+import { useState } from 'react';
 import {
   PlusIcon,
   EyeIcon,
   PencilIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
+import Modal from '@/components/ui/Modal';
+import ProjectForm from '@/components/projects/ProjectForm';
+import ProjectDetail from '@/components/projects/ProjectDetail';
 
-const projects = [
+interface Project {
+  id: number;
+  name: string;
+  client: string;
+  category: string;
+  status: string;
+  startDate: string;
+  endDate: string;
+  budget: string;
+  description: string;
+  location: string;
+}
+
+const initialProjects: Project[] = [
   {
     id: 1,
     name: "Endüstriyel Fabrika Çelik Konstrüksiyon",
@@ -53,6 +72,79 @@ const statusColors = {
 };
 
 export default function ProjectsPage() {
+  const [projects, setProjects] = useState<Project[]>(initialProjects);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleCreateProject = async (projectData: Project) => {
+    setIsLoading(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      const newProject: Project = {
+        ...projectData,
+        id: Math.max(...projects.map(p => p.id), 0) + 1
+      };
+      
+      setProjects(prev => [...prev, newProject]);
+      setIsCreateModalOpen(false);
+    } catch (error) {
+      console.error('Error creating project:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleEditProject = async (projectData: Project) => {
+    setIsLoading(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setProjects(prev => prev.map(p => p.id === projectData.id ? projectData : p));
+      setIsEditModalOpen(false);
+      setSelectedProject(null);
+    } catch (error) {
+      console.error('Error updating project:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleDeleteProject = async (projectId: number) => {
+    if (window.confirm('Bu projeyi silmek istediğinizden emin misiniz?')) {
+      try {
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        setProjects(prev => prev.filter(p => p.id !== projectId));
+        setIsDetailModalOpen(false);
+        setSelectedProject(null);
+      } catch (error) {
+        console.error('Error deleting project:', error);
+      }
+    }
+  };
+
+  const openCreateModal = () => {
+    setSelectedProject(null);
+    setIsCreateModalOpen(true);
+  };
+
+  const openEditModal = (project: Project) => {
+    setSelectedProject(project);
+    setIsEditModalOpen(true);
+  };
+
+  const openDetailModal = (project: Project) => {
+    setSelectedProject(project);
+    setIsDetailModalOpen(true);
+  };
+
   return (
     <div>
       <div className="sm:flex sm:items-center">
@@ -67,6 +159,7 @@ export default function ProjectsPage() {
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
           <button
             type="button"
+            onClick={openCreateModal}
             className="flex items-center gap-x-2 rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             <PlusIcon className="h-4 w-4" />
@@ -130,6 +223,7 @@ export default function ProjectsPage() {
               <div className="mt-6 flex space-x-3">
                 <button
                   type="button"
+                  onClick={() => openDetailModal(project)}
                   className="flex-1 flex items-center justify-center gap-x-1 rounded-md bg-white px-2.5 py-1.5 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                 >
                   <EyeIcon className="h-3 w-3" />
@@ -137,6 +231,7 @@ export default function ProjectsPage() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => openEditModal(project)}
                   className="flex-1 flex items-center justify-center gap-x-1 rounded-md bg-white px-2.5 py-1.5 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                 >
                   <PencilIcon className="h-3 w-3" />
@@ -144,6 +239,7 @@ export default function ProjectsPage() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => handleDeleteProject(project.id)}
                   className="flex items-center justify-center rounded-md bg-white px-2.5 py-1.5 text-xs font-semibold text-red-600 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-red-50"
                 >
                   <TrashIcon className="h-3 w-3" />
@@ -181,6 +277,7 @@ export default function ProjectsPage() {
           <div className="mt-6">
             <button
               type="button"
+              onClick={openCreateModal}
               className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               <PlusIcon className="-ml-0.5 mr-1.5 h-5 w-5" aria-hidden="true" />
@@ -189,6 +286,56 @@ export default function ProjectsPage() {
           </div>
         </div>
       )}
+
+      {/* Create Project Modal */}
+      <Modal
+        open={isCreateModalOpen}
+        onClose={() => setIsCreateModalOpen(false)}
+        title="Yeni Proje Oluştur"
+        size="lg"
+      >
+        <ProjectForm
+          onSubmit={handleCreateProject}
+          onCancel={() => setIsCreateModalOpen(false)}
+          isLoading={isLoading}
+        />
+      </Modal>
+
+      {/* Edit Project Modal */}
+      <Modal
+        open={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        title="Projeyi Düzenle"
+        size="lg"
+      >
+        {selectedProject && (
+          <ProjectForm
+            project={selectedProject}
+            onSubmit={handleEditProject}
+            onCancel={() => setIsEditModalOpen(false)}
+            isLoading={isLoading}
+          />
+        )}
+      </Modal>
+
+      {/* Project Detail Modal */}
+      <Modal
+        open={isDetailModalOpen}
+        onClose={() => setIsDetailModalOpen(false)}
+        title="Proje Detayları"
+        size="xl"
+      >
+        {selectedProject && (
+          <ProjectDetail
+            project={selectedProject}
+            onEdit={() => {
+              setIsDetailModalOpen(false);
+              setIsEditModalOpen(true);
+            }}
+            onDelete={() => handleDeleteProject(selectedProject.id)}
+          />
+        )}
+      </Modal>
     </div>
   );
 }
