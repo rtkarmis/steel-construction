@@ -42,13 +42,13 @@ export default function Footer() {
                 ? company.description
                 : company.descriptionEn || company.description}
             </p>
-            <div className="flex items-center gap-4 mt-4">
+            <div className="flex items-center gap-6 mt-4">
               {company.socialLinks.instagram && (
                 <Link
                   href={company.socialLinks.instagram}
                   target="_blank"
                   aria-label="Instagram"
-                  className="text-text hover:text-secondary transition-colors touch-target pointer-target"
+                  className="text-text md:hover:text-secondary transition-colors p-2 -m-2 rounded-lg touch-manipulation"
                 >
                   <Instagram size={20} />
                 </Link>
@@ -58,7 +58,7 @@ export default function Footer() {
                   href={company.socialLinks.facebook}
                   target="_blank"
                   aria-label="Facebook"
-                  className="text-text hover:text-secondary transition-colors touch-target pointer-target"
+                  className="text-text md:hover:text-secondary transition-colors p-2 -m-2 rounded-lg touch-manipulation"
                 >
                   <Facebook size={20} />
                 </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
                   href={company.socialLinks.whatsapp}
                   target="_blank"
                   aria-label="WhatsApp"
-                  className="text-text hover:text-secondary transition-colors touch-target pointer-target"
+                  className="text-text md:hover:text-secondary transition-colors p-2 -m-2 rounded-lg touch-manipulation"
                 >
                   <MessageCircle size={20} />
                 </Link>
@@ -81,12 +81,12 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-primary mb-3">
               {t("footer.quickAccess")}
             </h4>
-            <ul className="space-y-2 text-sm text-text">
+            <ul className="space-y-3 text-sm text-text">
               {navigation.quickAccess.map((link: MenuItem) => (
                 <li key={link.slug}>
                   <Link
                     href={link.slug}
-                    className="hover:text-secondary transition touch-target pointer-target"
+                    className="md:hover:text-secondary transition py-1 px-2 -mx-2 rounded block touch-manipulation"
                   >
                     {link.translationKey ? t(link.translationKey) : link.label}
                   </Link>
@@ -100,12 +100,12 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-primary mb-3">
               {t("footer.informationCenter")}
             </h4>
-            <ul className="space-y-2 text-sm text-text">
+            <ul className="space-y-3 text-sm text-text">
               {navigation.information.map((link: MenuItem) => (
                 <li key={link.slug}>
                   <Link
                     href={link.slug}
-                    className="hover:text-secondary touch-target pointer-target"
+                    className="md:hover:text-secondary py-1 px-2 -mx-2 rounded block touch-manipulation"
                   >
                     {link.translationKey ? t(link.translationKey) : link.label}
                   </Link>
@@ -119,12 +119,12 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-primary mb-3">
               {t("footer.policies")}
             </h4>
-            <ul className="space-y-2 text-sm text-text">
+            <ul className="space-y-3 text-sm text-text">
               {navigation.policies.map((link: MenuItem) => (
                 <li key={link.slug}>
                   <Link
                     href={link.slug}
-                    className="hover:text-secondary touch-target pointer-target"
+                    className="md:hover:text-secondary py-1 px-2 -mx-2 rounded block touch-manipulation"
                   >
                     {link.translationKey ? t(link.translationKey) : link.label}
                   </Link>
@@ -138,7 +138,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-primary mb-3">
               {t("footer.contact")}
             </h4>
-            <ul className="space-y-3 text-sm text-text mb-4">
+            <ul className="space-y-4 text-sm text-text mb-4">
               <li className="flex items-start gap-2">
                 <MapPin className="text-text/60 mt-[3px]" size={14} />
                 <span>
@@ -151,7 +151,7 @@ export default function Footer() {
                 <Phone className="inline-block text-text/60 mr-2" size={14} />
                 <a
                   href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                  className="hover:text-secondary touch-target pointer-target"
+                  className="md:hover:text-secondary py-1 px-2 -mx-2 rounded touch-manipulation"
                 >
                   {contact.phone}
                 </a>
@@ -160,7 +160,7 @@ export default function Footer() {
                 <Mail className="inline-block text-text/60 mr-2" size={14} />
                 <a
                   href={`mailto:${contact.email}`}
-                  className="hover:text-secondary touch-target"
+                  className="md:hover:text-secondary py-1 px-2 -mx-2 rounded touch-manipulation"
                 >
                   {contact.email}
                 </a>

@@ -29,6 +29,8 @@ import { en as kvkkEn } from "@/locales/pages/kvkk/en";
 import { tr as kvkkTr } from "@/locales/pages/kvkk/tr";
 import { en as privacyPolicyEn } from "@/locales/pages/privacyPolicy/en";
 import { tr as privacyPolicyTr } from "@/locales/pages/privacyPolicy/tr";
+import { en as sitemapEn } from "@/locales/pages/sitemap/en";
+import { tr as sitemapTr } from "@/locales/pages/sitemap/tr";
 
 // Modüler çeviri sistemi
 export const translations = {
@@ -48,6 +50,7 @@ export const translations = {
       privacyPolicy: privacyPolicyTr,
       cookiePolicy: cookiePolicyTr,
       kvkk: kvkkTr,
+      sitemap: sitemapTr,
     },
   },
   en: {
@@ -66,6 +69,7 @@ export const translations = {
       privacyPolicy: privacyPolicyEn,
       cookiePolicy: cookiePolicyEn,
       kvkk: kvkkEn,
+      sitemap: sitemapEn,
     },
   },
 };

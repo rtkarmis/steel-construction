@@ -99,7 +99,7 @@ export default function ProjectsGrid() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   selectedCategory === category
                     ? "bg-primary text-white"
-                    : "bg-surface text-text/70 hover:bg-primary/10 hover:text-primary"
+                    : "bg-surface text-text/70 md:hover:bg-primary/10 md:hover:text-primary"
                 }`}
               >
                 {category === "all"
@@ -119,18 +119,18 @@ export default function ProjectsGrid() {
             <Link
               key={p.id}
               href={p.slug}
-              className="group bg-surface rounded-2xl shadow-sm hover:shadow-lg transition-all border border-border/40 overflow-hidden"
+              className="group bg-surface rounded-2xl shadow-sm md:hover:shadow-lg transition-all border border-border/40 overflow-hidden"
             >
               <div className="relative h-56 w-full">
                 <Image
                   src={p.gallery[0]}
                   alt={getProjectName(p)}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover md:group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-primary group-hover:text-secondary transition-colors">
+                <h3 className="text-lg font-semibold text-primary md:group-hover:text-secondary transition-colors">
                   {getProjectName(p)}
                 </h3>
                 <p className="text-sm text-text/70 mt-2 line-clamp-2">

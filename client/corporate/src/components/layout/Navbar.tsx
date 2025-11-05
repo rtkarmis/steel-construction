@@ -19,6 +19,7 @@ const MobileHeader = dynamic(() => import("@/components/layout/MobileHeader"), {
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,10 +32,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleMobileMenuToggle = (isOpen: boolean) => {
+    setIsMobileMenuOpen(isOpen);
+  };
+
   return (
     <nav className="md:relative fixed top-0 left-0 right-0 z-50">
-      {/* Topbar - Always visible */}
-      <Topbar />
+      {/* Topbar - Hide on mobile when menu is open */}
+      <div className={`md:block ${isMobileMenuOpen ? "hidden" : "block"}`}>
+        <Topbar />
+      </div>
 
       {/* Desktop Header */}
       <div className="hidden md:block w-full bg-surface border-b border-gray-100 backdrop-blur supports-[backdrop-filter]:bg-surface/90 shadow-[0_2px_6px_rgba(13,42,74,0.08)]">
@@ -45,7 +52,7 @@ export default function Navbar() {
 
       {/* Mobile Header */}
       <div className="md:hidden">
-        <MobileHeader isScrolled={isScrolled} />
+        <MobileHeader onMenuToggle={handleMobileMenuToggle} />
       </div>
     </nav>
   );

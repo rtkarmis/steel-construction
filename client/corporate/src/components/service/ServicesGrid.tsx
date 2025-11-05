@@ -27,8 +27,8 @@ export default function ServicesGrid({ services }: { services: Service[] }) {
                 key={s.key}
                 href={s.slug}
                 className="group bg-background rounded-2xl p-8 text-left shadow-sm border border-border/60 
-                           transition-all duration-300 hover:shadow-xl hover:-translate-y-1 
-                           hover:border-transparent hover:bg-gradient-to-br hover:from-primary/5 hover:to-secondary/10
+                           transition-all duration-300 md:hover:shadow-xl md:hover:-translate-y-1 
+                           md:hover:border-transparent md:hover:bg-gradient-to-br md:hover:from-primary/5 md:hover:to-secondary/10
                            block cursor-pointer"
               >
                 {/* 🔹 Icon Container */}
@@ -37,7 +37,7 @@ export default function ServicesGrid({ services }: { services: Service[] }) {
                 </div>
 
                 {/* 🔸 Title & Description */}
-                <h3 className="text-lg font-semibold text-primary group-hover:text-secondary transition-colors">
+                <h3 className="text-lg font-semibold text-primary md:group-hover:text-secondary transition-colors">
                   {getPage("service", `services.items.${s.key}.name`) ||
                     s.translations[language].name}
                 </h3>
@@ -47,7 +47,7 @@ export default function ServicesGrid({ services }: { services: Service[] }) {
                 </p>
 
                 {/* 🔸 Call to Action */}
-                <div className="mt-4 text-secondary font-medium group-hover:underline">
+                <div className="mt-4 text-secondary font-medium md:group-hover:underline">
                   {getPage("service", "services.detailButton")} →
                 </div>
               </Link>

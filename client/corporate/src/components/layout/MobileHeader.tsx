@@ -9,90 +9,57 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const MobileHeader = ({ isScrolled = false }: { isScrolled?: boolean }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openSubMenus, setOpenSubMenus] = useState<Set<string>>(new Set());
+interface MobileHeaderProps {
+  onMenuToggle?: (isOpen: boolean) => void;
+}
+
+export default function MobileHeader({ onMenuToggle }: MobileHeaderProps) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const pathname = usePathname();
   const { t } = useLanguage();
 
-  const toggleSubMenu = (href: string) => {
-    const newOpenSubMenus = new Set(openSubMenus);
-    if (newOpenSubMenus.has(href)) {
-      newOpenSubMenus.delete(href);
-    } else {
-      newOpenSubMenus.add(href);
-    }
-    setOpenSubMenus(newOpenSubMenus);
-  };
-
-  // 🧭 Basit scroll kilitleme - pozisyon koruma olmadan
   useEffect(() => {
-    if (isMenuOpen) {
-      // Sadece scroll'u kilitle, pozisyon değiştirme
-      document.body.style.overflow = "hidden";
-    } else {
-      // Scroll'u geri aç
-      document.body.style.overflow = "";
-    }
-
+    document.body.style.overflow = sidebarOpen ? "hidden" : "";
+    onMenuToggle?.(sidebarOpen);
     return () => {
-      // Cleanup
       document.body.style.overflow = "";
     };
-  }, [isMenuOpen]);
+  }, [sidebarOpen, onMenuToggle]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = (slug: string) =>
+    setOpenMenu((prev) => (prev === slug ? null : slug));
 
   const closeMenu = () => {
-    setIsMenuOpen(false);
-    setOpenSubMenus(new Set()); // Sub-menüleri de kapat
+    setSidebarOpen(false);
+    setOpenMenu(null);
   };
 
   return (
-    <>
-      {/* Header Bar - h-16 */}
-      <div className="h-16 w-full bg-surface border-b border-gray-200 flex items-center justify-center relative transition-colors duration-300">
-        {/* Logo - Ortada */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <Logo />
-        </div>
+    <div className="flex items-center justify-between w-full h-16 relative bg-surface border-b border-gray-200">
+      {/* Logo - Ortada */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <Logo />
+      </div>
 
-        {/* Menu Button - Sağda */}
-        <button
-          onClick={toggleMenu}
-          className="absolute right-4 p-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
-          aria-label={isMenuOpen ? "Menüyü Kapat" : "Menüyü Aç"}
-        >
-          {isMenuOpen ? (
-            <X size={24} className="text-primary" />
-          ) : (
-            <Menu size={24} className="text-primary" />
-          )}
-        </button>
-      </div>{" "}
-      {/* Menu Panel - Açılır menü */}
-      {isMenuOpen && (
-        <div className="w-full bg-surface shadow-lg fixed left-0 right-0 z-40 transition-colors duration-300 top-0 h-screen flex flex-col">
-          {/* Header spacer to account for the fixed header */}
-          <div className="py-9 relative flex items-center">
-            {/* Logo in sidebar header - centered like in main header */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <Logo />
-            </div>
+      {/* Menü Butonu */}
+      <button
+        aria-label={sidebarOpen ? "Menüyü Kapat" : "Menüyü Aç"}
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        className="ml-auto z-50 p-2 rounded-md active:bg-gray-100 transition-colors duration-200 mr-4"
+      >
+        {sidebarOpen ? (
+          <X size={24} className="text-primary" />
+        ) : (
+          <Menu size={24} className="text-primary" />
+        )}
+      </button>
 
-            {/* Close button positioned in the top-right corner */}
-            <button
-              onClick={closeMenu}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
-              aria-label="Menüyü Kapat"
-            >
-              <X size={24} className="text-primary" />
-            </button>
-          </div>
-
-          <div className="px-6 pb-3 space-y-1 flex-1 overflow-hidden">
+      {/* Sidebar Menü */}
+      {sidebarOpen && (
+        <aside className="fixed inset-0 bg-surface z-40 flex flex-col h-screen">
+          {/* Menü İçeriği */}
+          <div className="flex-1 overflow-hidden py-6 px-6">
             {headerMenuLinks.map((link) => {
               const hasSubLinks = link.subLinks && link.subLinks.length > 0;
               const isActive =
@@ -101,12 +68,12 @@ const MobileHeader = ({ isScrolled = false }: { isScrolled?: boolean }) => {
                   link.subLinks?.some((sub) => pathname === sub.slug));
 
               return (
-                <div key={link.slug}>
-                  {link.subLinks ? (
-                    <div className="space-y-2">
+                <div key={link.slug} className="mb-2">
+                  {hasSubLinks ? (
+                    <>
                       <button
-                        onClick={() => toggleSubMenu(link.slug)}
-                        className={`flex items-center justify-between w-full text-lg font-semibold py-2 transition-colors duration-200 ${
+                        onClick={() => toggleMenu(link.slug)}
+                        className={`w-full text-left py-3 text-lg font-medium active:text-secondary flex items-center justify-between transition-colors duration-200 ${
                           isActive ? "text-secondary" : "text-primary"
                         }`}
                       >
@@ -118,31 +85,32 @@ const MobileHeader = ({ isScrolled = false }: { isScrolled?: boolean }) => {
                         <ChevronDown
                           size={20}
                           className={`transition-transform ${
-                            openSubMenus.has(link.slug) ? "rotate-180" : ""
-                          } ${isActive ? "text-secondary" : "text-gray-600"}`}
+                            openMenu === link.slug ? "rotate-180" : ""
+                          }`}
                         />
                       </button>
-                      {openSubMenus.has(link.slug) && (
-                        <div className="pl-4 space-y-2">
+                      {openMenu === link.slug && link.subLinks && (
+                        <ul className="ml-3 mt-1 border-l border-gray-200 pl-3 space-y-1">
                           {link.subLinks.map((subLink) => (
-                            <Link
-                              key={subLink.slug}
-                              href={subLink.slug}
-                              onClick={closeMenu}
-                              className={`block py-2 transition-colors duration-200 ${
-                                pathname === subLink.slug
-                                  ? "text-secondary font-medium"
-                                  : "text-primary hover:text-secondary"
-                              }`}
-                            >
-                              {subLink.translationKey
-                                ? t(subLink.translationKey)
-                                : subLink.label}
-                            </Link>
+                            <li key={subLink.slug}>
+                              <Link
+                                href={subLink.slug}
+                                onClick={closeMenu}
+                                className={`block py-2 text-base transition-colors duration-200 ${
+                                  pathname === subLink.slug
+                                    ? "text-secondary font-medium"
+                                    : "text-gray-600 active:text-secondary"
+                                }`}
+                              >
+                                {subLink.translationKey
+                                  ? t(subLink.translationKey)
+                                  : subLink.label}
+                              </Link>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       )}
-                    </div>
+                    </>
                   ) : (
                     <Link
                       href={link.slug}
@@ -150,7 +118,7 @@ const MobileHeader = ({ isScrolled = false }: { isScrolled?: boolean }) => {
                       className={`block py-3 text-lg font-medium transition-colors duration-200 ${
                         isActive
                           ? "text-secondary font-semibold"
-                          : "text-primary hover:text-secondary"
+                          : "text-primary active:text-secondary"
                       }`}
                     >
                       {link.translationKey
@@ -163,21 +131,19 @@ const MobileHeader = ({ isScrolled = false }: { isScrolled?: boolean }) => {
             })}
           </div>
 
-          {/* Teklif Al Butonu - Sabit Alt Kısım */}
-          <div className="px-6 py-4 border-t border-gray-200 bg-surface">
+          {/* CTA (Teklif Al) */}
+          <div className="p-4 border-t border-gray-200 bg-surface">
             <Link
               href={`tel:${siteConfig.phone}`}
               onClick={closeMenu}
-              className="flex items-center justify-center gap-3 w-full bg-primary text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="flex items-center justify-center gap-3 w-full bg-primary text-white py-4 px-6 rounded-xl font-semibold text-lg active:bg-primary/90 transition-all duration-300 shadow-lg active:shadow-xl"
             >
               <Phone size={20} />
               {t("navigation.quote")}
             </Link>
           </div>
-        </div>
+        </aside>
       )}
-    </>
+    </div>
   );
-};
-
-export default MobileHeader;
+}
