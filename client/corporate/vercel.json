@@ -1,8 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "npm run build:static",
+  "buildCommand": "npm ci && npm run build:static",
   "outputDirectory": "out",
-  "installCommand": "npm ci",
   "framework": null,
   "routes": [
     {

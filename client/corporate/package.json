@@ -2,10 +2,14 @@
   "name": "steel-construction-client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:static": "set NODE_ENV=production && next build && npm run create-routes-manifest",
+    "build:static": "NODE_ENV=production next build && npm run create-routes-manifest",
     "create-routes-manifest": "node scripts/create-routes-manifest.js",
     "start": "next start",
     "serve:static": "npx serve out",
