@@ -4,22 +4,18 @@ import { getPageMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 import ProjectDetailContent from "./ProjectDetailContent";
 
-// Statik sayfa generation
-export const dynamic = "force-static";
+// Tamamen statik sayfa
+export const dynamic = "error";
 export const revalidate = false;
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return projects.map((p) => ({
     slug: p.slug.replace("/projeler/", ""),
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const project = projects.find((p) => {
     const projectSlug = p.slug.replace("/projeler/", "");
     return projectSlug === slug;
@@ -30,12 +26,12 @@ export async function generateMetadata({
   return getPageMetadata(project.slug);
 }
 
-export default async function ProjectDetailPage({
+export default function ProjectDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } = params;
 
   const project = projects.find((p) => {
     const projectSlug = p.slug.replace("/projeler/", "");

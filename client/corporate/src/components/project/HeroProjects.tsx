@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export default function HeroProjects() {
   const { getPage } = useLanguage();
   return (
-    <section className="relative h-[50vh] flex items-center justify-center text-center bg-primary text-white overflow-hidden">
+    <section className="relative aspect-[16/9] min-h-[400px] flex items-center justify-center text-center bg-primary text-white overflow-hidden">
       {/* 🔹 Background Image */}
       <HeroImage
         src="/images/project/hero-projects.webp"

@@ -3,7 +3,7 @@ import { projects } from "@/data/project";
 import { getPageMetadata } from "@/lib/metadata";
 import ProjectsContent from "./ProjectsContent";
 
-export const dynamic = "force-static";
+export const dynamic = "error";
 export const metadata = getPageMetadata("/projeler");
 
 export default function ProjectsPage() {

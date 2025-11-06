@@ -3,7 +3,7 @@ import { services } from "@/data/service";
 import { getPageMetadata } from "@/lib/metadata";
 import ServicesContent from "./ServicesContent";
 
-export const dynamic = "force-static"; // veya
+export const dynamic = "error";
 export const revalidate = false;
 
 export const metadata = getPageMetadata("/hizmetler");

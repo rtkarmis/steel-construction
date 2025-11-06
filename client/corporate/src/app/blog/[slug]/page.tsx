@@ -4,22 +4,22 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostContent from "./BlogPostContent";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: { slug: string } };
 
-// Statik sayfa generation
-export const dynamic = "force-static";
+// Tamamen statik sayfa
+export const dynamic = "error";
 export const revalidate = false;
 
 // Statik sayfa generation için tüm slug'ları önceden belirle
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const posts = getAllBlogPosts();
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+export function generateMetadata({ params }: Props): Metadata {
+  const { slug } = params;
   const posts = getAllBlogPosts();
   const post = posts.find((p) => p.slug === slug);
   if (!post) {
@@ -45,8 +45,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function BlogDetailPage({ params }: Props) {
-  const { slug } = await params;
+export default function BlogDetailPage({ params }: Props) {
+  const { slug } = params;
   const posts = getAllBlogPosts();
   const post = posts.find((p) => p.slug === slug);
   if (!post) return notFound();

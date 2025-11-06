@@ -1,6 +1,6 @@
 import { getPageMetadata } from "@/lib/metadata";
 import CookiePolicyContent from "./CookiePolicyContent";
-export const dynamic = "force-static"; // SSG
+export const dynamic = "error";
 export const metadata = getPageMetadata("/cerez-politikasi");
 
 const CookiePolicyPage = () => {
