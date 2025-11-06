@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:static": "set NODE_ENV=production && next build",
+    "build:static": "set NODE_ENV=production && next build && npm run create-routes-manifest",
+    "create-routes-manifest": "node scripts/create-routes-manifest.js",
     "start": "next start",
     "serve:static": "npx serve out",
     "lint": "next lint",

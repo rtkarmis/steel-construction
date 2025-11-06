@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "chmod +x build.sh && ./build.sh",
+  "buildCommand": "npm run build:static",
   "outputDirectory": "out",
   "installCommand": "npm ci",
   "framework": null,
