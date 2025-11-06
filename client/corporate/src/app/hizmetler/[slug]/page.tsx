@@ -11,14 +11,22 @@ export function generateStaticParams() {
 export const dynamic = "error";
 export const revalidate = false;
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const service = services.find((s) => s.slug.endsWith(slug));
   return getPageMetadata(service ? service.slug : "/hizmetler");
 }
 
-const ServiceDetailPage = ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
+const ServiceDetailPage = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
+  const { slug } = await params;
 
   const service = services.find((s) => {
     const serviceSlug = s.slug.replace("/hizmetler/", "");

@@ -14,8 +14,12 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const project = projects.find((p) => {
     const projectSlug = p.slug.replace("/projeler/", "");
     return projectSlug === slug;
@@ -26,12 +30,12 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   return getPageMetadata(project.slug);
 }
 
-export default function ProjectDetailPage({
+export default async function ProjectDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const project = projects.find((p) => {
     const projectSlug = p.slug.replace("/projeler/", "");

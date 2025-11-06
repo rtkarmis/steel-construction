@@ -12,7 +12,7 @@ import "../styles/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap", // ✅ fontDisplay burada
+  display: "swap", // ✅ Modern font loading
 });
 
 export const metadata = defaultMetadata;
@@ -23,84 +23,57 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="overflow-x-hidden">
+    <html lang="tr" className="overflow-x-hidden">
       <head>
+        {/* 🔹 Favicon */}
         <link
           rel="icon"
-          type="image/x-icon"
+          type="image/svg+xml"
           href="/images/settings/favicon.svg"
         />
-        {/* Font Preloading */}
-        <link
-          rel="preload"
-          href="/_next/static/media/1bffadaabf893a1e-s.7cd81963.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin=""
-        />
 
-        {/* Critical Hero Images Preload */}
-        <link
-          rel="preload"
-          as="image"
-          href="/images/home/hero.webp"
-          type="image/webp"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/images/about/hero-about.webp"
-          type="image/webp"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/images/project/hero-projects.webp"
-          type="image/webp"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/images/service/hero-services.webp"
-          type="image/webp"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/images/reference/hero-reference.webp"
-          type="image/webp"
-        />
-
-        {/* Performance Optimizations */}
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="//www.google-analytics.com" />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        {/* 🔹 Font preconnects (font preload değil!) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin=""
         />
+
+        {/* 🔹 DNS prefetch — third-party kaynaklar */}
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="//cdn.gtranslate.net" />
+
+        {/* 🔹 Preconnect — potansiyel CDN’ler */}
         <link rel="preconnect" href="https://vercel.app" />
         <link rel="preconnect" href="https://cdn.gtranslate.net" />
 
-        {/* Resource hints for static assets */}
+        {/* 🔹 Prefetch — düşük öncelikli kaynaklar */}
         <link rel="prefetch" href="/images/settings/logo.webp" />
         <link rel="prefetch" href="/videos/hero.webm" />
+        <link rel="prefetch" href="/images/home/hero.webp" />
       </head>
+
       <body
         className={`${inter.className} overflow-x-hidden transition-colors duration-300`}
         style={{ minWidth: 0 }}
       >
         <LanguageProvider>
+          {/* Global Layout */}
           <Navbar />
           <MainWrapper>{children}</MainWrapper>
           <Footer />
+
+          {/* Global Scripts & Schemas */}
           <GoogleScripts />
-          <CookieBanner />
           <SchemaLocalBusiness />
           <SchemaSiteNavigation />
+
+          {/* Cookie Consent */}
+          <CookieBanner />
         </LanguageProvider>
       </body>
     </html>

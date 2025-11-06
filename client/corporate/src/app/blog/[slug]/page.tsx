@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostContent from "./BlogPostContent";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 // Tamamen statik sayfa
 export const dynamic = "error";
@@ -18,8 +18,8 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const { slug } = params;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
   const posts = getAllBlogPosts();
   const post = posts.find((p) => p.slug === slug);
   if (!post) {
@@ -45,8 +45,8 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function BlogDetailPage({ params }: Props) {
-  const { slug } = params;
+export default async function BlogDetailPage({ params }: Props) {
+  const { slug } = await params;
   const posts = getAllBlogPosts();
   const post = posts.find((p) => p.slug === slug);
   if (!post) return notFound();
