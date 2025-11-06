@@ -36,15 +36,23 @@ export const LanguageProvider = ({
   children: React.ReactNode;
 }) => {
   const [language, setLanguageState] = useState<Language>("tr");
+  const [isHydrated, setIsHydrated] = useState(false);
 
   const setLanguage = (lang: Language) => {
     console.log("Language changed to:", lang);
     setLanguageState(lang);
-    localStorage.setItem("language", lang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("language", lang);
+    }
   };
 
   // Eski sistem için geçici t() fonksiyonu (navigation ve header/footer için)
   const t = (key: string): string => {
+    // Hydration tamamlanmadan önce güvenli varsayılan
+    if (!isHydrated) {
+      return key;
+    }
+    
     // navigation.* key'leri için
     if (key.startsWith("navigation.")) {
       return getNavigation(key);
@@ -69,31 +77,37 @@ export const LanguageProvider = ({
 
   // Modüler çeviri fonksiyonları
   const getCommon = (key: string): string => {
+    if (!isHydrated) return key;
     return getTranslation(language, "common", key);
   };
 
   const getNavigation = (key: string): string => {
+    if (!isHydrated) return key;
     return getTranslation(language, "navigation", key);
   };
 
   const getPage = (page: string, key: string): string => {
+    if (!isHydrated) return key;
     return getTranslation(language, "pages", page, key);
   };
 
-  // Başlangıçta dili yükle
+  // Başlangıçta dili yükle ve hydration'ı işaretle
   useEffect(() => {
     if (typeof window !== "undefined") {
       const savedLanguage = localStorage.getItem("language") as Language;
       const initialLanguage = savedLanguage || "tr";
       console.log("Initial language loaded:", initialLanguage);
       setLanguageState(initialLanguage);
+      setIsHydrated(true);
     }
   }, []);
 
   // Language değişimini debug et
   useEffect(() => {
-    console.log("Language context updated:", language);
-  }, [language]);
+    if (isHydrated) {
+      console.log("Language context updated:", language);
+    }
+  }, [language, isHydrated]);
 
   return (
     <LanguageContext.Provider

@@ -95,10 +95,16 @@ export function getTranslation(
   key?: string
 ): string {
   try {
+    // Güvenlik kontrolleri
+    if (!language || !section || !keyOrPage) {
+      console.warn(`Invalid translation parameters: ${language}, ${section}, ${keyOrPage}`);
+      return key || keyOrPage || "";
+    }
+
     // Language check
     if (!translations[language]) {
       console.warn(`Language not found: ${language}`);
-      return key || keyOrPage;
+      return key || keyOrPage || "";
     }
 
     if (section === "pages" && key) {
@@ -109,35 +115,39 @@ export function getTranslation(
 
       if (!pageData) {
         console.warn(`Page not found: ${keyOrPage}`);
-        return key;
+        return key || "";
       }
 
       const result = getNestedValue(pageData, key);
-      return result || key;
+      return result || key || "";
     } else {
       const sectionData =
         translations[language][section as "common" | "navigation"];
 
       if (!sectionData) {
         console.warn(`Section not found: ${section}`);
-        return keyOrPage;
+        return keyOrPage || "";
       }
 
       const result = getNestedValue(sectionData, keyOrPage);
-      return result || keyOrPage;
+      return result || keyOrPage || "";
     }
   } catch (error) {
     console.warn(
       `Translation error: ${section}.${keyOrPage}${key ? `.${key}` : ""}`,
       error
     );
-    return key || keyOrPage;
+    return key || keyOrPage || "";
   }
 }
 
 // Nested object'lerden değer alma
 function getNestedValue(obj: any, path: string): string | undefined {
   try {
+    if (!obj || !path) {
+      return undefined;
+    }
+    
     return path.split(".").reduce((current, key) => {
       if (current === null || current === undefined) {
         return undefined;
