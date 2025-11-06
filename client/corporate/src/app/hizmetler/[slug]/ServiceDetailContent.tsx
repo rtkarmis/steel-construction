@@ -1,6 +1,7 @@
 "use client";
 import SchemaBreadcrumb from "@/components/seo/SchemaBreadcrumb";
 import Breadcrumb from "@/components/ui/Breadcrumb";
+import HeroImage from "@/components/ui/HeroImage";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Service } from "@/types/service";
 import { ArrowRight } from "lucide-react";
@@ -109,12 +110,10 @@ export default function ServiceDetailContent({
     <section className="bg-background text-text min-h-screen">
       {/* Hero */}
       <div className="relative h-[40vh] flex items-center justify-center overflow-hidden">
-        <Image
+        <HeroImage
           src={`/images/service/${service.key}/hero.webp`}
           alt={getServiceName()}
-          fill
-          priority
-          className="object-cover opacity-90 brightness-105 contrast-110"
+          priority={true}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
         <h1 className="relative z-10 text-white text-4xl md:text-5xl font-bold text-center drop-shadow-lg">

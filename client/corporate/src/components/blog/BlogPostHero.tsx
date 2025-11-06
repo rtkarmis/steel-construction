@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BlogPost } from "@/types/blog";
-import Image from "next/image";
+import HeroImage from "@/components/ui/HeroImage";
 
 interface Props {
   post: BlogPost;
@@ -24,13 +24,10 @@ export default function BlogPostHero({ post }: Props) {
     <section className="relative">
       {/* Background Image Only */}
       <div className="relative h-[50vh] overflow-hidden">
-        <Image
+        <HeroImage
           src={post.coverImage}
           alt={title}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
+          priority={true}
         />
       </div>
     </section>

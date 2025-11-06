@@ -31,7 +31,6 @@ const SiteMapContent = () => {
       "/hizmetler": "navigation.services",
       "/projeler": "navigation.projects",
       "/referanslar": "navigation.references",
-      "/medya": "navigation.media",
       "/blog": "navigation.blog",
       "/iletisim": "navigation.contact",
       "/sss": "navigation.faq",

@@ -5,7 +5,6 @@ export const en = {
     services: "Services",
     projects: "Projects",
     references: "References",
-    media: "Media",
     blog: "Blog",
     contact: "Contact",
     quote: "Get Quote",

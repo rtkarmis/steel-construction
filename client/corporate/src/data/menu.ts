@@ -10,7 +10,6 @@ export const menuKeys = {
   services: "navigation.services",
   projects: "navigation.projects",
   references: "navigation.references",
-  media: "navigation.media",
   blog: "navigation.blog",
   contact: "navigation.contact",
   faq: "navigation.faq",
@@ -46,7 +45,6 @@ export const headerMenuLinks: MenuItem[] = [
     slug: "/referanslar",
     translationKey: menuKeys.references,
   },
-  { label: "Medya", slug: "/medya", translationKey: menuKeys.media },
   { label: "Blog", slug: "/blog", translationKey: menuKeys.blog },
   { label: "İletişim", slug: "/iletisim", translationKey: menuKeys.contact },
 ];
@@ -72,7 +70,6 @@ export const footerMenuQuickAccessLinks: MenuItem[] = [
 
 export const footerMenuInformationLinks: MenuItem[] = [
   { label: "Blog", slug: "/blog", translationKey: menuKeys.blog },
-  { label: "Medya", slug: "/medya", translationKey: menuKeys.media },
   { label: "SSS", slug: "/sss", translationKey: menuKeys.faq },
 ];
 
@@ -121,10 +118,6 @@ export const allLinks: PageMetadataItem[] = [
   {
     item: { label: "Referanslarımız", slug: "/referanslar", noContainer: true },
     description: "Güvenoğlu Çelik & Metal referansları.",
-  },
-  {
-    item: { label: "Medya", slug: "/medya" },
-    description: "Güvenoğlu Çelik & Metal medya içerikleri.",
   },
   {
     item: { label: "Blog", slug: "/blog", noContainer: true },

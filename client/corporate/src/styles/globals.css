@@ -46,6 +46,63 @@ body {
     animation: fade-in 0.2s ease-out;
 }
 
+/* Video optimizasyonları */
+video {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: auto;
+}
+
+/* Hero video özel optimizasyonları */
+.hero-video {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Layout shift önleme */
+.hero-section {
+    min-height: 85vh;
+    contain: layout style paint;
+}
+
+/* Hero image optimizasyonları */
+.hero-image-container {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(13, 42, 74, 0.6), rgba(30, 64, 107, 0.8));
+}
+
+.hero-image-loading {
+    background: linear-gradient(135deg, rgba(13, 42, 74, 0.8), rgba(30, 64, 107, 0.9));
+    background-size: 400% 400%;
+    animation: gradientShift 2s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Image fade-in animation */
+.image-fade-in {
+    animation: imageAppear 0.5s ease-out forwards;
+}
+
+@keyframes imageAppear {
+    from {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /* Scrollbar gizleme */
 .scrollbar-hide {
     -ms-overflow-style: none;

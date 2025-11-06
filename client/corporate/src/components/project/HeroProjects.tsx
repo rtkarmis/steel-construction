@@ -1,18 +1,16 @@
 "use client";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Image from "next/image";
+import HeroImage from "@/components/ui/HeroImage";
 
 export default function HeroProjects() {
   const { getPage } = useLanguage();
   return (
     <section className="relative h-[50vh] flex items-center justify-center text-center bg-primary text-white overflow-hidden">
       {/* 🔹 Background Image */}
-      <Image
+      <HeroImage
         src="/images/project/hero-projects.webp"
         alt={getPage("project", "hero.title")}
-        fill
-        priority
-        className="object-cover"
+        priority={true}
       />
 
       {/* 🔸 Gradient Overlay */}

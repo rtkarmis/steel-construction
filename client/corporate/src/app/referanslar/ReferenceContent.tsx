@@ -2,6 +2,7 @@
 
 import SchemaBreadcrumb from "@/components/seo/SchemaBreadcrumb";
 import Breadcrumb from "@/components/ui/Breadcrumb";
+import HeroImage from "@/components/ui/HeroImage";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getAllReferences } from "@/data/reference";
 import {
@@ -49,12 +50,10 @@ export default function ReferencesContent() {
     <div className="min-h-screen bg-background text-text">
       {/* 🔹 HERO SECTION */}
       <section className="relative h-[50vh] flex items-center justify-center text-center text-white overflow-hidden">
-        <Image
+        <HeroImage
           src="/images/reference/hero-reference.webp"
           alt={getPage("references", "hero.title")}
-          fill
-          priority
-          className="object-cover brightness-[0.65]"
+          priority={true}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
         <div className="relative z-10 px-4 md:px-6">

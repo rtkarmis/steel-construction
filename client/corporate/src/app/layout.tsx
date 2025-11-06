@@ -30,6 +30,37 @@ export default function RootLayout({
           type="image/x-icon"
           href="/images/settings/favicon.svg"
         />
+        {/* Critical Hero Images Preload */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/home/hero.webp"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/about/hero-about.webp"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/project/hero-projects.webp"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/service/hero-services.webp"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/reference/hero-reference.webp"
+          type="image/webp"
+        />
       </head>
       <body
         className={`${inter.className} overflow-x-hidden transition-colors duration-300`}

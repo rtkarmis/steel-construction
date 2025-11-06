@@ -1,6 +1,6 @@
 "use client";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Image from "next/image";
+import HeroImage from "@/components/ui/HeroImage";
 
 const HeroServices = () => {
   const { getPage } = useLanguage();
@@ -8,12 +8,10 @@ const HeroServices = () => {
   return (
     <section className="relative h-[50vh] flex items-center justify-center text-center bg-primary text-white overflow-hidden">
       {/* 🔹 Background Image */}
-      <Image
+      <HeroImage
         src="/images/service/hero-services.webp"
         alt={getPage("service", "hero.title")}
-        fill
-        priority
-        className="object-cover"
+        priority={true}
       />
       {/* 🔸 Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />

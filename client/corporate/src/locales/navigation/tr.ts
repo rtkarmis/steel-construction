@@ -5,7 +5,6 @@ export const tr = {
     services: "Hizmetlerimiz",
     projects: "Projelerimiz",
     references: "Referanslarımız",
-    media: "Medya",
     blog: "Blog",
     contact: "İletişim",
     quote: "Teklif Al",
