@@ -45,7 +45,7 @@ const BlogPreview = ({ fadeUp, staggerContainer }: BlogPreviewProps) => {
           </h2>
           <Link
             href="/blog"
-            className="text-secondary hover:underline font-medium"
+            className="text-secondary font-medium hover:underline"
           >
             {getPage("home", "blog.viewAllButton")}
           </Link>
@@ -56,35 +56,33 @@ const BlogPreview = ({ fadeUp, staggerContainer }: BlogPreviewProps) => {
           className="grid md:grid-cols-2 gap-8"
         >
           {posts.map((p) => (
-            <m.article
-              key={p.id}
-              variants={fadeUp}
-              className="rounded-2xl overflow-hidden bg-surface border border-border/60 shadow-sm hover:shadow-md transition"
-            >
-              <div className="relative h-52">
-                <Image
-                  src={p.coverImage}
-                  alt={getBlogTitle(p)}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-5">
-                <span className="text-sm text-text/50">
-                  {formatDate(p.publishedAt)}
-                </span>
-                <h3 className="text-lg font-semibold text-primary mt-2">
-                  {getBlogTitle(p)}
-                </h3>
-                <Link
-                  href={`/blog/${p.slug}`}
-                  className="inline-block mt-3 text-secondary font-medium hover:underline"
-                >
-                  {getPage("blog", "posts.readMore")}
-                </Link>
-              </div>
-            </m.article>
+            <Link key={p.id} href={`/blog/${p.slug}`} className="block">
+              <m.article
+                variants={fadeUp}
+                className="rounded-2xl overflow-hidden bg-surface border border-border/60 shadow-sm transition cursor-pointer hover:shadow-md"
+              >
+                <div className="relative h-52">
+                  <Image
+                    src={p.coverImage}
+                    alt={getBlogTitle(p)}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-5">
+                  <span className="text-sm text-text/50">
+                    {formatDate(p.publishedAt)}
+                  </span>
+                  <h3 className="text-lg font-semibold text-primary mt-2">
+                    {getBlogTitle(p)}
+                  </h3>
+                  <div className="inline-block mt-3 text-secondary font-medium">
+                    {getPage("blog", "posts.readMore")}
+                  </div>
+                </div>
+              </m.article>
+            </Link>
           ))}
         </m.div>
       </div>

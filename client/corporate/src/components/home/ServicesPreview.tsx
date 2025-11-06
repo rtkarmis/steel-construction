@@ -44,42 +44,40 @@ const ServicesPreview = ({ fadeUp, staggerContainer }: ServicePreviewProps) => {
             ] as React.ComponentType<any>;
 
             return (
-              <m.div
-                key={s.key}
-                variants={fadeUp}
-                className="group bg-surface rounded-2xl p-6 lg:p-8 text-left shadow-sm hover:shadow-lg border border-border/60 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
-              >
-                {/* Icon Container */}
-                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-secondary/10 mb-6 group-hover:bg-secondary/20 transition-colors">
-                  {Icon && <Icon className="w-7 h-7 text-secondary" />}
-                </div>
+              <Link key={s.key} href={s.slug} className="block h-full">
+                <m.div
+                  variants={fadeUp}
+                  className="group bg-surface rounded-2xl p-6 lg:p-8 text-left shadow-sm border border-border/60 transition-all duration-300 flex flex-col h-full cursor-pointer hover:shadow-lg hover:-translate-y-1"
+                >
+                  {/* Icon Container */}
+                  <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-secondary/10 mb-6 transition-colors hover:bg-secondary/20">
+                    {Icon && <Icon className="w-7 h-7 text-secondary" />}
+                  </div>
 
-                {/* Content Container - flex-grow için */}
-                <div className="flex-grow">
-                  {/* Title & Description */}
-                  <h3 className="text-xl font-semibold text-primary group-hover:text-secondary transition-colors mb-3">
-                    {getPage("service", `services.items.${s.key}.name`) ||
-                      s.translations[language].name}
-                  </h3>
-                  <p className="text-text/70 leading-relaxed text-sm lg:text-base">
-                    {getPage(
-                      "service",
-                      `services.items.${s.key}.description`
-                    ) || s.translations[language].description}
-                  </p>
-                </div>
+                  {/* Content Container - flex-grow için */}
+                  <div className="flex-grow">
+                    {/* Title & Description */}
+                    <h3 className="text-xl font-semibold text-primary transition-colors mb-3 hover:text-secondary">
+                      {getPage("service", `services.items.${s.key}.name`) ||
+                        s.translations[language].name}
+                    </h3>
+                    <p className="text-text/70 leading-relaxed text-sm lg:text-base">
+                      {getPage(
+                        "service",
+                        `services.items.${s.key}.description`
+                      ) || s.translations[language].description}
+                    </p>
+                  </div>
 
-                {/* Link - alt kısımda sabit */}
-                <div className="mt-6 pt-4 border-t border-border/30">
-                  <Link
-                    href={s.slug}
-                    className="inline-flex items-center gap-2 text-secondary font-medium hover:text-secondary/80 transition-colors group-hover:gap-3"
-                  >
-                    {getPage("service", "services.detailButton")}
-                    <Icons.ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </m.div>
+                  {/* Link - alt kısımda sabit */}
+                  <div className="mt-6 pt-4 border-t border-border/30">
+                    <div className="inline-flex items-center gap-2 text-secondary font-medium transition-all hover:gap-3">
+                      {getPage("service", "services.detailButton")}
+                      <Icons.ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </m.div>
+              </Link>
             );
           })}
         </m.div>
@@ -88,7 +86,7 @@ const ServicesPreview = ({ fadeUp, staggerContainer }: ServicePreviewProps) => {
         <div className="mt-12 lg:mt-16">
           <Link
             href="/hizmetler"
-            className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl hover:bg-primary/90 transition-all duration-300 font-medium text-lg hover:gap-4 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl transition-all duration-300 font-medium text-lg shadow-lg hover:bg-primary/90 hover:gap-4 hover:shadow-xl"
           >
             {getPage("home", "services.viewAllButton")}
             <Icons.ArrowRight className="w-5 h-5" />

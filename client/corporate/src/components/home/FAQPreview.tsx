@@ -39,7 +39,7 @@ const FAQPreview = ({ fadeUp }: FAQPreviewProps) => {
             <m.div
               key={i}
               variants={fadeUp}
-              className="border border-border/60 rounded-xl p-5 hover:shadow-md transition bg-background"
+              className="border border-border/60 rounded-xl p-5 transition bg-background hover:shadow-md"
             >
               <h3 className="font-semibold text-primary">{f.q}</h3>
               <p className="text-text/70 mt-2">{f.a}</p>
@@ -49,7 +49,7 @@ const FAQPreview = ({ fadeUp }: FAQPreviewProps) => {
         <div className="text-center mt-10">
           <Link
             href="/sss"
-            className="text-secondary hover:underline font-medium"
+            className="text-secondary font-medium hover:underline"
           >
             {getPage("home", "faq.viewAllButton")}
           </Link>

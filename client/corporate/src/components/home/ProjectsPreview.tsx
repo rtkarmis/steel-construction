@@ -73,7 +73,7 @@ const ProjectsPreview = ({ fadeUp, staggerContainer }: ProjectPreviewProps) => {
               </h2>
               <Link
                 href="/projeler"
-                className="text-secondary hover:underline font-medium"
+                className="text-secondary font-medium hover:underline"
               >
                 {getPage("home", "projects.viewAllButton")}
               </Link>
@@ -91,7 +91,7 @@ const ProjectsPreview = ({ fadeUp, staggerContainer }: ProjectPreviewProps) => {
               </h2>
               <Link
                 href="/projeler"
-                className="text-secondary hover:underline font-medium text-sm"
+                className="text-secondary font-medium text-sm hover:underline"
               >
                 {getPage("home", "projects.viewAllButton")}
               </Link>
@@ -107,40 +107,38 @@ const ProjectsPreview = ({ fadeUp, staggerContainer }: ProjectPreviewProps) => {
           className="grid md:grid-cols-3 gap-6"
         >
           {projects.map((p) => (
-            <m.article
-              key={p.id}
-              variants={fadeUp}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="rounded-2xl overflow-hidden border border-border/70 bg-background shadow-sm hover:shadow-md transition group"
-            >
-              <div className="relative h-56">
-                <Image
-                  src={p.gallery[0]}
-                  alt={getProjectName(p)}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-lg font-semibold text-primary group-hover:text-secondary transition-colors">
-                  {getProjectName(p)}
-                </h3>
-                <p className="text-sm text-text/70 mt-1 line-clamp-2">
-                  {getProjectDescription(p)}
-                </p>
-                <div className="text-xs text-text/50 mt-2">
-                  {getProjectLocation(p)} • {p.year}
+            <Link key={p.id} href={p.slug} className="block">
+              <m.article
+                variants={fadeUp}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="rounded-2xl overflow-hidden border border-border/70 bg-background shadow-sm transition cursor-pointer hover:shadow-md"
+              >
+                <div className="relative h-56">
+                  <Image
+                    src={p.gallery[0]}
+                    alt={getProjectName(p)}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                  />
                 </div>
-                <Link
-                  href={p.slug}
-                  className="inline-block mt-3 text-secondary font-medium hover:underline"
-                >
-                  {getPage("project", "projects.detailButton")}
-                </Link>
-              </div>
-            </m.article>
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold text-primary transition-colors hover:text-secondary">
+                    {getProjectName(p)}
+                  </h3>
+                  <p className="text-sm text-text/70 mt-1 line-clamp-2">
+                    {getProjectDescription(p)}
+                  </p>
+                  <div className="text-xs text-text/50 mt-2">
+                    {getProjectLocation(p)} • {p.year}
+                  </div>
+                  <div className="inline-block mt-3 text-secondary font-medium">
+                    {getPage("project", "projects.detailButton")}
+                  </div>
+                </div>
+              </m.article>
+            </Link>
           ))}
         </m.div>
       </div>
