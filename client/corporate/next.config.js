@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Production için static export, development için normal
+  // Production için static export
   ...(process.env.NODE_ENV === "production" && {
     output: "export",
     trailingSlash: true,
@@ -8,39 +8,28 @@ const nextConfig = {
     distDir: "out",
   }),
 
-  // Vercel static export için routing fix
-  assetPrefix: process.env.NODE_ENV === "production" ? undefined : undefined,
-  
   images: {
-    // Statik export için unoptimized true
+    // Static export için unoptimized
     unoptimized: true,
-    // Image optimization için format priority
     formats: ["image/webp", "image/avif"],
-
-    // Image quality ayarları
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     qualities: [75, 90],
-
-    // Cache süreleri - daha aggressive
-    minimumCacheTTL: 31536000, // 1 yıl
-
-    // Instant loading için optimizasyonlar
+    minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
+  // Vercel static export optimizasyonları
+  poweredByHeader: false,
+  generateEtags: false,
+  compress: false,
+  
   // Experimental features
   experimental: {
-    // Static generation optimizations
     optimizeCss: true,
     optimizePackageImports: ["next/image"],
   },
-  
-  // Vercel için optimizasyonlar
-  poweredByHeader: false,
-  generateEtags: false,
-  compress: false, // Vercel handles compression
 };
 
 module.exports = nextConfig;
