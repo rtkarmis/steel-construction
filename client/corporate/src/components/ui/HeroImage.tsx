@@ -27,6 +27,7 @@ export default function HeroImage({
         loading="eager"
         placeholder="empty"
         unoptimized={false}
+        fetchPriority={priority ? "high" : "auto"}
         style={{
           objectPosition: "center",
           objectFit: "cover",

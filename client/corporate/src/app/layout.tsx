@@ -30,6 +30,15 @@ export default function RootLayout({
           type="image/x-icon"
           href="/images/settings/favicon.svg"
         />
+        {/* Font Preloading */}
+        <link
+          rel="preload"
+          href="/_next/static/media/1bffadaabf893a1e-s.7cd81963.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
+        />
+        
         {/* Critical Hero Images Preload */}
         <link
           rel="preload"
@@ -65,12 +74,16 @@ export default function RootLayout({
         {/* Performance Optimizations */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin=""
         />
+        <link rel="preconnect" href="https://vercel.app" />
+        <link rel="preconnect" href="https://cdn.gtranslate.net" />
 
         {/* Resource hints for static assets */}
         <link rel="prefetch" href="/images/settings/logo.webp" />
