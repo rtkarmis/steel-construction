@@ -38,7 +38,7 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin=""
         />
-        
+
         {/* Critical Hero Images Preload */}
         <link
           rel="preload"
