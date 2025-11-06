@@ -6,6 +6,18 @@ import BlogPostContent from "./BlogPostContent";
 
 type Props = { params: Promise<{ slug: string }> };
 
+// Statik sayfa generation
+export const dynamic = "force-static";
+export const revalidate = false;
+
+// Statik sayfa generation için tüm slug'ları önceden belirle
+export async function generateStaticParams() {
+  const posts = getAllBlogPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const posts = getAllBlogPosts();

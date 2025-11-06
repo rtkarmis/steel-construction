@@ -4,7 +4,9 @@ import { getPageMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 import ProjectDetailContent from "./ProjectDetailContent";
 
-export const revalidate = 86400; // ISR - 1 günde yenilenir
+// Statik sayfa generation
+export const dynamic = "force-static";
+export const revalidate = false;
 
 export async function generateStaticParams() {
   return projects.map((p) => ({

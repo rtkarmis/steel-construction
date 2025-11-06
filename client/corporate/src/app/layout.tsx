@@ -61,6 +61,20 @@ export default function RootLayout({
           href="/images/reference/hero-reference.webp"
           type="image/webp"
         />
+
+        {/* Performance Optimizations */}
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+
+        {/* Resource hints for static assets */}
+        <link rel="prefetch" href="/images/settings/logo.webp" />
+        <link rel="prefetch" href="/videos/hero.webm" />
       </head>
       <body
         className={`${inter.className} overflow-x-hidden transition-colors duration-300`}

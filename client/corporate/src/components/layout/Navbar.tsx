@@ -9,7 +9,7 @@ const DesktopHeader = dynamic(
   () => import("@/components/layout/DesktopHeader"),
   {
     ssr: true,
-    loading: () => <div className="h-16" />,
+    loading: () => <div className="h-20" />,
   }
 );
 const MobileHeader = dynamic(() => import("@/components/layout/MobileHeader"), {
@@ -45,7 +45,7 @@ export default function Navbar() {
 
       {/* Desktop Header */}
       <div className="hidden md:block w-full bg-surface border-b border-gray-100 backdrop-blur supports-[backdrop-filter]:bg-surface/90 shadow-[0_2px_6px_rgba(13,42,74,0.08)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 py-3">
           <DesktopHeader />
         </div>
       </div>

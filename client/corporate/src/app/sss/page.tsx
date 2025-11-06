@@ -3,6 +3,9 @@ import { getAllFAQs } from "@/data/faq";
 import { getPageMetadata } from "@/lib/metadata";
 import SSSContent from "./SSSContent";
 
+// Statik sayfa generation
+export const dynamic = "force-static";
+export const revalidate = false;
 export const metadata = getPageMetadata("/sss");
 
 export default function FAQPage() {

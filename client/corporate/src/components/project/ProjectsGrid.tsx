@@ -3,7 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { getAllProjects } from "@/data/project";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function ProjectsGrid() {
   const { getPage, language } = useLanguage();
@@ -52,30 +52,51 @@ export default function ProjectsGrid() {
   };
 
   // Get unique categories from projects
-  const categories = [
-    "all",
-    ...Array.from(new Set(projects.map((p) => p.category))),
-  ];
+  const categories = useMemo(
+    () => ["all", ...Array.from(new Set(projects.map((p) => p.category)))],
+    [projects]
+  );
 
   // Filter projects based on selected category
-  const filteredProjects =
-    selectedCategory === "all"
-      ? projects
-      : projects.filter((p) => p.category === selectedCategory);
+  const filteredProjects = useMemo(
+    () =>
+      selectedCategory === "all"
+        ? projects
+        : projects.filter((p) => p.category === selectedCategory),
+    [projects, selectedCategory]
+  );
 
-  // Map category names to translation keys
+  // Map category names to translation keys - stable mapping
   const getCategoryTranslationKey = (category: string) => {
     const categoryMap: Record<string, string> = {
       "Endüstriyel Tesis": "industrial",
       "Endüstriyel Yapı": "industrial",
       "Depo & Lojistik": "warehouse",
+      "Depo & Antrepo Yapıları": "warehouse",
       "Havacılık & Endüstriyel": "hangar",
       Hangar: "hangar",
       "Ticari Yapı": "commercial",
       Prefabrik: "prefab",
       "Çelik Konstrüksiyon": "steel",
     };
-    return categoryMap[category] || category.toLowerCase();
+    return categoryMap[category] || "industrial";
+  };
+
+  // Safe translation function with fallback
+  const getCategoryDisplayName = (category: string) => {
+    if (category === "all") {
+      return getPage("project", "categories.all") || "Tümü";
+    }
+
+    const translationKey = getCategoryTranslationKey(category);
+    const translated = getPage("project", `categories.${translationKey}`);
+
+    // If translation fails, return the original category name
+    if (!translated || translated.includes("categories.")) {
+      return category;
+    }
+
+    return translated;
   };
 
   return (
@@ -102,12 +123,7 @@ export default function ProjectsGrid() {
                     : "bg-surface text-text/70 md:hover:bg-primary/10 md:hover:text-primary"
                 }`}
               >
-                {category === "all"
-                  ? getPage("project", "categories.all")
-                  : getPage(
-                      "project",
-                      `categories.${getCategoryTranslationKey(category)}`
-                    )}
+                {getCategoryDisplayName(category)}
               </button>
             ))}
           </div>

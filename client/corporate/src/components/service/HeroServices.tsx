@@ -1,6 +1,6 @@
 "use client";
-import { useLanguage } from "@/contexts/LanguageContext";
 import HeroImage from "@/components/ui/HeroImage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroServices = () => {
   const { getPage } = useLanguage();

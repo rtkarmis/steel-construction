@@ -3,6 +3,9 @@ import SchemaReferencesPage from "@/components/seo/pages/SchemaReferencesPage";
 import { getPageMetadata } from "@/lib/metadata";
 import ReferencesSection from "./ReferenceContent";
 
+// Statik sayfa generation
+export const dynamic = "force-static";
+export const revalidate = false;
 export const metadata = getPageMetadata("/referanslar");
 
 export default function ReferencesPage() {

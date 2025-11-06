@@ -1,6 +1,6 @@
 "use client";
-import { useLanguage } from "@/contexts/LanguageContext";
 import HeroImage from "@/components/ui/HeroImage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function HeroProjects() {
   const { getPage } = useLanguage();

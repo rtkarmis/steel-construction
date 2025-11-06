@@ -6,7 +6,7 @@ import Link from "next/link";
 
 /**
  * 🔹 Logo bileşeni (responsive + 16:9 optimize)
- * - Mobil ve masaüstü için tek yapı
+ * - Mobil ve masaüstü için ayrı boyutlar
  * - Doğal oran: 1024x576 (16:9)
  * - CLS yok (sabit width/height)
  * - Lazy load + async decoding
@@ -15,14 +15,20 @@ import Link from "next/link";
 export default function Logo({
   href = "/",
   priority = false,
-  width = 150,
-  height = 84, // 16:9 oranı (150x84)
+  width,
+  height,
+  responsive = true,
 }: {
   href?: string;
   priority?: boolean;
   width?: number;
   height?: number;
+  responsive?: boolean;
 }) {
+  // Responsive default values
+  const defaultWidth = responsive ? undefined : width || 220;
+  const defaultHeight = responsive ? undefined : height || 123;
+
   return (
     <Link
       href={href}
@@ -32,12 +38,24 @@ export default function Logo({
       <Image
         src="/images/settings/logo.webp"
         alt={siteConfig.siteName}
-        width={width}
-        height={height}
+        width={width || defaultWidth || 220}
+        height={height || defaultHeight || 123}
         priority={priority}
         decoding="async"
-        className={`object-contain w-auto h-auto max-h-[${height}px]`}
-        sizes="(max-width: 640px) 140px, (max-width: 768px) 160px, (max-width: 1024px) 180px, 200px"
+        className={
+          responsive
+            ? "object-contain w-auto h-auto max-w-[180px] max-h-[100px] md:max-w-[220px] md:max-h-[123px]"
+            : "object-contain w-auto h-auto"
+        }
+        style={
+          !responsive
+            ? {
+                maxHeight: `${height || 123}px`,
+                maxWidth: `${width || 220}px`,
+              }
+            : undefined
+        }
+        sizes="(max-width: 640px) 180px, (max-width: 768px) 200px, 220px"
       />
     </Link>
   );

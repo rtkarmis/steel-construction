@@ -27,7 +27,7 @@ const DesktopHeader = () => {
     <div className="w-full grid grid-cols-[auto_1fr_auto] items-center">
       {/* 🔹 Logo */}
       <div className="flex items-center">
-        <Logo priority />
+        <Logo priority responsive={false} width={220} height={123} />
       </div>
 
       {/* 🔹 Menü */}
