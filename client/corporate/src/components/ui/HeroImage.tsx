@@ -15,10 +15,7 @@ export default function HeroImage({
   className = "",
 }: HeroImageProps) {
   return (
-    <div
-      className={`absolute inset-0 ${className}`}
-      style={{ aspectRatio: "16/9" }}
-    >
+    <div className={`absolute inset-0 ${className}`}>
       <Image
         src={src}
         alt={alt}
@@ -33,7 +30,6 @@ export default function HeroImage({
         style={{
           objectPosition: "center",
           objectFit: "cover",
-          aspectRatio: "16/9",
         }}
       />
     </div>

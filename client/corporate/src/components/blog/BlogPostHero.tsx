@@ -23,7 +23,7 @@ export default function BlogPostHero({ post }: Props) {
   return (
     <section className="relative">
       {/* Background Image Only */}
-      <div className="relative aspect-[16/9] min-h-[400px] overflow-hidden">
+      <div className="relative h-[50vh] md:h-[60vh] min-h-[400px] overflow-hidden">
         <HeroImage src={post.coverImage} alt={title} priority={true} />
       </div>
     </section>

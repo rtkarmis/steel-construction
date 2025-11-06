@@ -109,7 +109,7 @@ export default function ServiceDetailContent({
   return (
     <section className="bg-background text-text min-h-screen">
       {/* Hero */}
-      <div className="relative aspect-[16/9] min-h-[40vh] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[50vh] md:h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <HeroImage
           src={`/images/service/${service.key}/hero.webp`}
           alt={getServiceName()}
