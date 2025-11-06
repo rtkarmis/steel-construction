@@ -1,0 +1,28 @@
+# Vercel ignore file
+node_modules
+.next
+.env*.local
+*.log
+.DS_Store
+*.tsbuildinfo
+
+# Development files
+src/**/*.test.*
+src/**/*.spec.*
+__tests__
+coverage
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# Build artifacts to be generated
+out
+dist
+build
+
+# Cache directories
+.cache
+.turbo
