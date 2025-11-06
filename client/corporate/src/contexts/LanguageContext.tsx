@@ -52,7 +52,7 @@ export const LanguageProvider = ({
     if (!isHydrated) {
       return key;
     }
-    
+
     // navigation.* key'leri için
     if (key.startsWith("navigation.")) {
       return getNavigation(key);

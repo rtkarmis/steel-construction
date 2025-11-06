@@ -97,7 +97,9 @@ export function getTranslation(
   try {
     // Güvenlik kontrolleri
     if (!language || !section || !keyOrPage) {
-      console.warn(`Invalid translation parameters: ${language}, ${section}, ${keyOrPage}`);
+      console.warn(
+        `Invalid translation parameters: ${language}, ${section}, ${keyOrPage}`
+      );
       return key || keyOrPage || "";
     }
 
@@ -147,7 +149,7 @@ function getNestedValue(obj: any, path: string): string | undefined {
     if (!obj || !path) {
       return undefined;
     }
-    
+
     return path.split(".").reduce((current, key) => {
       if (current === null || current === undefined) {
         return undefined;
