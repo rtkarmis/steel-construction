@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Statik site generation için optimizasyonlar
-  output: "export",
-  trailingSlash: true,
-  skipTrailingSlashRedirect: true,
-  distDir: "out",
+  // Production için static export, development için normal
+  ...(process.env.NODE_ENV === 'production' && {
+    output: "export",
+    trailingSlash: true,
+    skipTrailingSlashRedirect: true,
+    distDir: "out",
+  }),
 
   images: {
     // Statik export için unoptimized true
@@ -32,7 +34,5 @@ const nextConfig = {
     optimizePackageImports: ["next/image"],
   },
 };
-
-module.exports = nextConfig;
 
 module.exports = nextConfig;
