@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Production için static export, development için normal
-  ...(process.env.NODE_ENV === 'production' && {
+  ...(process.env.NODE_ENV === "production" && {
     output: "export",
     trailingSlash: true,
     skipTrailingSlashRedirect: true,
     distDir: "out",
   }),
 
+  // Vercel static export için routing fix
+  assetPrefix: process.env.NODE_ENV === "production" ? undefined : undefined,
+  
   images: {
     // Statik export için unoptimized true
     unoptimized: true,
@@ -33,6 +36,11 @@ const nextConfig = {
     optimizeCss: true,
     optimizePackageImports: ["next/image"],
   },
+  
+  // Vercel için optimizasyonlar
+  poweredByHeader: false,
+  generateEtags: false,
+  compress: false, // Vercel handles compression
 };
 
 module.exports = nextConfig;

@@ -1,0 +1,21 @@
+# Cache Control for static files
+/*
+  Cache-Control: public, max-age=86400
+
+# Static assets with long cache
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images
+/images/*
+  Cache-Control: public, max-age=31536000
+
+# Videos  
+/videos/*
+  Cache-Control: public, max-age=31536000
+
+# Specific headers for HTML files
+*.html
+  Cache-Control: public, max-age=86400
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
