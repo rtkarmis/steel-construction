@@ -37,6 +37,7 @@ export default function BlogSidebar({
                       src={p.coverImage}
                       alt={t.title}
                       fill
+                      sizes="64px"
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

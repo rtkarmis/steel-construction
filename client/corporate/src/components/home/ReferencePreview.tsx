@@ -77,6 +77,7 @@ const ReferencePreview = ({ fadeUp }: TechQualityPreviewProps) => {
                 src={logo.src}
                 alt={logo.alt}
                 fill
+                sizes="(max-width: 768px) 25vw, (max-width: 1200px) 20vw, 15vw"
                 className="object-cover"
               />
             </div>
@@ -99,6 +100,7 @@ const ReferencePreview = ({ fadeUp }: TechQualityPreviewProps) => {
                       src={logo.src}
                       alt={logo.alt}
                       fill
+                      sizes="25vw"
                       className="object-cover"
                     />
                   </div>
