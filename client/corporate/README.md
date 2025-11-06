@@ -72,6 +72,7 @@ This project is configured for static site generation. All pages are pre-rendere
 ### Responsive Design
 
 The application uses Tailwind CSS with responsive breakpoints:
+
 - Mobile: Default (< 768px)
 - Tablet: `md:` (≥ 768px)
 - Desktop: `lg:` (≥ 1024px)
@@ -99,6 +100,7 @@ The application is configured for deployment on Vercel with static site generati
 ### Environment Variables
 
 The build process uses:
+
 - `NODE_ENV=production` for static export configuration
 
 ## Live Site

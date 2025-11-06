@@ -24,7 +24,7 @@ const nextConfig = {
   poweredByHeader: false,
   generateEtags: false,
   compress: false,
-  
+
   // Experimental features
   experimental: {
     optimizeCss: true,
