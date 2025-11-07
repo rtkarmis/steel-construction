@@ -2,6 +2,7 @@ import CookieBanner from "@/components/cookie/CookieBanner";
 import Footer from "@/components/layout/Footer";
 import MainWrapper from "@/components/layout/MainWrapper";
 import Navbar from "@/components/layout/Navbar";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import GoogleScripts from "@/components/seo/GoogleScripts";
 import SchemaLocalBusiness from "@/components/seo/SchemaLocalBusiness";
 import SchemaSiteNavigation from "@/components/seo/SchemaSiteNavigation";
@@ -86,6 +87,9 @@ export default function RootLayout({
         style={{ minWidth: 0 }}
       >
         <LanguageProvider>
+          {/* Scroll to top on route change */}
+          <ScrollToTop />
+
           {/* Global Layout */}
           <Navbar />
           <MainWrapper>{children}</MainWrapper>
