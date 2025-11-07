@@ -7,6 +7,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
+  isHydrated: boolean;
   // Eski sistem için geçici fonksiyon (navigation ve header/footer için)
   t: (key: string) => string;
   // Modüler çeviri fonksiyonları
@@ -48,26 +49,28 @@ export const LanguageProvider = ({
 
   // Eski sistem için geçici t() fonksiyonu (navigation ve header/footer için)
   const t = (key: string): string => {
-    // Hydration tamamlanmadan önce güvenli varsayılan
-    if (!isHydrated) {
-      return key;
-    }
+    // Hydration tamamlanmadan önce Türkçe varsayılan döndür
+    const targetLanguage = isHydrated ? language : "tr";
 
     // navigation.* key'leri için
     if (key.startsWith("navigation.")) {
-      return getNavigation(key);
+      return getTranslation(targetLanguage, "navigation", key);
     }
     // header.* ve footer.* key'leri için
     if (key.startsWith("header.") || key.startsWith("footer.")) {
-      return getNavigation(key);
+      return getTranslation(targetLanguage, "navigation", key);
     }
     // topbar.* key'leri için
     if (key.startsWith("topbar.")) {
-      return getCommon(key);
+      return getTranslation(targetLanguage, "common", key);
     }
     // common.* key'leri için
     if (key.startsWith("common.")) {
-      return getCommon(key.replace("common.", ""));
+      return getTranslation(
+        targetLanguage,
+        "common",
+        key.replace("common.", "")
+      );
     }
 
     // Bilinmeyen key'ler için warning ve key'i döndür
@@ -77,17 +80,17 @@ export const LanguageProvider = ({
 
   // Modüler çeviri fonksiyonları
   const getCommon = (key: string): string => {
-    if (!isHydrated) return key;
+    if (!isHydrated) return getTranslation("tr", "common", key);
     return getTranslation(language, "common", key);
   };
 
   const getNavigation = (key: string): string => {
-    if (!isHydrated) return key;
+    if (!isHydrated) return getTranslation("tr", "navigation", key);
     return getTranslation(language, "navigation", key);
   };
 
   const getPage = (page: string, key: string): string => {
-    if (!isHydrated) return key;
+    if (!isHydrated) return getTranslation("tr", "pages", page, key);
     return getTranslation(language, "pages", page, key);
   };
 
@@ -114,6 +117,7 @@ export const LanguageProvider = ({
       value={{
         language,
         setLanguage,
+        isHydrated,
         t,
         getCommon,
         getNavigation,

@@ -44,16 +44,21 @@ export default function Logo({
         decoding="async"
         className={
           responsive
-            ? "object-contain w-auto h-auto max-w-[180px] max-h-[100px] md:max-w-[220px] md:max-h-[123px]"
-            : "object-contain w-auto h-auto"
+            ? "object-contain max-w-[180px] max-h-[100px] md:max-w-[220px] md:max-h-[123px]"
+            : "object-contain"
         }
         style={
-          !responsive
+          responsive
             ? {
+                width: "auto",
+                height: "auto",
+              }
+            : {
+                width: width ? `${width}px` : "auto",
+                height: height ? `${height}px` : "auto",
                 maxHeight: `${height || 123}px`,
                 maxWidth: `${width || 220}px`,
               }
-            : undefined
         }
         sizes="(max-width: 640px) 180px, (max-width: 768px) 200px, 220px"
       />
