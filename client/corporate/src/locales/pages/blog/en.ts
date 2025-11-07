@@ -46,6 +46,8 @@ export const en = {
     prefab: "Prefabric Systems",
     commercial: "Commercial Buildings",
     engineering: "Engineering & Technology",
+    construction: "Construction & Building",
+    sustainability: "Sustainability",
     safety: "Safety",
   },
   posts: {

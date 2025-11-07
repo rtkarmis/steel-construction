@@ -22,19 +22,45 @@ export default function BlogPostContent({ post }: Props) {
       <div className="p-4">
         {/* Content */}
         <div
-          className="prose prose-lg prose-slate max-w-none
-            prose-headings:text-primary prose-headings:font-bold
-            prose-p:text-text/90 prose-p:leading-relaxed
-            prose-a:text-primary prose-a:no-underline hover:prose-a:text-secondary
-            prose-strong:text-primary prose-strong:font-semibold
-            prose-blockquote:border-l-4 prose-blockquote:border-secondary 
-            prose-blockquote:bg-secondary/5 prose-blockquote:px-6 prose-blockquote:py-4
-            prose-blockquote:rounded-r-lg prose-blockquote:not-italic
-            prose-code:bg-primary/10 prose-code:text-primary prose-code:px-2 prose-code:py-1 prose-code:rounded
-            prose-pre:bg-slate-900 prose-pre:border prose-pre:border-border
-            prose-img:rounded-xl prose-img:shadow-md"
+          className="blog-content max-w-none"
           dangerouslySetInnerHTML={{ __html: getBlogPostData("content") }}
         />
+        
+        <style jsx>{`
+          .blog-content :global(h1) {
+            @apply text-3xl font-bold text-primary mb-6 mt-8;
+          }
+          .blog-content :global(h2) {
+            @apply text-2xl font-bold text-primary mb-4 mt-8 pb-2 border-b border-border/30;
+          }
+          .blog-content :global(h3) {
+            @apply text-xl font-semibold text-primary mb-3 mt-6;
+          }
+          .blog-content :global(p) {
+            @apply text-text/90 leading-relaxed mb-4;
+          }
+          .blog-content :global(strong) {
+            @apply font-bold text-primary;
+          }
+          .blog-content :global(em) {
+            @apply italic text-text;
+          }
+          .blog-content :global(ul) {
+            @apply my-4 space-y-2 ml-6;
+          }
+          .blog-content :global(li) {
+            @apply text-text/90 list-disc;
+          }
+          .blog-content :global(a) {
+            @apply text-primary no-underline font-medium hover:text-secondary;
+          }
+          .blog-content :global(code) {
+            @apply bg-primary/10 text-primary px-2 py-1 rounded font-mono text-sm;
+          }
+          .blog-content :global(blockquote) {
+            @apply border-l-4 border-secondary bg-secondary/5 px-6 py-4 rounded-r-lg font-medium my-6;
+          }
+        `}</style>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 pt-8 mt-8 border-t border-border">

@@ -49,6 +49,8 @@ export const tr = {
     prefab: "Prefabrik Sistemler",
     commercial: "Ticari Yapılar",
     engineering: "Mühendislik & Teknoloji",
+    construction: "İnşaat & Yapım",
+    sustainability: "Sürdürülebilirlik",
     safety: "Güvenlik",
   },
 

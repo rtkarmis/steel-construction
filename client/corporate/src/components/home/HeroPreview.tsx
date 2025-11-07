@@ -69,9 +69,11 @@ const HeroPreview = ({ fadeUp }: HeroPreviewProps) => {
       className="hero-section relative h-[85vh] flex items-center justify-center overflow-hidden bg-primary"
     >
       {/* Optimized Fallback Background Image */}
-      <div className={`absolute inset-0 w-full h-full transition-opacity duration-700 ${
+      <div
+        className={`absolute inset-0 w-full h-full transition-opacity duration-700 ${
           showFallback ? "opacity-25" : "opacity-0"
-        }`}>
+        }`}
+      >
         <Image
           src="/images/home/hero.webp"
           alt="Güvenoğlu Çelik Konstruksiyon"

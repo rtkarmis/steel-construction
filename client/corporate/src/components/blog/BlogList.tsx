@@ -60,16 +60,31 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
               {/* İçerik */}
               <div className="p-6 flex flex-col justify-between flex-1">
                 <div>
-                  <div className="text-xs uppercase text-secondary font-semibold tracking-wide mb-2">
-                    {getPage("blog", `categories.${post.category}`) ||
-                      post.category}
+                  <div className="text-xs text-secondary font-semibold tracking-wide mb-2">
+                    {(
+                      getPage("blog", `categories.${post.category}`) ||
+                      post.category
+                    ).toLocaleUpperCase(language === "tr" ? "tr-TR" : "en-US")}
                   </div>
                   <h3 className="text-lg md:text-xl font-bold text-primary group-hover:text-secondary transition-colors line-clamp-2">
                     {title}
                   </h3>
-                  <p className="mt-2 text-sm text-text/80 line-clamp-3">
-                    {summary}
-                  </p>
+                  <div 
+                    className="mt-2 text-sm text-text/80 line-clamp-3 blog-summary"
+                    dangerouslySetInnerHTML={{ __html: summary }}
+                  />
+                  
+                  <style jsx>{`
+                    .blog-summary :global(p) {
+                      @apply text-text/80 leading-relaxed my-0;
+                    }
+                    .blog-summary :global(strong) {
+                      @apply font-semibold text-text;
+                    }
+                    .blog-summary :global(em) {
+                      @apply italic text-text/90;
+                    }
+                  `}</style>
                 </div>
 
                 {/* Bilgiler */}
