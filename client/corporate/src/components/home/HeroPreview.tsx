@@ -1,5 +1,6 @@
 "use client";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -67,13 +68,22 @@ const HeroPreview = ({ fadeUp }: HeroPreviewProps) => {
       ref={sectionRef}
       className="hero-section relative h-[85vh] flex items-center justify-center overflow-hidden bg-primary"
     >
-      {/* Fallback Background Image */}
-      <div
-        className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-700 ${
+      {/* Optimized Fallback Background Image */}
+      <div className={`absolute inset-0 w-full h-full transition-opacity duration-700 ${
           showFallback ? "opacity-25" : "opacity-0"
-        }`}
-        style={{ backgroundImage: "url(/images/home/hero.webp)" }}
-      />
+        }`}>
+        <Image
+          src="/images/home/hero.webp"
+          alt="Güvenoğlu Çelik Konstruksiyon"
+          fill
+          className="object-cover"
+          quality={65} // Agresif compression hero için
+          priority={true}
+          sizes="100vw"
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkrHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Rp"
+        />
+      </div>
 
       {/* Video Background - Preload ile optimize edilmiş */}
       {isVisible && (
@@ -87,7 +97,6 @@ const HeroPreview = ({ fadeUp }: HeroPreviewProps) => {
           muted
           playsInline
           preload="metadata" // Preload sayesinde metadata yeterli
-          poster="/images/home/hero.webp"
           onLoadedData={handleVideoLoad}
           onError={handleVideoError}
         >
