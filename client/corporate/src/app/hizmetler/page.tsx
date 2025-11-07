@@ -17,6 +17,14 @@ export const metadata = getPageMetadata("/hizmetler");
 export default function ServicesPage() {
   return (
     <>
+      {/* Critical resource preload for services page */}
+      <link
+        rel="preload"
+        as="image"
+        href="/images/service/hero-services.webp"
+        type="image/webp"
+        fetchPriority="high"
+      />
       <SchemaServicesPage services={services} />
       <ServicesContent />
     </>

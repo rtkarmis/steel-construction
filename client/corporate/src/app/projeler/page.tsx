@@ -16,6 +16,14 @@ export const metadata = getPageMetadata("/projeler");
 export default function ProjectsPage() {
   return (
     <>
+      {/* Critical resource preload for projects page */}
+      <link
+        rel="preload"
+        as="image"
+        href="/images/project/hero-projects.webp"
+        type="image/webp"
+        fetchPriority="high"
+      />
       <SchemaProjectsPage projects={projects} />
       <ProjectsContent />
     </>

@@ -43,18 +43,42 @@ export default function RootLayout({
         {/* 🔹 DNS prefetch — third-party kaynaklar */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
+
+        {/* 🔹 Critical CSS preload */}
+        <link
+          rel="preload"
+          href="/_next/static/css/app/layout.css"
+          as="style"
+        />
+        <noscript>
+          <link rel="stylesheet" href="/_next/static/css/app/layout.css" />
+        </noscript>
+
+        {/* 🔹 Critical font preload */}
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZg.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
+        />
+
+        {/* 🔹 Critical logo preload - her sayfada gerekli */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/settings/logo.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
+
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//cdn.gtranslate.net" />
 
-        {/* 🔹 Preconnect — potansiyel CDN’ler */}
+        {/* 🔹 Preconnect — potansiyel CDN'ler */}
         <link rel="preconnect" href="https://vercel.app" />
         <link rel="preconnect" href="https://cdn.gtranslate.net" />
-
-        {/* 🔹 Prefetch — düşük öncelikli kaynaklar */}
-        <link rel="prefetch" href="/images/settings/logo.webp" />
-        <link rel="prefetch" href="/videos/hero.webm" />
-        <link rel="prefetch" href="/images/home/hero.webp" />
       </head>
 
       <body

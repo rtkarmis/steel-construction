@@ -99,53 +99,63 @@ export const policyMenuLinks: MenuItem[] = [
 export const allLinks: PageMetadataItem[] = [
   {
     item: { label: "Anasayfa", slug: "/", noContainer: true },
-    description: "Güvenoğlu Çelik & Metal anasayfası.",
+    description:
+      "Güvenoğlu Çelik & Metal: 25+ yıllık mühendislik tecrübesiyle endüstriyel çelik konstrüksiyon, fabrika imalatı ve metal üretim çözümlerinde güvenilir ortağınız.",
   },
   {
     item: { label: "Hakkımızda", slug: "/hakkimizda", noContainer: true },
     description:
-      "Güvenoğlu Çelik & Metal: 25+ yıllık tecrübe, mühendislik disiplini ve sertifikalı üretim ile endüstriyel yapılar için güvenilir çözüm ortağınız.",
+      "Çelik ve metal yapılar alanında 25+ yıllık uzmanlık. Güvenoğlu, mühendislik disipliniyle tasarım, üretim ve montajda kaliteyi garanti eder.",
   },
   {
     item: { label: "Hizmetlerimiz", slug: "/hizmetler", noContainer: true },
     description:
-      "Çelik konstrüksiyon, fabrika imalatı, metal üretim, bakım ve mühendislik çözümlerinde Güvenoğlu kalitesi.",
+      "Çelik konstrüksiyon, fabrika imalatı, endüstriyel yapı, bakım ve mühendislik çözümleriyle üretimde maksimum verimlilik sağlayın.",
   },
   {
     item: { label: "Projelerimiz", slug: "/projeler", noContainer: true },
-    description: "Güvenoğlu Çelik & Metal projeleri.",
+    description:
+      "Endüstriyel tesislerden ticari komplekslere: Güvenoğlu Çelik & Metal projeleriyle modern, dayanıklı ve mühendislik odaklı çözümler.",
   },
   {
     item: { label: "Referanslarımız", slug: "/referanslar", noContainer: true },
-    description: "Güvenoğlu Çelik & Metal referansları.",
+    description:
+      "Türkiye genelinde tamamlanan endüstriyel çelik yapı ve fabrika projelerimizle güvenin kanıtı: Güvenoğlu Çelik & Metal referansları.",
   },
   {
     item: { label: "Blog", slug: "/blog", noContainer: true },
-    description: "Güvenoğlu Çelik & Metal blog yazıları.",
+    description:
+      "Çelik yapı teknolojileri, mühendislik trendleri ve endüstriyel tasarım yaklaşımlarına dair uzman içerikler Güvenoğlu Blog’da.",
   },
   {
     item: { label: "İletişim", slug: "/iletisim", noContainer: true },
-    description: "Güvenoğlu Çelik & Metal iletişim bilgileri.",
+    description:
+      "Güvenoğlu Çelik & Metal ile iletişime geçin. Bolu merkezli mühendislik firmamızdan projeleriniz için teklif alın.",
   },
   {
     item: { label: "SSS", slug: "/sss" },
-    description: "Güvenoğlu Çelik & Metal sıkça sorulan sorular.",
+    description:
+      "Çelik konstrüksiyon, proje süreçleri, teslim süresi ve maliyetler hakkında en çok merak edilen soruların cevapları burada.",
   },
   {
     item: { label: "Gizlilik Politikası", slug: "/gizlilik-politikasi" },
-    description: "Güvenoğlu Çelik & Metal gizlilik politikası.",
+    description:
+      "Güvenoğlu Çelik & Metal olarak kişisel verilerinizi KVKK’ya uygun şekilde koruyor, gizliliğinizi önceliğimiz yapıyoruz.",
   },
   {
     item: { label: "Çerez Politikası", slug: "/cerez-politikasi" },
-    description: "Güvenoğlu Çelik & Metal çerez politikası.",
+    description:
+      "Web sitemizde kullanıcı deneyimini iyileştirmek için çerez kullanıyoruz. Detaylı bilgi için çerez politikamızı inceleyin.",
   },
   {
     item: { label: "KVKK Aydınlatma Metni", slug: "/kvkk-aydinlatma-metni" },
-    description: "Güvenoğlu Çelik & Metal KVKK aydınlatma metni.",
+    description:
+      "KVKK uyarınca kişisel verilerinizin işlenme amaçları, hukuki dayanakları ve haklarınız hakkında bilgi alın.",
   },
   {
     item: { label: "Site Haritası", slug: "/site-haritasi" },
-    description: "Güvenoğlu Çelik & Metal site haritası.",
+    description:
+      "Güvenoğlu Çelik & Metal web sitesindeki tüm sayfaların bağlantılarını kolayca keşfedin. Hızlı erişim için site haritası.",
   },
   // Hizmet detay sayfaları - container olmasın
   ...getAllServices().map((service) => ({
@@ -154,7 +164,7 @@ export const allLinks: PageMetadataItem[] = [
       slug: service.slug,
       noContainer: true,
     },
-    description: `${service.translations.tr.name} - ${service.translations.tr.description}`,
+    description: `${service.translations.tr.name} – ${service.translations.tr.description} Güvenoğlu Çelik & Metal mühendislik kalitesiyle, projelerinizde maksimum dayanım ve estetik sağlayın.`,
   })),
   // Proje detay sayfaları - container olmasın
   ...getAllProjects().map((project) => ({
@@ -163,7 +173,7 @@ export const allLinks: PageMetadataItem[] = [
       slug: project.slug,
       noContainer: true,
     },
-    description: `${project.translations.tr.name} - ${project.translations.tr.description}`,
+    description: `${project.translations.tr.name} – ${project.translations.tr.description} Güvenoğlu Çelik & Metal güvencesiyle modern, dayanıklı ve enerji verimli çözümler.`,
   })),
   // Blog detay sayfaları - container olmasın
   ...getAllBlogPosts().map((blog) => ({
@@ -172,6 +182,7 @@ export const allLinks: PageMetadataItem[] = [
       slug: `/blog/${blog.slug}`,
       noContainer: true,
     },
-    description: `${blog.translations.tr.title} - ${blog.translations.tr.summary}`,
+    description: `${blog.translations.tr.metaDescription}`,
   })),
 ];
+

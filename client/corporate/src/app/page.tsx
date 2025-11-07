@@ -16,6 +16,26 @@ export const metadata = getPageMetadata("/");
 const Home = () => {
   return (
     <>
+      {/* Critical resource preloads for home page */}
+
+      {/* Video preload - Ana hero video için */}
+      <link
+        rel="preload"
+        as="video"
+        href="/videos/hero.webm"
+        type="video/webm"
+        fetchPriority="high"
+      />
+
+      {/* Fallback image preload - Video yüklenemezse veya desteklenmezse */}
+      <link
+        rel="preload"
+        as="image"
+        href="/images/home/hero.webp"
+        type="image/webp"
+        fetchPriority="high"
+      />
+
       <SchemaHomePage />
       <HomeContent />
     </>

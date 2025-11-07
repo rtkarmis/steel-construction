@@ -53,6 +53,14 @@ export default async function BlogDetailPage({ params }: Props) {
 
   return (
     <>
+      {/* Critical resource preload for blog detail page */}
+      <link
+        rel="preload"
+        as="image"
+        href={post.coverImage}
+        type="image/webp"
+        fetchPriority="high"
+      />
       <SchemaBlogDetailPage post={post} />
       <BlogPostContent post={post} allPosts={posts} />
     </>

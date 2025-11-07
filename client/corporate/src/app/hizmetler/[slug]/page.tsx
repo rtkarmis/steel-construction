@@ -56,6 +56,21 @@ const ServiceDetailPage = async ({
 
   return (
     <>
+      {/* Critical resource preloads for service detail page */}
+      <link
+        rel="preload"
+        as="image"
+        href={`/images/service/${service.key}/hero.webp`}
+        type="image/webp"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href={`/images/service/${service.key}/detail.webp`}
+        type="image/webp"
+        fetchPriority="high"
+      />
       <SchemaServiceDetailPage service={service} />
       <ServiceDetailContent service={service} />
     </>

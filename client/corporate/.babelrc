@@ -5,8 +5,16 @@
       {
         "preset-env": {
           "targets": {
-            "browsers": ["> 1%", "last 2 versions", "not dead", "not ie 11"]
-          }
+            "browsers": [
+              "Chrome >= 91",
+              "Firefox >= 90",
+              "Safari >= 14",
+              "Edge >= 91"
+            ]
+          },
+          "modules": false,
+          "useBuiltIns": "usage",
+          "corejs": 3
         }
       }
     ]

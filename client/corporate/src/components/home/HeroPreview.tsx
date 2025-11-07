@@ -25,7 +25,7 @@ const HeroPreview = ({ fadeUp }: HeroPreviewProps) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            // Video'yu hemen yükle
+            // Video'yu hemen yükle - preload sayesinde cache'den gelecek
             if (videoRef.current) {
               videoRef.current.load();
             }
@@ -39,16 +39,18 @@ const HeroPreview = ({ fadeUp }: HeroPreviewProps) => {
       observer.observe(sectionRef.current);
     }
 
-    // Fallback timer
+    // Daha hızlı fallback geçişi - preload sayesinde video daha hızlı yüklenecek
     const timer = setTimeout(() => {
-      setShowFallback(false);
-    }, 200);
+      if (!videoLoaded) {
+        setShowFallback(false);
+      }
+    }, 100);
 
     return () => {
       observer.disconnect();
       clearTimeout(timer);
     };
-  }, []);
+  }, [videoLoaded]);
 
   const handleVideoLoad = () => {
     setVideoLoaded(true);
@@ -73,24 +75,23 @@ const HeroPreview = ({ fadeUp }: HeroPreviewProps) => {
         style={{ backgroundImage: "url(/images/home/hero.webp)" }}
       />
 
-      {/* Video Background - Sadece görünür olduğunda yükle */}
+      {/* Video Background - Preload ile optimize edilmiş */}
       {isVisible && (
         <video
           ref={videoRef}
-          className={`hero-video absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+          className={`hero-video absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
             videoLoaded && !showFallback ? "opacity-25" : "opacity-0"
           }`}
           autoPlay
           loop
           muted
           playsInline
-          preload="none"
+          preload="metadata" // Preload sayesinde metadata yeterli
           poster="/images/home/hero.webp"
           onLoadedData={handleVideoLoad}
           onError={handleVideoError}
         >
           <source src="/videos/hero.webm" type="video/webm" />
-          <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
       )}
 

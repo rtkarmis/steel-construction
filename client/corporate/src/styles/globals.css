@@ -9,11 +9,49 @@
         line-height: 1.5;
         -webkit-text-size-adjust: 100%;
         tab-size: 4;
+        /* Performance optimizations */
+        scroll-behavior: smooth;
+        text-rendering: optimizeSpeed;
     }
 
     body {
         margin: 0;
         line-height: inherit;
+        /* Critical performance */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Critical hero section styles */
+    .hero-section {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Image loading optimizations */
+    img {
+        content-visibility: auto;
+        contain-intrinsic-size: 300px 200px;
+        /* Performance hints */
+        image-rendering: -webkit-optimize-contrast;
+        transform: translateZ(0);
+        will-change: transform;
+    }
+
+    /* Critical image loading */
+    img[data-priority="true"] {
+        content-visibility: visible;
+        contain: none;
+        image-rendering: auto;
+    }
+
+    /* Prevent layout shift for images */
+    img[data-loading="lazy"] {
+        content-visibility: auto;
     }
 }
 
