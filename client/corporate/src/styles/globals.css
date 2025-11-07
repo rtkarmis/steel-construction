@@ -286,3 +286,28 @@ video {
     font-style: italic;
     color: rgba(51, 65, 85, 0.9);
 }
+
+/* Blog Hero Image Responsive Styling */
+.blog-hero-image-responsive {
+    object-fit: cover;
+    object-position: center;
+    background-color: transparent;
+}
+
+/* Desktop - contain with white background to prevent side cuts */
+@media (min-width: 768px) {
+    .blog-hero-image-responsive {
+        object-fit: contain;
+        object-position: center;
+        background-color: white;
+    }
+}
+
+/* Mobile - cover to fill container properly without top/bottom cuts */
+@media (max-width: 767px) {
+    .blog-hero-image-responsive {
+        object-fit: cover;
+        object-position: center top;
+        background-color: transparent;
+    }
+}

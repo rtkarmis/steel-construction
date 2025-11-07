@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BlogPost } from "@/types/blog";
 import { CalendarDays, Clock, User } from "lucide-react";
+import BlogPostHero from "./BlogPostHero";
 
 interface Props {
   post: BlogPost;
@@ -35,7 +36,7 @@ export default function BlogPostHeader({ post, readingTime }: Props) {
         {title}
       </h1>
       {/* Meta Information */}
-      <div className="flex flex-wrap items-center gap-6 text-text/80 mb-12">
+      <div className="flex flex-wrap items-center gap-6 text-text/80 mb-8">
         <div className="flex items-center gap-2">
           <User size={16} />
           <span className="text-sm font-medium">{post.author}</span>
@@ -56,6 +57,9 @@ export default function BlogPostHeader({ post, readingTime }: Props) {
           </span>
         </div>
       </div>
+
+      {/* Blog Post Image - Full container with logo visible */}
+      <BlogPostHero post={post} />
     </section>
   );
 }

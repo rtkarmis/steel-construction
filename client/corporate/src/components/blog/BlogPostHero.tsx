@@ -1,6 +1,6 @@
-import HeroImage from "@/components/ui/HeroImage";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BlogPost } from "@/types/blog";
+import Image from "next/image";
 
 interface Props {
   post: BlogPost;
@@ -21,11 +21,22 @@ export default function BlogPostHero({ post }: Props) {
   const title = getBlogPostTitle();
 
   return (
-    <section className="relative">
-      {/* Background Image Only */}
-      <div className="relative h-[50vh] md:h-[60vh] min-h-[400px] overflow-hidden">
-        <HeroImage src={post.coverImage} alt={title} priority={true} />
+    <div className="relative w-full mb-8">
+      <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+        <Image
+          src={post.coverImage}
+          alt={title}
+          fill
+          priority={true}
+          quality={95}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 768px, 1152px"
+          className="object-cover w-full h-full"
+          style={{
+            objectFit: "cover",
+            objectPosition: "right bottom", // Logo sağ alt köşede
+          }}
+        />
       </div>
-    </section>
+    </div>
   );
 }

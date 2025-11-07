@@ -3,7 +3,6 @@
 import BlogComments from "@/components/blog/BlogComments";
 import BlogPostArticle from "@/components/blog/BlogPostArticle";
 import BlogPostHeader from "@/components/blog/BlogPostHeader";
-import BlogPostHero from "@/components/blog/BlogPostHero";
 import BlogRelatedPosts from "@/components/blog/BlogRelatedPosts";
 import SchemaBreadcrumb from "@/components/seo/SchemaBreadcrumb";
 import Breadcrumb from "@/components/ui/Breadcrumb";
@@ -75,9 +74,6 @@ export default function BlogPostContent({ post, allPosts }: Props) {
 
   return (
     <article className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <BlogPostHero post={post} />
-
       {/* Schema Breadcrumb */}
       <SchemaBreadcrumb items={schemaBreadcrumbs} />
 
