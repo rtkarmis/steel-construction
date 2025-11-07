@@ -28,6 +28,11 @@ const nextConfig = {
   generateEtags: true,
   compress: true,
 
+  // Modern compilation settings
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+
   // Experimental features for better performance
   experimental: {
     optimizeCss: true, // Critical CSS extraction aktif
