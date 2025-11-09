@@ -46,7 +46,6 @@ export interface FooterData {
   };
   legal: {
     siteName: string;
-    vkn: string;
     vatOffice: string;
     madeBy: {
       name: string;

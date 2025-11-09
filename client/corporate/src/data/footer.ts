@@ -31,7 +31,6 @@ export const footerData: FooterData = {
   },
   legal: {
     siteName: siteConfig.siteName,
-    vkn: siteConfig.vkn,
     vatOffice: siteConfig.vatOffice,
     madeBy: {
       name: "Güvenoğlu Çelik & Metal",
