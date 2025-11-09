@@ -11,7 +11,6 @@ const SchemaFooter = () => {
     "@type": "LocalBusiness",
     name: siteConfig.siteName,
     legalName: siteConfig.legalName || siteConfig.siteName,
-    taxID: siteConfig.vkn || "1234567890",
     url: siteConfig.siteUrl,
     logo: siteConfig.defaultImage,
     image: siteConfig.defaultImage,
