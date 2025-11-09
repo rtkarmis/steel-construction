@@ -96,7 +96,10 @@ export default function ReferencesContent() {
                     className="object-contain group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <p className="mt-3 text-sm font-medium text-text/80 text-nowrap">
+                <p
+                  className="mt-3 text-[13px] font-medium text-text/80 w-full max-w-full overflow-hidden break-words whitespace-normal text-ellipsis text-center leading-tight"
+                  style={{wordBreak: 'break-word', lineHeight: '1.2', fontWeight: 500}}
+                >
                   {getReferenceName(ref)}
                 </p>
                 {ref.website && (

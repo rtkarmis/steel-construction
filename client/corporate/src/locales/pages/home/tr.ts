@@ -2,7 +2,7 @@ export const tr = {
   hero: {
     title: "Güvenoğlu Çelik & Metal",
     subtitle:
-      "Mühendislikten üretime, 25+ yıllık deneyimle endüstriyel projelerde kalite, güven ve yenilik.",
+      "Mühendislikten üretime, 10+ yıllık deneyimle endüstriyel projelerde kalite, güven ve yenilik.",
     getQuoteButton: "Teklif Alın",
     viewProjectsButton: "Projelerimizi Görün",
   },

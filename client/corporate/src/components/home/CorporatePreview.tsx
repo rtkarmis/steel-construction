@@ -47,7 +47,7 @@ const CorporatePreview = ({ fadeUp }: CorporatePreviewProps) => {
             </p>
 
             <div className="grid grid-cols-3 gap-4">
-              {["25+", "100+", "ISO"].map((item, i) => (
+              {["10+", "100+", "ISO"].map((item, i) => (
                 <m.div
                   key={i}
                   variants={fadeUp}

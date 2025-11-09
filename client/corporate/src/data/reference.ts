@@ -3,53 +3,51 @@ import { Reference } from "@/types/reference";
 export const references: Reference[] = [
   {
     id: 1,
-    key: "bolu-cimento",
+    key: "erpilic",
     translations: {
       tr: {
-        name: "Bolu Çimento",
+        name: "Erpiliç",
         description: "Endüstriyel yapı projelerinde çözüm ortağımız.",
       },
       en: {
-        name: "Bolu Cement",
+        name: "Erpiliç",
         description: "Our trusted partner in industrial construction projects.",
       },
     },
-    logo: "/images/reference/bolu-cimento.webp",
-    website: "https://bolucimento.com.tr",
+    logo: "/images/reference/erpilic.webp",
+    website: "https://erpilic.com.tr",
   },
   {
     id: 2,
-    key: "eflatun-teknoloji",
+    key: "ersan-tarim",
     translations: {
       tr: {
-        name: "Eflatun Teknoloji",
-        description:
-          "Teknolojik altyapı ve otomasyon sistemlerinde iş ortağımız.",
+        name: "Ersan Tarım",
+        description: "Tarım makineleri ve ekipmanları konusunda iş ortağımız.",
       },
       en: {
-        name: "Eflatun Technology",
-        description:
-          "Our partner in technological infrastructure and automation systems.",
+        name: "Ersan Agriculture",
+        description: "Our partner in agricultural machinery and equipment.",
       },
     },
-    logo: "/images/reference/eflatun.webp",
-    website: "https://eflatunteknoloji.com",
+    logo: "/images/reference/ersan.webp",
+    website: "https://ersantarim.com",
   },
   {
     id: 3,
-    key: "erciyas-holding",
+    key: "guler-makina-isitma-sogutma",
     translations: {
       tr: {
-        name: "Erciyas Holding",
+        name: "Güler Makina Isıtma Soğutma",
         description: "Çelik konstrüksiyon çözümleri için üretim partnerimiz.",
       },
       en: {
-        name: "Erciyas Holding",
+        name: "Güler Makina Isıtma Soğutma",
         description: "Our production partner for steel construction solutions.",
       },
     },
-    logo: "/images/reference/erciyas.webp",
-    website: "https://erciyasholding.com.tr",
+    logo: "/images/reference/guler.webp",
+    website: "https://gulerisitmasogutma.com.tr",
   },
 ];
 

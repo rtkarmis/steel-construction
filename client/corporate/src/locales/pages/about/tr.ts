@@ -8,22 +8,17 @@ export const tr = {
     badge: "Kurumsal Yolculuk",
     title: "Güçlü mühendislik, güvenilir ortaklık.",
     paragraph1:
-      "25 yılı aşkın deneyimimizle çelik yapı sektöründe öncü firmalardan biriyiz. Fabrika, depo, endüstriyel tesis ve ticari yapıların tasarımından üretime, montajından teslime kadar tüm süreçleri kendi bünyemizde gerçekleştiriyoruz.",
+      "10 yıllık deneyimimizle çelik yapı sektöründe öncü firmalardan biriyiz. Fabrika, depo, endüstriyel tesis ve ticari yapıların tasarımından üretime, montajından teslime kadar tüm süreçleri kendi bünyemizde gerçekleştiriyoruz.",
     paragraph2:
       "Modern üretim tesisimizde, nitelikli mühendis kadromuz ve deneyimli işçilerimizle her projeyi özenle hayata geçiriyoruz. Kalite, zamanında teslim ve müşteri memnuniyeti temel prensiplerimizdir.",
   },
   timeline: {
     items: [
-      { year: "1999", text: "Şirket kuruluşu ve ilk projeler" },
-      {
-        year: "2007",
-        text: "İlk büyük ölçekli fabrika projesi tamamlandı",
-      },
-      { year: "2016", text: "ISO 9001 ve CE belgelerini aldık" },
-      {
-        year: "2024",
-        text: "Yeni üretim tesisi yatırımı ve kapasite artırımı",
-      },
+      { year: "2015", text: "Şirket kuruluşu ve ilk projeler" },
+      { year: "2017", text: "İlk fabrika projesi tamamlandı" },
+      { year: "2019", text: "ISO 9001 ve CE belgeleri alındı" },
+      { year: "2022", text: "Üretim tesisi kapasite artırımı" },
+      { year: "2025", text: "10. yıl ve yeni yatırımlar" },
     ],
   },
   values: {

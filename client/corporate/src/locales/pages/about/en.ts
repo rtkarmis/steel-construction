@@ -8,19 +8,17 @@ export const en = {
     badge: "Corporate Journey",
     title: "Strong engineering, reliable partnership.",
     paragraph1:
-      "With over 25 years of experience, we are one of the leading companies in the steel construction industry. We handle all processes from design to production, from assembly to delivery of factories, warehouses, industrial facilities, and commercial structures within our own organization.",
+      "With 10+ years of experience, we are one of the leading companies in the steel construction industry. We handle all processes from design to production, from assembly to delivery of factories, warehouses, industrial facilities, and commercial structures within our own organization.",
     paragraph2:
       "In our modern production facility, we carefully implement every project with our qualified engineering team and experienced workers. Quality, on-time delivery, and customer satisfaction are our fundamental principles.",
   },
   timeline: {
     items: [
-      { year: "1999", text: "Company establishment and first projects" },
-      { year: "2007", text: "First large-scale factory project completed" },
-      { year: "2016", text: "Obtained ISO 9001 and CE certificates" },
-      {
-        year: "2024",
-        text: "New production facility investment and capacity expansion",
-      },
+      { year: "2015", text: "Company establishment and first projects" },
+      { year: "2017", text: "First factory project completed" },
+      { year: "2019", text: "Obtained ISO 9001 and CE certificates" },
+      { year: "2022", text: "Production facility capacity expansion" },
+      { year: "2025", text: "10th anniversary and new investments" },
     ],
   },
   values: {

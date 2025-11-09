@@ -27,12 +27,11 @@ export const siteConfig = {
   locationFrameUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96738.79799634304!2d31.57490024807927!3d40.738101500701376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x409d39c8b0d9f199%3A0xf7ae397b570a7e33!2zR8O8dmVub8SfbHUgRGVtaXIgRG_En3JhbWE!5e0!3m2!1str!2str!4v1762208549642!5m2!1str!2str",
   socialLinks: {
-    instagram: "https://www.instagram.com/steelconstruction",
-    facebook: "https://www.facebook.com/steelconstruction",
-    whatsapp: "https://wa.me/905551234567",
+    instagram: "https://www.instagram.com/guvenoglucelikmetal",
+    facebook: "https://www.facebook.com/guvenoglucelikmetal",
+    whatsapp: "https://wa.me/905523154619",
   },
   gmbPlaceId: "",
-  vkn: "1234567890",
   geo: {
     latitude: 41.0082,
     longitude: 28.9784,
@@ -56,7 +55,7 @@ export const siteConfig = {
     "Tekirdağ",
     "Kırklareli",
   ],
-  foundingDate: "1999",
+  foundingDate: "2015",
 };
 
 /* -------------------------------------------------------------

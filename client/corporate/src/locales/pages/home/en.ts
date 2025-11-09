@@ -2,7 +2,7 @@ export const en = {
   hero: {
     title: "Güvenoğlu Steel & Metal",
     subtitle:
-      "From engineering to production, 25+ years of experience in quality, trust and innovation in industrial projects.",
+      "From engineering to production, 10+ years of experience in quality, trust and innovation in industrial projects.",
     getQuoteButton: "Get Quote",
     viewProjectsButton: "View Our Projects",
   },

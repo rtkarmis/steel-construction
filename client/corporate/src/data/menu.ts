@@ -100,12 +100,12 @@ export const allLinks: PageMetadataItem[] = [
   {
     item: { label: "Anasayfa", slug: "/", noContainer: true },
     description:
-      "Güvenoğlu Çelik & Metal: 25+ yıllık mühendislik tecrübesiyle endüstriyel çelik konstrüksiyon, fabrika imalatı ve metal üretim çözümlerinde güvenilir ortağınız.",
+      "Güvenoğlu Çelik & Metal: 10 yıllık mühendislik tecrübesiyle endüstriyel çelik konstrüksiyon, fabrika imalatı ve metal üretim çözümlerinde güvenilir ortağınız.",
   },
   {
     item: { label: "Hakkımızda", slug: "/hakkimizda", noContainer: true },
     description:
-      "Çelik ve metal yapılar alanında 25+ yıllık uzmanlık. Güvenoğlu, mühendislik disipliniyle tasarım, üretim ve montajda kaliteyi garanti eder.",
+      "Çelik ve metal yapılar alanında 10 yıllık uzmanlık. Güvenoğlu, mühendislik disipliniyle tasarım, üretim ve montajda kaliteyi garanti eder.",
   },
   {
     item: { label: "Hizmetlerimiz", slug: "/hizmetler", noContainer: true },
@@ -185,4 +185,3 @@ export const allLinks: PageMetadataItem[] = [
     description: `${blog.translations.tr.metaDescription}`,
   })),
 ];
-
