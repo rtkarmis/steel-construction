@@ -3,6 +3,51 @@ import { Service } from "@/types/service";
 export const services: Service[] = [
   {
     id: 1,
+    icon: "Egg",
+    slug: "/hizmetler/kuluckahane-kumes-yapimi",
+    key: "hatchery-construction",
+    translations: {
+      tr: {
+        name: "Kuluçkahane ve Kümes Yapımı",
+        description:
+          "Tavukçuluk ve beyaz et sektörüne özel, hijyen standartlarına uygun modern kuluçkahane ve kümes yapım hizmetleri.",
+        detailDescription:
+          "Güvenoğlu Çelik & Metal, Erpiliç gibi sektör liderleri için geliştirdiği yüksek dayanımlı çelik yapılarla modern kuluçkahane ve kümes projeleri sunar. Havalandırma uyumlu çatı tasarımları, yalıtımlı panel sistemleri, hijyen standartlarına uygun iç mekanlar ve hızlı montaj avantajı sağlayan hafif çelik teknolojisi ile maksimum verimlilik hedeflenir.",
+      },
+      en: {
+        name: "Hatchery & Poultry House Construction",
+        description:
+          "Modern hatchery and poultry shelter construction designed for the poultry and white-meat industry with high hygiene standards.",
+        detailDescription:
+          "Güvenoğlu Çelik & Metal provides modern hatchery and poultry house construction with durable steel systems. Featuring insulation panels, ventilation-ready roof structures and hygienic interiors, these facilities are engineered for maximum efficiency and fast installation.",
+      },
+    },
+  },
+  {
+    id: 2,
+    icon: "Leaf",
+    slug: "/hizmetler/tarim-uretim-tesisi",
+    key: "agricultural-facility",
+    translations: {
+      tr: {
+        name: "Tarım Üretim Tesisi Yapımı",
+        description:
+          "Tarımsal üretim, depolama ve işleme süreçleri için modern çelik üretim tesisi çözümleri.",
+        detailDescription:
+          "Ersan Tarım için geliştirilen projelerde olduğu gibi, tarım üretim tesisleri; geniş açıklıklı çelik yapılar, enerji verimli panel sistemleri ve modern iklimlendirme altyapılarıyla tasarlanır. Mantar üretimi, yem depolama, işleme tesisleri ve büyük ölçekli tarımsal üretim alanlarına özel çözümler sunuyoruz.",
+      },
+      en: {
+        name: "Agricultural Production Facility Construction",
+        description:
+          "Modern steel building solutions for agricultural production, storage and processing operations.",
+        detailDescription:
+          "Just like the Ersan Tarım facility, our agricultural production structures include energy-efficient insulated panels, wide-span steel frames and climate-controlled interiors suitable for mushroom production, feed storage and processing plants.",
+      },
+    },
+  },
+
+  {
+    id: 3,
     icon: "Building2",
     slug: "/hizmetler/celik-konstruksiyon",
     key: "steel-construction",
@@ -24,7 +69,7 @@ export const services: Service[] = [
     },
   },
   {
-    id: 2,
+    id: 4,
     icon: "Warehouse",
     slug: "/hizmetler/depo-antrepo",
     key: "warehouse",
@@ -46,7 +91,7 @@ export const services: Service[] = [
     },
   },
   {
-    id: 3,
+    id: 5,
     icon: "Plane",
     slug: "/hizmetler/hangar",
     key: "hangar",
@@ -68,7 +113,7 @@ export const services: Service[] = [
     },
   },
   {
-    id: 4,
+    id: 6,
     icon: "Home",
     slug: "/hizmetler/prefabrik",
     key: "prefab",
@@ -90,7 +135,7 @@ export const services: Service[] = [
     },
   },
   {
-    id: 5,
+    id: 7,
     icon: "Factory",
     slug: "/hizmetler/endustriyel",
     key: "industrial",
@@ -112,7 +157,7 @@ export const services: Service[] = [
     },
   },
   {
-    id: 6,
+    id: 8,
     icon: "Building",
     slug: "/hizmetler/ticari",
     key: "commercial",

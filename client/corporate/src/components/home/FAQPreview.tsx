@@ -1,5 +1,7 @@
 "use client";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { faqs as faqData } from "@/data/faq";
+import type { FAQItem } from "@/types/faq";
 import { m } from "framer-motion";
 import Link from "next/link";
 
@@ -11,22 +13,10 @@ interface FAQPreviewProps {
 }
 
 const FAQPreview = ({ fadeUp }: FAQPreviewProps) => {
-  const { getPage } = useLanguage();
+  const { language, getPage } = useLanguage();
 
-  const faqs = [
-    {
-      q: getPage("home", "faq.items.0.question"),
-      a: getPage("home", "faq.items.0.answer"),
-    },
-    {
-      q: getPage("home", "faq.items.1.question"),
-      a: getPage("home", "faq.items.1.answer"),
-    },
-    {
-      q: getPage("home", "faq.items.2.question"),
-      a: getPage("home", "faq.items.2.answer"),
-    },
-  ];
+  // Show first 3 FAQ items from data
+  const faqs: FAQItem[] = faqData.slice(0, 3);
 
   return (
     <m.section variants={fadeUp} className="py-20 bg-surface">
@@ -37,12 +27,17 @@ const FAQPreview = ({ fadeUp }: FAQPreviewProps) => {
         <div className="space-y-4">
           {faqs.map((f, i) => (
             <m.div
-              key={i}
+              key={f.id}
               variants={fadeUp}
               className="border border-border/60 rounded-xl p-5 transition bg-background hover:shadow-md"
             >
-              <h3 className="font-semibold text-primary">{f.q}</h3>
-              <p className="text-text/70 mt-2">{f.a}</p>
+              <h3 className="font-semibold text-primary">
+                {f.translations[language]?.question ||
+                  f.translations.tr.question}
+              </h3>
+              <p className="text-text/70 mt-2">
+                {f.translations[language]?.answer || f.translations.tr.answer}
+              </p>
             </m.div>
           ))}
         </div>

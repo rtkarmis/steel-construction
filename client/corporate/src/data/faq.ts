@@ -3,242 +3,262 @@ import { FAQItem } from "@/types/faq";
 export const faqs: FAQItem[] = [
   {
     id: 1,
-    key: "steel-structure-durability",
+    key: "hatchery-standards",
     translations: {
       tr: {
-        question: "Çelik konstrüksiyon yapılar ne kadar dayanıklıdır?",
+        question:
+          "Kuluçkahane ve kümes yapılarında hangi standartlar uygulanıyor?",
         answer:
-          "Çelik konstrüksiyon sistemleri, yüksek mukavemetli alaşımlardan üretildiği için geleneksel betonarme yapılara kıyasla çok daha dayanıklıdır. Deprem, rüzgar ve zemin hareketlerine karşı esnek davranır, uzun ömürlü kullanım sağlar. Ayrıca galvaniz ve boya koruması sayesinde paslanmaya karşı dirençlidir.",
-      },
-      en: {
-        question: "How durable are steel construction structures?",
-        answer:
-          "Steel construction systems are made of high-strength alloys, providing much greater durability compared to reinforced concrete. They flex during earthquakes and strong winds, maintaining integrity over decades, with anti-corrosion coatings ensuring long-term resistance.",
-      },
-    },
-  },
-  {
-    id: 2,
-    key: "factory-construction-time",
-    translations: {
-      tr: {
-        question: "Bir fabrikanın çelik konstrüksiyonla inşası ne kadar sürer?",
-        answer:
-          "Proje büyüklüğüne göre değişmekle birlikte, çelik konstrüksiyon sistemlerinde üretim ve montaj süreci oldukça kısadır. Prefabrik elemanlar fabrikada hazırlanır, sahada sadece montaj yapılır. Bu yöntem, inşaat süresini geleneksel yapıya göre %40-60 oranında azaltır.",
+          "Kuluçkahane ve kümes yapılarında hijyen, havalandırma, yalıtım ve yangın güvenliği standartları uygulanır. Güvenoğlu Çelik & Metal olarak Erpiliç gibi firmaların beklentilerine uygun, yüksek yalıtımlı panel sistemleri, çatı havalandırma çözümleri ve antibakteriyel iç yüzeyler kullanıyoruz.",
       },
       en: {
         question:
-          "How long does it take to build a factory with steel construction?",
+          "What standards are applied in hatchery and poultry house construction?",
         answer:
-          "Depending on the project size, steel factory construction is significantly faster. Prefabricated components are manufactured off-site and assembled quickly, reducing total construction time by up to 60% compared to concrete structures.",
+          "Hatchery and poultry buildings follow strict hygiene, ventilation, insulation and fire-safety standards. Güvenoğlu Çelik & Metal uses insulated panels, roof ventilation systems and sanitary interior materials to meet professional poultry industry requirements.",
       },
     },
   },
+
+  {
+    id: 2,
+    key: "agricultural-facility-insulation",
+    translations: {
+      tr: {
+        question:
+          "Tarım üretim tesislerinde ısı ve nem kontrolü nasıl sağlanır?",
+        answer:
+          "Tarım tesislerinde iklimlendirme, sandviç panel yalıtımı, hava sızdırmaz detaylar ve mekanik havalandırma sistemleriyle sağlanır. Mantar üretim tesisleri gibi hassas ortamlarda nem ve sıcaklık dijital kontrolle sabitlenir.",
+      },
+      en: {
+        question:
+          "How are heat and humidity controlled in agricultural facilities?",
+        answer:
+          "Agricultural facilities use insulated panels, airtight detailing and mechanical ventilation systems. In sensitive environments such as mushroom production, humidity and temperature are digitally controlled for consistency.",
+      },
+    },
+  },
+
   {
     id: 3,
-    key: "maintenance-need",
+    key: "steel-door-window-durability",
     translations: {
       tr: {
-        question: "Çelik yapılar bakım gerektirir mi?",
+        question: "Çelik kapı ve pencereler ne kadar dayanıklıdır?",
         answer:
-          "Çelik yapılar galvaniz, epoksi ve boya sistemleriyle paslanmaya karşı korunur. Bu nedenle bakım ihtiyacı minimumdur. Yılda bir kez görsel kontrol yapılması yeterlidir; korozyon oluşmadığı sürece ek işlem gerekmez.",
+          "Endüstriyel çelik doğrama sistemleri darbeye, neme ve paslanmaya karşı yüksek dayanım sağlar. Güler Isıtma için kullanılan çelik çerçeveler uzun ömürlü yapı elemanlarıdır ve bakım gereksinimi minimumdur.",
       },
       en: {
-        question: "Do steel structures require maintenance?",
+        question: "How durable are steel doors and windows?",
         answer:
-          "Steel structures are protected with galvanization and epoxy coatings. Maintenance needs are minimal — an annual inspection is generally sufficient, and no major intervention is needed unless corrosion is observed.",
+          "Industrial steel framing systems provide high resistance against impact, humidity and corrosion. Steel doors and windows used in projects like Güler Heating are long-lasting and require minimal maintenance.",
       },
     },
   },
+
   {
     id: 4,
-    key: "cost-advantage",
+    key: "construction-time-hatchery",
     translations: {
       tr: {
-        question: "Çelik konstrüksiyon maliyet açısından avantajlı mı?",
+        question: "Bir kuluçkahane yapımı ne kadar sürer?",
         answer:
-          "İlk yatırım maliyeti betonarmeye yakın olsa da, kısa inşaat süresi, düşük işçilik ihtiyacı ve uzun ömür sayesinde toplam maliyet ciddi oranda düşer. Ayrıca gelecekteki genişleme veya modifikasyonlar çok daha ekonomik şekilde yapılabilir.",
+          "Projeye göre değişmekle birlikte hafif çelik sistemlerde üretim ve montaj oldukça hızlıdır. Ortalama bir kuluçkahane yapımı 4–8 hafta içinde tamamlanabilir.",
       },
       en: {
-        question: "Is steel construction cost-effective?",
+        question: "How long does it take to build a hatchery facility?",
         answer:
-          "Although initial investment is similar to reinforced concrete, shorter construction time, lower labor requirements, and long lifespan make steel buildings highly cost-effective. Future expansions or modifications are also easier and cheaper.",
+          "Depending on size and specifications, a hatchery facility built with light steel systems is typically completed within 4–8 weeks.",
       },
     },
   },
+
   {
     id: 5,
-    key: "earthquake-resistance",
+    key: "agricultural-facility-expansion",
     translations: {
       tr: {
-        question: "Çelik yapılar deprem yönetmeliklerine uygun mu?",
+        question: "Tarım üretim tesislerine sonradan ekleme yapılabilir mi?",
         answer:
-          "Evet. Çelik konstrüksiyon sistemler, deprem yüklerine karşı en güvenli çözümlerden biridir. Esnek yapısı sayesinde enerji yutarak binanın yıkılmasını engeller. Türk Deprem Yönetmeliği'ne tam uyumludur.",
+          "Evet. Çelik yapılar modüler olduğu için yeni üretim alanları, depolar veya ek bölümler kolayca eklenebilir. Bu esneklik tarım işletmeleri için büyük avantaj sağlar.",
       },
       en: {
-        question: "Are steel structures earthquake-resistant?",
+        question: "Can agricultural production facilities be expanded later?",
         answer:
-          "Yes. Steel frame systems are among the safest solutions for seismic zones. Their flexibility absorbs shock energy, preventing collapse, and they fully comply with modern Turkish Earthquake Code standards.",
+          "Yes. Steel structures are modular, making expansion of production areas, storage sections or new units fast and cost-effective.",
       },
     },
   },
+
   {
     id: 6,
-    key: "fire-resistance",
+    key: "ventilation-hatchery",
     translations: {
       tr: {
-        question: "Çelik yapılar yangına dayanıklı mı?",
+        question: "Kuluçkahane ve kümes yapılarında havalandırma nasıl olmalı?",
         answer:
-          "Çelik yapılar yangın yönetmeliklerine uygun koruyucu boya ve kaplama sistemleriyle yangına karşı yüksek dayanım gösterir. Yangın dayanım sınıfı, kullanılan boya ve izolasyon sistemine göre belirlenir.",
+          "Tavukçuluk tesislerinde hava sirkülasyonu çok kritiktir. Çatı çıkışları, yan duvar menfezleri ve otomatik fan sistemleri kullanılarak dengeli hava akışı sağlanır.",
       },
       en: {
-        question: "Are steel buildings fire-resistant?",
+        question:
+          "How should ventilation be implemented in hatchery and poultry buildings?",
         answer:
-          "Steel structures achieve fire resistance with specialized coatings and fireproof paints according to fire safety standards. The level of protection depends on the type of fireproofing used.",
+          "Ventilation is crucial in poultry facilities. Proper airflow is achieved with roof vents, wall inlets and automated fan systems for balanced air exchange.",
       },
     },
   },
+
   {
     id: 7,
-    key: "thermal-efficiency",
+    key: "steel-corrosion-protection",
     translations: {
       tr: {
-        question: "Çelik yapılarda ısı yalıtımı nasıl sağlanır?",
+        question: "Çelik yapılar paslanmaya karşı nasıl korunur?",
         answer:
-          "Modern çelik yapılar, sandviç panel sistemleri, taş yünü ve poliüretan dolgu malzemeleriyle yüksek ısı yalıtımı sağlar. Bu sayede enerji verimliliği artar ve ısı kayıpları minimuma iner.",
+          "Galvaniz kaplama, epoksi boya ve yüzey koruyucu kimyasallar çeliğin paslanmasını engeller. Tarım ve hayvancılık tesislerinde bu koruma sistemi standarttır.",
       },
       en: {
-        question: "How is thermal insulation achieved in steel buildings?",
+        question: "How are steel structures protected against corrosion?",
         answer:
-          "Modern steel buildings use sandwich panels, rock wool, and polyurethane insulation materials for excellent thermal efficiency, minimizing heat loss and reducing energy consumption.",
+          "Galvanized coating, epoxy paint and protective surface treatments prevent corrosion. These systems are standard in agricultural and industrial buildings.",
       },
     },
   },
+
   {
     id: 8,
-    key: "energy-efficiency",
+    key: "thermal-insulation-panels",
     translations: {
       tr: {
-        question: "Enerji verimliliği açısından çelik çatılar avantajlı mı?",
+        question: "Sandviç paneller gerçekten iyi bir yalıtım sağlar mı?",
         answer:
-          "Evet. Metal çatı sistemleri, güneş ışığını yansıtarak ısı yükünü azaltır. Ayrıca fotovoltaik güneş paneli entegrasyonuna uygundur, böylece enerji üretimi de mümkündür.",
+          "Evet. Poliüretan, taş yünü veya EPS dolgulu paneller ısı, nem ve ses yalıtımında yüksek performans sunar. Tarım tesisleri için en ideal çözümlerden biridir.",
       },
       en: {
-        question: "Are steel roofs energy-efficient?",
+        question: "Do sandwich panels provide effective insulation?",
         answer:
-          "Yes. Metal roof systems reflect sunlight, reducing heat gain, and are compatible with photovoltaic solar panels — allowing integration of on-site renewable energy systems.",
+          "Yes. Sandwich panels with polyurethane, rock wool or EPS cores offer excellent thermal, moisture and sound insulation — ideal for agricultural or industrial projects.",
       },
     },
   },
+
   {
     id: 9,
-    key: "sustainability",
+    key: "hatchery-cleaning",
     translations: {
       tr: {
-        question: "Çelik yapılar sürdürülebilir mi?",
+        question: "Kuluçkahane içi temizliği çelik yapı için uygun mu?",
         answer:
-          "Çelik tamamen geri dönüştürülebilir bir malzemedir. İnşaat sonrasında bile yeniden kullanımı mümkündür. Bu yönüyle çevre dostudur ve sürdürülebilir üretim politikalarıyla uyumludur.",
+          "Çelik sistemler, yıkanabilir panel yüzeyleri sayesinde yüksek basınçlı su ve dezenfektan kullanımına tamamen uygundur.",
       },
       en: {
-        question: "Are steel buildings sustainable?",
+        question:
+          "Is hatchery cleaning suitable for steel interior structures?",
         answer:
-          "Steel is 100% recyclable, and structural elements can be reused even after decades. It aligns perfectly with sustainable construction and circular economy principles.",
+          "Yes. Steel structures with washable panel surfaces are compatible with high-pressure water and disinfectant cleaning procedures.",
       },
     },
   },
+
   {
     id: 10,
-    key: "expansion",
+    key: "steel-door-fire-resistance",
     translations: {
       tr: {
-        question: "Çelik yapılarda sonradan genişleme yapılabilir mi?",
+        question: "Çelik kapılar yangına dayanıklı mı?",
         answer:
-          "Evet. Modüler sistem sayesinde yeni alanlar kolayca eklenebilir. Bu esneklik, üretim tesisleri veya depolarda büyük avantaj sağlar.",
+          "Proje ihtiyacına göre yangın dayanımlı çelik kapılar uygulanabilir. Bu kapılar 60–120 dakika arası dayanım sağlayabilir.",
       },
       en: {
-        question: "Can steel buildings be expanded later?",
+        question: "Are steel doors fire-resistant?",
         answer:
-          "Yes. Modular steel systems allow new sections to be added easily — providing flexibility especially for factories and warehouses that plan future expansion.",
+          "Depending on requirements, fire-rated steel doors can be installed, offering 60–120 minutes of certified protection.",
       },
     },
   },
+
   {
     id: 11,
-    key: "design-flexibility",
+    key: "energy-efficiency-agriculture",
     translations: {
       tr: {
-        question: "Çelik yapılar tasarım açısından esnek mi?",
+        question: "Tarım tesislerinde enerji verimliliği nasıl artırılır?",
         answer:
-          "Çelik konstrüksiyon sistemleri geniş açıklıklar, yüksek tavanlar ve kolonsuz alanlar yaratmaya olanak tanır. Bu da hem mimari hem de işlevsel olarak büyük esneklik sağlar.",
+          "Doğru yalıtım, doğal aydınlatma panelleri, uygun havalandırma tasarımı ve güneş paneli entegrasyonu enerji maliyetlerini önemli ölçüde azaltır.",
       },
       en: {
-        question: "Are steel structures flexible in design?",
+        question:
+          "How can energy efficiency be improved in agricultural facilities?",
         answer:
-          "Steel structures allow wide spans, high ceilings, and column-free spaces — offering superior architectural and functional flexibility.",
+          "Proper insulation, natural lighting systems, optimized ventilation and solar panel integration significantly reduce energy consumption.",
       },
     },
   },
+
   {
     id: 12,
-    key: "noise-isolation",
-    translations: {
-      tr: {
-        question: "Çelik binalarda ses yalıtımı nasıl sağlanır?",
-        answer:
-          "Çelik yapılarda ses yalıtımı, çift cidarlı paneller ve yalıtım dolgu malzemeleriyle sağlanır. Ofis, fabrika ve depo yapılarında gürültü kontrolü için etkili çözümler sunar.",
-      },
-      en: {
-        question: "How is sound insulation achieved in steel buildings?",
-        answer:
-          "Sound insulation in steel buildings is achieved with double-layer panels and acoustic insulation materials, effectively reducing noise in offices and industrial areas.",
-      },
-    },
-  },
-  {
-    id: 13,
     key: "installation-speed",
     translations: {
       tr: {
-        question: "Çelik yapı montajı ne kadar hızlı yapılır?",
+        question: "Çelik yapı montajı ne kadar hızlıdır?",
         answer:
-          "Fabrikada üretilen elemanlar sahada sadece monte edilir. Deneyimli ekiplerle bir fabrika binası ortalama birkaç hafta içinde tamamlanabilir.",
+          "Hafif çelik sistemler tamamen fabrika üretimlidir. Sahada yalnızca montaj yapıldığı için süreç diğer yapı türlerine göre çok daha hızlıdır.",
       },
       en: {
-        question: "How fast is steel building installation?",
+        question: "How fast is steel construction installation?",
         answer:
-          "Prefabricated elements are assembled on-site, and a mid-sized factory building can typically be completed within a few weeks with an experienced team.",
+          "Light steel systems are fully manufactured off-site. On-site installation is fast, making the overall process shorter than traditional construction.",
       },
     },
   },
+
   {
-    id: 14,
-    key: "warranty",
+    id: 13,
+    key: "modular-possibility",
     translations: {
       tr: {
-        question: "Çelik konstrüksiyon yapılar için garanti süresi nedir?",
+        question: "Kümes veya üretim tesisleri modüler yapılabilir mi?",
         answer:
-          "Garanti süresi kullanılan malzeme ve kaplama türüne bağlıdır. Genellikle 10 ila 20 yıl arası korozyon garantisi verilir.",
+          "Evet. Modüler hafif çelik sistemlerle tesis büyütme, alan ekleme veya farklı fonksiyonlar eklemek çok kolaydır.",
       },
       en: {
-        question: "What is the warranty period for steel structures?",
+        question: "Are poultry or agricultural facilities modular?",
         answer:
-          "Warranty period depends on material and coating type. Typically, corrosion protection warranties range from 10 to 20 years.",
+          "Yes. Modular light-steel systems allow easy expansion, adding new rooms or adapting the facility to new production requirements.",
       },
     },
   },
+
+  {
+    id: 14,
+    key: "noise-control-hatchery",
+    translations: {
+      tr: {
+        question: "Kuluçkahanelerde ses yalıtımı önemli mi?",
+        answer:
+          "Evet. Ses yalıtımı, hayvan konforu ve ekipman gürültüsünün dışa sızmasını engellemek için önemlidir. Panel sistemleri bu konuda yüksek performans sağlar.",
+      },
+      en: {
+        question: "Is sound insulation important in hatchery buildings?",
+        answer:
+          "Yes. Sound insulation is essential for animal comfort and preventing equipment noise from spreading. Insulated panels provide excellent performance.",
+      },
+    },
+  },
+
   {
     id: 15,
     key: "custom-design",
     translations: {
       tr: {
-        question: "Çelik yapılar isteğe göre özel tasarlanabilir mi?",
+        question: "Projeler ihtiyaca göre özel olarak tasarlanabilir mi?",
         answer:
-          "Evet. Her proje, müşterinin ihtiyaçlarına göre statik, mimari ve üretim detaylarıyla tamamen özelleştirilebilir. Bu esneklik, çelik sistemlerin en büyük avantajlarından biridir.",
+          "Evet. Kuluçkahaneler, tarım tesisleri veya çelik kapı-pencere sistemleri tamamen ihtiyaca göre özelleştirilebilir.",
       },
       en: {
-        question: "Can steel structures be custom-designed?",
+        question: "Can projects be custom-designed?",
         answer:
-          "Yes. Every steel building can be fully customized to meet client needs — including architectural design, static calculations, and fabrication details. Flexibility is one of steel’s biggest advantages.",
+          "Yes. Hatcheries, agricultural facilities and steel door–window systems can all be fully customized based on project requirements.",
       },
     },
   },
@@ -261,9 +281,12 @@ export const getFAQsByCategory = (category: string): FAQItem[] => {
 };
 
 // Anahtar kelimeye göre FAQ ara
-export const searchFAQs = (query: string, language: "tr" | "en" = "tr"): FAQItem[] => {
+export const searchFAQs = (
+  query: string,
+  language: "tr" | "en" = "tr"
+): FAQItem[] => {
   if (!query.trim()) return faqs;
-  
+
   const searchTerm = query.toLowerCase();
   return faqs.filter((faq) => {
     const faqData = faq.translations[language];

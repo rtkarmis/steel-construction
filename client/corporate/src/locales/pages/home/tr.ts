@@ -48,23 +48,6 @@ export const tr = {
   faq: {
     title: "Sıkça Sorulan Sorular",
     viewAllButton: "Tüm SSS'leri Gör →",
-    items: [
-      {
-        question: "Çelik konstrüksiyon yapılar ne kadar dayanıklıdır?",
-        answer:
-          "Doğru mühendislik ve malzeme seçimiyle 50 yılın üzerinde kullanım ömrü sunar.",
-      },
-      {
-        question: "Proje teslim süresi ortalama ne kadardır?",
-        answer:
-          "Ortalama 8–12 hafta arası değişmekte olup proje kapsamına göre planlanır.",
-      },
-      {
-        question: "Hizmet bölgeleriniz nerelerdir?",
-        answer:
-          "Türkiye geneli hizmet veriyoruz, öncelikli olarak Marmara ve Batı Karadeniz bölgeleri.",
-      },
-    ],
   },
   cta: {
     title: "Projelerinizi Güvenle Hayata Geçirelim",

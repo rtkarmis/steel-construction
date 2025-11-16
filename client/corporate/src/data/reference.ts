@@ -38,11 +38,11 @@ export const references: Reference[] = [
     key: "guler-makina-isitma-sogutma",
     translations: {
       tr: {
-        name: "Güler Makina Isıtma Soğutma",
+        name: "Güler Makina",
         description: "Çelik konstrüksiyon çözümleri için üretim partnerimiz.",
       },
       en: {
-        name: "Güler Makina Isıtma Soğutma",
+        name: "Güler Machine",
         description: "Our production partner for steel construction solutions.",
       },
     },

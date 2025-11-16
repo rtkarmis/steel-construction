@@ -48,23 +48,6 @@ export const en = {
   faq: {
     title: "Frequently Asked Questions",
     viewAllButton: "View All FAQs →",
-    items: [
-      {
-        question: "How durable are steel construction structures?",
-        answer:
-          "With proper engineering and material selection, they offer a service life of over 50 years.",
-      },
-      {
-        question: "What is the average project delivery time?",
-        answer:
-          "It varies between 8-12 weeks on average and is planned according to the project scope.",
-      },
-      {
-        question: "What are your service regions?",
-        answer:
-          "We serve throughout Turkey, primarily in the Marmara and Western Black Sea regions.",
-      },
-    ],
   },
   cta: {
     title: "Let's Bring Your Projects to Life Safely",

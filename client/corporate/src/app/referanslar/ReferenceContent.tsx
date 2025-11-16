@@ -34,18 +34,6 @@ export default function ReferencesContent() {
     }
   };
 
-  const getReferenceDescription = (reference: any) => {
-    try {
-      const refDesc = getPage(
-        "references",
-        `references.items.${reference.key}.description`
-      );
-      return refDesc || reference.translations[language].description;
-    } catch (error) {
-      return reference.translations[language].description;
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background text-text">
       {/* 🔹 HERO SECTION */}
@@ -98,7 +86,11 @@ export default function ReferencesContent() {
                 </div>
                 <p
                   className="mt-3 text-[13px] font-medium text-text/80 w-full max-w-full overflow-hidden break-words whitespace-normal text-ellipsis text-center leading-tight"
-                  style={{wordBreak: 'break-word', lineHeight: '1.2', fontWeight: 500}}
+                  style={{
+                    wordBreak: "break-word",
+                    lineHeight: "1.2",
+                    fontWeight: 500,
+                  }}
                 >
                   {getReferenceName(ref)}
                 </p>

@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import type { Reference } from "@/types/reference";
 import { m } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 
 interface TechQualityPreviewProps {
@@ -52,7 +53,17 @@ const ReferencePreview = ({ fadeUp }: TechQualityPreviewProps) => {
       prevMobileSlide();
     }
   };
-
+  const getReferenceName = (reference: any) => {
+    try {
+      const refName = getPage(
+        "references",
+        `references.items.${reference.key}.name`
+      );
+      return refName || reference.translations[language].name;
+    } catch (error) {
+      return reference.translations[language].name;
+    }
+  };
   return (
     <m.section
       variants={fadeUp}
@@ -80,11 +91,12 @@ const ReferencePreview = ({ fadeUp }: TechQualityPreviewProps) => {
                 className="object-contain"
               />
               <span
-                className="block w-full max-w-[90%] mx-auto overflow-hidden break-words whitespace-normal text-ellipsis text-[12px] leading-tight py-1 px-1 text-center"
+                className="block w-full max-w-[90%] mx-auto overflow-auto break-words whitespace-normal text-ellipsis text-[12px] leading-tight py-1 px-1 text-center font-medium max-h-[32px] line-clamp-2"
                 style={{
                   wordBreak: "break-word",
                   lineHeight: "1.2",
                   fontWeight: 500,
+                  maxHeight: "32px",
                 }}
               >
                 {ref.translations[language]?.name || ref.translations.tr.name}
@@ -103,28 +115,39 @@ const ReferencePreview = ({ fadeUp }: TechQualityPreviewProps) => {
           >
             <div className="flex space-x-4 pb-4 justify-center items-center min-w-max">
               {references.map((ref: Reference) => (
-                <div key={ref.id} className="flex-shrink-0">
-                  <div className="relative w-48 h-48 bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden flex flex-col justify-center items-center">
+                <div
+                  key={ref.id}
+                  className="group bg-white p-6 rounded-xl shadow-sm border border-border/40 hover:shadow-md transition-all flex flex-col items-center justify-center"
+                >
+                  <div className="relative w-32 h-16">
                     <Image
                       src={ref.logo}
-                      alt={
-                        ref.translations[language]?.name ||
-                        ref.translations.tr.name
-                      }
+                      alt={getReferenceName(ref)}
                       fill
-                      sizes="25vw"
-                      className="object-contain"
+                      className="object-contain group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute bottom-2 left-2 right-2 text-xs font-medium text-center text-primary bg-white/80 rounded px-1 py-0.5 break-words whitespace-normal">
-                      <span
-                        className="block w-full max-w-full overflow-hidden text-ellipsis break-words whitespace-normal leading-tight"
-                        style={{ fontSize: "13px", padding: "2px 0" }}
-                      >
-                        {ref.translations[language]?.name ||
-                          ref.translations.tr.name}
-                      </span>
-                    </div>
                   </div>
+                  <p
+                    className="mt-3 text-[13px] font-medium text-text/80 w-full max-w-full overflow-auto break-words whitespace-normal text-ellipsis text-center leading-tight max-h-[32px] line-clamp-2"
+                    style={{
+                      wordBreak: "break-word",
+                      lineHeight: "1.2",
+                      fontWeight: 500,
+                      maxHeight: "32px",
+                    }}
+                  >
+                    {getReferenceName(ref)}
+                  </p>
+                  {ref.website && (
+                    <Link
+                      href={ref.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 text-xs text-secondary hover:underline"
+                    >
+                      Website
+                    </Link>
+                  )}
                 </div>
               ))}
             </div>

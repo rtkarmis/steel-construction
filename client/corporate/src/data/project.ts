@@ -3,113 +3,86 @@ import { Project } from "@/types/project";
 export const projects: Project[] = [
   {
     id: 1,
-    key: "industrial-factory",
+    key: "erpilic-kuluckahane",
     translations: {
       tr: {
-        name: "Endüstriyel Fabrika Yapımı",
+        name: "Erpiliç Kuluçkahane Tesisi",
         description:
-          "Modern üretim standartlarına uygun olarak tasarlanan bu proje, 5000 m² çelik konstrüksiyon alanı ve tam otomatik üretim hatlarını içermektedir.",
+          "Güvenoğlu Çelik & Metal tarafından Bolu'da Erpiliç için inşa edilen modern kuluçkahane yapısı, yüksek dayanımlı hafif çelik konstrüksiyon ve hijyenik iç mekan tasarımıyla öne çıkmaktadır. Projede ısı yalıtımlı panel sistemleri ve havalandırma uyumlu çatı çözümleri kullanılmıştır.",
         location: "Bolu, Türkiye",
       },
       en: {
-        name: "Industrial Factory Construction",
+        name: "Erpilic Hatchery Facility",
         description:
-          "Designed in accordance with modern production standards, this project includes a 5000 m² steel structure and fully automated production lines.",
+          "A modern hatchery facility built in Bolu by Güvenoğlu Çelik & Metal for Erpilic, featuring high-strength light steel structure and hygienic interior design. The project includes insulated panel systems and roof ventilation solutions.",
         location: "Bolu, Turkey",
       },
     },
-    year: 2023,
-    category: "Endüstriyel Tesis",
-    slug: "/projeler/endustriyel-fabrika-yapimi",
+    year: 2024,
+    category: "Endüstriyel Tarım Tesisi",
+    slug: "/projeler/erpilic-kuluckahane-tesisi",
     gallery: [
-      "/images/project/industrial-factory/industrial-factory.webp",
-      "/images/project/industrial-factory/industrial-factory-1.webp",
-      "/images/project/industrial-factory/industrial-factory-2.webp",
-      "/images/project/industrial-factory/industrial-factory-3.webp",
+      "/images/project/erpilic-kuluckahane/erpilic.webp",
+      "/images/project/erpilic-kuluckahane/erpilic-2.webp",
+      "/images/project/erpilic-kuluckahane/erpilic-3.webp",
     ],
-    references: ["bolu-cimento"],
+    references: ["erpilic"],
   },
+
   {
     id: 2,
-    key: "prefabricated-warehouse",
+    key: "ersan-tarim-uretim-tesisi",
     translations: {
       tr: {
-        name: "Prefabrik Depo Projesi",
+        name: "Ersan Tarım Üretim Tesisi",
         description:
-          "Kısa sürede tamamlanan prefabrik depo projesi, dayanıklı çelik yapı sistemi ve enerji verimliliğiyle öne çıkmaktadır.",
-        location: "Düzce, Türkiye",
+          "Ersan Tarım için inşa edilen bu üretim tesisi, modern hafif çelik yapı teknolojisiyle enerji verimliliği, uzun ömür ve sürdürülebilir üretim altyapısı sağlamaktadır. Güvenoğlu Çelik & Metal tarafından anahtar teslim şekilde tamamlanmıştır.",
+        location: "Ankara, Türkiye",
       },
       en: {
-        name: "Prefabricated Warehouse Project",
+        name: "Ersan Agriculture Production Facility",
         description:
-          "This prefabricated warehouse project, completed in a short time, stands out with its durable steel structure and energy efficiency.",
-        location: "Düzce, Turkey",
+          "A modern agricultural production facility built for Ersan Tarım with energy-efficient light steel structure, ensuring long-term durability and sustainable production infrastructure. Completed turnkey by Güvenoğlu Çelik & Metal.",
+        location: "Ankara, Turkey",
       },
     },
     year: 2024,
-    category: "Depo & Lojistik",
-    slug: "/projeler/prefabrik-depo-projesi",
+    category: "Üretim Tesisi",
+    slug: "/projeler/ersan-tarim-uretim-tesisi",
     gallery: [
-      "/images/project/prefabricated-warehouse.webp",
-      "/images/project/prefabricated-warehouse-1.webp",
-      "/images/project/prefabricated-warehouse-2.webp",
+      "/images/project/ersan-tarim-uretim-tesisi/ersan-tarim.webp",
+      "/images/project/ersan-tarim-uretim-tesisi/ersan-tarim-2.webp",
+      "/images/project/ersan-tarim-uretim-tesisi/ersan-tarim-3.webp",
     ],
-    references: ["eflatun-teknoloji"],
+    references: ["ersan-tarim"],
   },
+
   {
     id: 3,
-    key: "steel-hangar",
+    key: "guler-isitma-celik-kapi-pencere",
     translations: {
       tr: {
-        name: "Çelik Hangar Yapımı",
+        name: "Güler Makina Isıtma Çelik Kapı & Pencere Montajı",
         description:
-          "Geniş açıklıklı çelik hangar yapısı, yüksek dayanım ve uzun ömürlü kullanım hedefiyle tasarlanmıştır.",
-        location: "Sakarya, Türkiye",
+          "Güler Makina Isıtma, Soğutma ve Havalandırma firması için gerçekleştirilen bu proje, çelik kapı ve pencere montajında yüksek dayanım, yalıtım ve estetik detaylarıyla öne çıkmaktadır. Endüstriyel ortama uygun özel çelik doğrama sistemleri uygulanmıştır.",
+        location: "Bolu, Türkiye",
       },
       en: {
-        name: "Steel Hangar Construction",
+        name: "Güler Machine Heating Steel Door & Window Installation",
         description:
-          "A wide-span steel hangar structure designed for high durability and long-lasting performance.",
-        location: "Sakarya, Turkey",
-      },
-    },
-    year: 2022,
-    category: "Havacılık & Endüstriyel",
-    slug: "/projeler/celik-hangar-yapimi",
-    gallery: [
-      "/images/project/steel-hangar.webp",
-      "/images/project/steel-hangar-1.webp",
-      "/images/project/steel-hangar-2.webp",
-    ],
-    references: ["erciyas-holding"],
-  },
-  {
-    id: 4,
-    key: "commercial-building",
-    translations: {
-      tr: {
-        name: "Ticari Yapı Projesi",
-        description:
-          "Modern tasarım anlayışıyla inşa edilen bu çelik yapı, ticari faaliyetler için geniş kullanım alanı sağlamaktadır.",
-        location: "İstanbul, Türkiye",
-      },
-      en: {
-        name: "Commercial Building Project",
-        description:
-          "Built with a modern design approach, this steel structure provides a large and functional area for commercial operations.",
-        location: "Istanbul, Turkey",
+          "A project completed for Güler Machine Heating, Cooling & Ventilation, featuring high-durability steel door and window installations designed for industrial environments with advanced insulation and aesthetic finishing.",
+        location: "Bolu, Turkey",
       },
     },
     year: 2024,
-    category: "Ticari Yapı",
-    slug: "/projeler/ticari-yapi-projesi",
+    category: "Çelik Montaj",
+    slug: "/projeler/guler-isitma-celik-kapi-pencere",
     gallery: [
-      "/images/project/commercial-building.webp",
-      "/images/project/commercial-building-1.webp",
-      "/images/project/commercial-building-2.webp",
-      "/images/project/commercial-building-3.webp",
+      "/images/project/guler-isitma-celik-kapi-pencere/steel-door.webp",
+      "/images/project/guler-isitma-celik-kapi-pencere/steel-window.webp",
+      "/images/project/guler-isitma-celik-kapi-pencere/steel-installation.webp",
     ],
-    references: ["bolu-cimento"],
+    references: ["guler-makina-isitma-sogutma"],
   },
 ];
 
