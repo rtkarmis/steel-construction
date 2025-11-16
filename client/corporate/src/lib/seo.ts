@@ -36,18 +36,24 @@ export const siteConfig = {
     latitude: 41.0082,
     longitude: 28.9784,
   },
-  weekdays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-  weekendSaturdays: ["Saturday"],
+  weekdays: [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ],
   weekendSundays: ["Sunday"],
   openingHours: {
-    weekdays: { open: "09:00", close: "21:00" },
-    saturday: { open: "09:00", close: "20:00" },
-    sunday: { open: "12:00", close: "20:00" },
+    weekdays: { open: "08:00", close: "18:00" },
+    saturday: { open: "09:00", close: "18:00" },
+    sunday: { open: "Kapalı", close: "Kapalı" }, // Kapalı
   },
   areaServed: [
     "İstanbul",
     "Ankara",
-    "İzmir",
+    "Çorum",
     "Bursa",
     "Antalya",
     "Kocaeli",
@@ -204,8 +210,8 @@ export function getLocalBusinessSchema() {
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Sunday"],
-        opens: siteConfig.openingHours.sunday.open,
-        closes: siteConfig.openingHours.sunday.close,
+        opens: "Kapalı",
+        closes: "Kapalı",
       },
     ],
   };

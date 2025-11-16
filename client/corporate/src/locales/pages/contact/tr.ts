@@ -26,5 +26,6 @@ export const tr = {
     weekdays: "Pazartesi - Cuma",
     saturday: "Cumartesi",
     sunday: "Pazar",
+    sundayTime: "Kapalı",
   },
 } as const;

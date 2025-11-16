@@ -26,5 +26,6 @@ export const en = {
     weekdays: "Monday - Friday",
     saturday: "Saturday",
     sunday: "Sunday",
+    sundayTime: "Closed",
   },
 } as const;

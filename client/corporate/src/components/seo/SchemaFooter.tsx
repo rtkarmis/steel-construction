@@ -33,15 +33,9 @@ const SchemaFooter = () => {
       },
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: siteConfig.weekendSaturdays,
-        opens: siteConfig.openingHours.saturday.open,
-        closes: siteConfig.openingHours.saturday.close,
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: siteConfig.weekendSundays,
-        opens: siteConfig.openingHours.sunday.open,
-        closes: siteConfig.openingHours.sunday.close,
+        dayOfWeek: ["Sunday"],
+        opens: "Kapalı",
+        closes: "Kapalı",
       },
     ],
     geo: {
