@@ -11,9 +11,9 @@ export const footerData: FooterData = {
     name: siteConfig.siteName,
     nameEn: siteConfig.siteNameEn,
     description:
-      "Çelik yapı sektöründe 25 yıllık deneyimimiz ile kaliteli, güvenilir ve yenilikçi çözümler sunarak projelerinizi hayata geçiriyoruz.",
+      "Çelik yapı sektöründe 10+ yıllık deneyimimiz ile kaliteli, güvenilir ve yenilikçi çözümler sunarak projelerinizi hayata geçiriyoruz.",
     descriptionEn:
-      "With our 25 years of experience in the steel construction industry, we bring your projects to life by providing quality, reliable and innovative solutions.",
+      "With our 10+ years of experience in the steel construction industry, we bring your projects to life by providing quality, reliable and innovative solutions.",
     socialLinks: siteConfig.socialLinks,
   },
   navigation: {
