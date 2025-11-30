@@ -17,10 +17,11 @@ export const siteConfig = {
   phone: "+905523154619",
   phoneDisplay: "+90 (552) 315 46 19",
   vatOffice: "Bolu",
-  address: "Karacaağaç Mevkii, D100 Üzeri No:2, 14100 Bolu Merkez/Bolu",
+  address:
+    "İzzet Baysal, Sanayi Sitesi J Blok, 14100 Vakıfgeçitveren/Bolu Merkez/Bolu",
   addressEn:
-    "Karacaagac District, D100 Highway, No. 2, 14100 Bolu Central/Bolu",
-  streetAddress: "Karacaağaç Mevkii, D100 Üzeri no:2",
+    "Izzet Baysal, Industrial Site J Block, 14100 Vakıfgeçitveren/Bolu Center/Bolu",
+  streetAddress: "İzzet Baysal, Sanayi Sitesi J Blok",
   addressLocality: "Bolu",
   postalCode: "14100",
   addressCountry: "TR",
