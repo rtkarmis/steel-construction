@@ -27,11 +27,7 @@ export default function RootLayout({
     <html lang="tr" className="overflow-x-hidden">
       <head>
         {/* 🔹 Favicon */}
-        <link
-          rel="icon"
-          type="image/svg+xml"
-          href="/images/settings/favicon.svg"
-        />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
         {/* 🔹 Font preconnects (font preload değil!) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

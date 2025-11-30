@@ -1,5 +1,6 @@
 import SchemaBlogDetailPage from "@/components/seo/pages/SchemaBlogDetailPage";
 import { getAllBlogPosts } from "@/data/blog";
+import { siteConfig } from "@/lib/seo";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostContent from "./BlogPostContent";
@@ -38,10 +39,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       title: t.metaTitle,
       description: t.metaDescription,
-      url: `https://guvenoglucelik.com/blog/${post.slug}`,
+      url: `${siteConfig.siteUrl}/blog/${post.slug}`,
       images: [{ url: post.coverImage }],
     },
-    alternates: { canonical: `https://guvenoglucelik.com/blog/${post.slug}` },
+    alternates: { canonical: `${siteConfig.siteUrl}/blog/${post.slug}` },
   };
 }
 

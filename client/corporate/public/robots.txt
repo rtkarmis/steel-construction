@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://guvenoglucelik.com/sitemap.xml
+Sitemap: https://guvenoglucelikmetal.com/sitemap.xml
 
 # Crawl delay
 Crawl-delay: 1

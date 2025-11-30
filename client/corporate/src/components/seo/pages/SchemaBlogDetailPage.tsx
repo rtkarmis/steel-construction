@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/seo";
 import { BlogPost } from "@/types/blog";
 
 interface SchemaBlogDetailPageProps {
@@ -15,30 +16,30 @@ export default function SchemaBlogDetailPage({
     headline: t.title,
     description: t.metaDescription || t.summary,
     image: post.coverImage
-      ? [`https://guvenoglucelik.com${post.coverImage}`]
+      ? [`${siteConfig.siteUrl}${post.coverImage}`]
       : undefined,
     author: {
       "@type": "Organization",
       name: post.author || "Güvenoğlu Çelik & Metal",
-      url: "https://guvenoglucelik.com",
+      url: siteConfig.siteUrl,
     },
     publisher: {
       "@type": "Organization",
       name: "Güvenoğlu Çelik & Metal",
       logo: {
         "@type": "ImageObject",
-        url: "https://guvenoglucelik.com/public/images/settings/logo1.webp",
+        url: `${siteConfig.siteUrl}/public/images/settings/logo.webp`,
       },
     },
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://guvenoglucelik.com/blog/${post.slug}`,
+      "@id": `${siteConfig.siteUrl}/blog/${post.slug}`,
     },
     articleSection: post.category,
     keywords: t.tags?.join(", ") || "",
-    url: `https://guvenoglucelik.com/blog/${post.slug}`,
+    url: `${siteConfig.siteUrl}/blog/${post.slug}`,
   };
 
   return (

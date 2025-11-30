@@ -7,6 +7,7 @@ import BlogRelatedPosts from "@/components/blog/BlogRelatedPosts";
 import SchemaBreadcrumb from "@/components/seo/SchemaBreadcrumb";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { siteConfig } from "@/lib/seo";
 import { BlogPost } from "@/types/blog";
 import { useEffect, useState } from "react";
 
@@ -69,7 +70,7 @@ export default function BlogPostContent({ post, allPosts }: Props) {
     .filter((p) => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3);
 
-  const shareUrl = `https://guvenoglucelik.com/blog/${post.slug}`;
+  const shareUrl = `${siteConfig.siteUrl}/blog/${post.slug}`;
   const t = post.translations[language as "tr" | "en"] ?? post.translations.tr;
 
   return (

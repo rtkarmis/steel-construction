@@ -61,7 +61,7 @@ const SchemaHomePage = () => {
         logo: `${siteConfig.siteUrl}/images/settings/logo.webp`,
         telephone: siteConfig.phone || "+90 374 253 12 34",
         priceRange: "$$",
-        url: siteConfig.siteUrl || "https://guvenoglucelik.com.tr/",
+        url: siteConfig.siteUrl || "https://guvenoglucelikmetal.com/",
         address: {
           "@type": "PostalAddress",
           streetAddress:

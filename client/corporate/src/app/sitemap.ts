@@ -1,13 +1,14 @@
 import { getAllBlogPosts } from "@/data/blog";
 import { projects } from "@/data/project";
 import { services } from "@/data/service";
+import { siteConfig } from "@/lib/seo";
 
 // Statik export için
 export const dynamic = "force-static";
 export const revalidate = false;
 
 export default function sitemap() {
-  const baseUrl = "https://guvenoglucelik.com";
+  const baseUrl = siteConfig.siteUrl;
 
   // Ana sayfalar
   const staticPages = [

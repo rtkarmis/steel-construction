@@ -5,14 +5,14 @@ import type { Metadata } from "next";
 ------------------------------------------------------------- */
 
 export const siteConfig = {
-  siteUrl: "https://guvenoglucelik.com",
+  siteUrl: "https://guvenoglucelikmetal.com",
   siteName: "Güvenoğlu Çelik & Metal",
   siteNameEn: "Güvenoğlu Steel & Metal",
   legalName: "Güvenoğlu Çelik & Metal",
   defaultTitle: "Güvenoğlu Çelik & Metal | Çelik Yapı İnşaat",
   defaultDescription:
     "Çelik yapı sektöründe kaliteli, güvenilir ve yenilikçi çözümler sunan Güvenoğlu Çelik & Metal ile projelerinizi hayata geçirin.",
-  defaultImage: "https://guvenoglucelik.com/images/settings/logo.webp",
+  defaultImage: "https://guvenoglucelikmetal.com/images/settings/logo.webp",
   email: "info@guvenoglucelik.com",
   phone: "+905523154619",
   phoneDisplay: "+90 (552) 315 46 19",
